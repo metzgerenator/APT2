@@ -9,22 +9,50 @@
 import UIKit
 import FBSDKCoreKit
 import FBSDKLoginKit
+import Firebase
 
 
 class SignUpViewController: UIViewController {
     
+    let facebookLogin = FBSDKLoginManager()
     
     @IBAction func fbBtnPressed(sender: UIButton!) {
         
-        let facebookLogin = FBSDKLoginManager()
+        
         
         facebookLogin.logInWithReadPermissions(["email"]) { (facebookResult: FBSDKLoginManagerLoginResult!, faceBookError: NSError!) in
             
             if faceBookError != nil {
                 print("Facebook login failed.  Error \(faceBookError)")
-            }else {
+            } else if facebookResult.isCancelled {
+                print("Facebook login was cancelled.")
+            }
+            else {
+                
                 let accessToken = FBSDKAccessToken.currentAccessToken().tokenString
-                print("Successfully logged in with facebook. \(accessToken)")
+            
+                
+                DataService.ds.REF_BASE.authWithOAuthProvider("facebook", token: accessToken, withCompletionBlock: { (error, authData) in
+                    
+                    if error != nil {
+                        
+                        
+                        print("Login failed. \(error)")
+                    } else {
+                        
+                        //print("token = \(accessToken)")
+                        
+                        print("Logged in! \(authData)")
+                        NSUserDefaults.standardUserDefaults().setValue(authData.uid, forKey: "uid")
+                        self.performSegueWithIdentifier("success", sender: nil)
+                        
+                    }
+                    
+                    
+                })
+                
+                
+                
             }
             
         }

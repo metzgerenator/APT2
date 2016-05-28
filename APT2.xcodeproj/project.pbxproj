@@ -14,11 +14,11 @@
 		270F83DD1CE8CDB600E09AAC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 270F83DB1CE8CDB600E09AAC /* LaunchScreen.storyboard */; };
 		270F83E81CE8CDB600E09AAC /* APT2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270F83E71CE8CDB600E09AAC /* APT2Tests.swift */; };
 		270F83F31CE8CDB600E09AAC /* APT2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270F83F21CE8CDB600E09AAC /* APT2UITests.swift */; };
-		270F84011CE8D28B00E09AAC /* DataService .swift in Sources */ = {isa = PBXBuildFile; fileRef = 270F84001CE8D28B00E09AAC /* DataService .swift */; };
 		577BAC631CFA0E7400E4F943 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 577BAC5F1CFA0E7400E4F943 /* Bolts.framework */; };
 		577BAC641CFA0E7500E4F943 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 577BAC601CFA0E7400E4F943 /* FBSDKCoreKit.framework */; };
 		577BAC651CFA0E7500E4F943 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 577BAC611CFA0E7400E4F943 /* FBSDKLoginKit.framework */; };
 		577BAC661CFA0E7500E4F943 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 577BAC621CFA0E7400E4F943 /* FBSDKShareKit.framework */; };
+		577BAC691CFA3B6C00E4F943 /* DataServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577BAC681CFA3B6C00E4F943 /* DataServices.swift */; };
 		6E5D66732CB56A94600D117E /* Pods_APT2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A247E43DDABFBA0C8D86D6F /* Pods_APT2.framework */; };
 /* End PBXBuildFile section */
 
@@ -54,12 +54,12 @@
 		270F83EE1CE8CDB600E09AAC /* APT2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = APT2UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		270F83F21CE8CDB600E09AAC /* APT2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APT2UITests.swift; sourceTree = "<group>"; };
 		270F83F41CE8CDB600E09AAC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		270F84001CE8D28B00E09AAC /* DataService .swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DataService .swift"; sourceTree = "<group>"; };
 		4A247E43DDABFBA0C8D86D6F /* Pods_APT2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_APT2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		577BAC5F1CFA0E7400E4F943 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		577BAC601CFA0E7400E4F943 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		577BAC611CFA0E7400E4F943 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		577BAC621CFA0E7400E4F943 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
+		577BAC681CFA3B6C00E4F943 /* DataServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataServices.swift; sourceTree = "<group>"; };
 		7E40C90B8E9BD4142ED13CB1 /* Pods-APT2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APT2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-APT2/Pods-APT2.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -126,8 +126,8 @@
 		270F83D11CE8CDB500E09AAC /* APT2 */ = {
 			isa = PBXGroup;
 			children = (
+				577BAC671CFA3B4A00E4F943 /* Services */,
 				270F760C1CE9383200525E2B /* Login */,
-				270F84021CE8D29600E09AAC /* Services */,
 				270F83D21CE8CDB600E09AAC /* AppDelegate.swift */,
 				270F83D61CE8CDB600E09AAC /* Main.storyboard */,
 				270F83D91CE8CDB600E09AAC /* Assets.xcassets */,
@@ -155,14 +155,6 @@
 			path = APT2UITests;
 			sourceTree = "<group>";
 		};
-		270F84021CE8D29600E09AAC /* Services */ = {
-			isa = PBXGroup;
-			children = (
-				270F84001CE8D28B00E09AAC /* DataService .swift */,
-			);
-			name = Services;
-			sourceTree = "<group>";
-		};
 		30DDF15455F6D8DA55A7204D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -170,6 +162,14 @@
 				09CB8BA5D0889EC562612DCB /* Pods-APT2.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		577BAC671CFA3B4A00E4F943 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				577BAC681CFA3B6C00E4F943 /* DataServices.swift */,
+			);
+			name = Services;
 			sourceTree = "<group>";
 		};
 		AD16769422552BF106CABEFE /* Frameworks */ = {
@@ -368,7 +368,7 @@
 			files = (
 				270F83D31CE8CDB600E09AAC /* AppDelegate.swift in Sources */,
 				270F760B1CE9380900525E2B /* SignUpViewController.swift in Sources */,
-				270F84011CE8D28B00E09AAC /* DataService .swift in Sources */,
+				577BAC691CFA3B6C00E4F943 /* DataServices.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
