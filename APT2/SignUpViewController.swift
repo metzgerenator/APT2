@@ -7,11 +7,38 @@
 //
 
 import UIKit
+import FBSDKCoreKit
+import FBSDKLoginKit
+
 
 class SignUpViewController: UIViewController {
+    
+    
+    @IBAction func fbBtnPressed(sender: UIButton!) {
+        
+        let facebookLogin = FBSDKLoginManager()
+        
+        facebookLogin.logInWithReadPermissions(["email"]) { (facebookResult: FBSDKLoginManagerLoginResult!, faceBookError: NSError!) in
+            
+            if faceBookError != nil {
+                print("Facebook login failed.  Error \(faceBookError)")
+            }else {
+                let accessToken = FBSDKAccessToken.currentAccessToken().tokenString
+                print("Successfully logged in with facebook. \(accessToken)")
+            }
+            
+        }
+        
+        
+        
+    }
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+   
 
     }
 

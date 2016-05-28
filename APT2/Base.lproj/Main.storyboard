@@ -46,6 +46,13 @@
                                 <rect key="frame" x="251" y="399" width="99" height="30"/>
                                 <state key="normal" title="Login / Signup"/>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tpS-uH-vFo">
+                                <rect key="frame" x="279" y="173" width="42" height="30"/>
+                                <state key="normal" title="Login "/>
+                                <connections>
+                                    <action selector="fbBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Bwi-J7-Ra3"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -53,9 +60,11 @@
                             <constraint firstItem="lbt-4R-Z4N" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="157" id="Dg7-sP-aMk"/>
                             <constraint firstItem="Qgr-ge-qJg" firstAttribute="top" secondItem="9Q6-zF-7bF" secondAttribute="bottom" constant="23" id="J5g-Xz-Wln"/>
                             <constraint firstItem="Hgy-zS-N87" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="117" id="Ms7-Hi-yl1"/>
+                            <constraint firstItem="tpS-uH-vFo" firstAttribute="top" secondItem="Hgy-zS-N87" secondAttribute="bottom" constant="15" id="OgR-0k-ZDj"/>
                             <constraint firstItem="9Q6-zF-7bF" firstAttribute="top" secondItem="lbt-4R-Z4N" secondAttribute="bottom" constant="24" id="V2v-wr-UiL"/>
                             <constraint firstItem="9Q6-zF-7bF" firstAttribute="leading" secondItem="Qgr-ge-qJg" secondAttribute="leading" id="ffI-Sf-dpO"/>
                             <constraint firstItem="Hgy-zS-N87" firstAttribute="centerX" secondItem="9Q6-zF-7bF" secondAttribute="centerX" id="lmh-Mh-cdz"/>
+                            <constraint firstItem="tpS-uH-vFo" firstAttribute="centerX" secondItem="Hgy-zS-N87" secondAttribute="centerX" id="md6-EB-DpQ"/>
                             <constraint firstItem="Qgr-ge-qJg" firstAttribute="centerX" secondItem="dW7-p0-PR1" secondAttribute="centerX" id="qee-5Y-Kdg"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="dW7-p0-PR1" secondAttribute="bottom" constant="171" id="sMw-kd-KF2"/>
                             <constraint firstItem="dW7-p0-PR1" firstAttribute="top" secondItem="Qgr-ge-qJg" secondAttribute="bottom" constant="38" id="sdC-iK-fLr"/>
