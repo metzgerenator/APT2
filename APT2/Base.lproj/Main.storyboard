@@ -77,7 +77,7 @@
                     <connections>
                         <outlet property="emailField" destination="9Q6-zF-7bF" id="f9I-2u-wcR"/>
                         <outlet property="passwordField" destination="Qgr-ge-qJg" id="yxH-bg-ykk"/>
-                        <segue destination="Xze-Fm-R4H" kind="show" identifier="success" id="ncm-By-sRi"/>
+                        <segue destination="Xze-Fm-R4H" kind="show" identifier="loggedIn" id="ncm-By-sRi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

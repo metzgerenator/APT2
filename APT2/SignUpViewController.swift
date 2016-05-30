@@ -45,8 +45,8 @@ class SignUpViewController: UIViewController {
                         //print("token = \(accessToken)")
                         
                         print("Logged in! \(authData)")
-                        NSUserDefaults.standardUserDefaults().setValue(authData.uid, forKey: "uid")
-                        self.performSegueWithIdentifier("success", sender: nil)
+                        NSUserDefaults.standardUserDefaults().setValue(authData.uid, forKey: KEY_UID)
+                        self.performSegueWithIdentifier(SEGUE_LOGGED_IN, sender: nil)
                         
                     }
                     
@@ -68,8 +68,8 @@ class SignUpViewController: UIViewController {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        if NSUserDefaults.standardUserDefaults().valueForKey("uid") != nil {
-            self.performSegueWithIdentifier("success", sender: nil)
+        if NSUserDefaults.standardUserDefaults().valueForKey(KEY_UID) != nil {
+            self.performSegueWithIdentifier(SEGUE_LOGGED_IN, sender: nil)
         }
    
 
@@ -88,6 +88,37 @@ class SignUpViewController: UIViewController {
                 
                 if error != nil {
                     print("\(error) error code: \(error.code)")
+                    
+                    
+                    if error.code == STATUS_ACCOUNT_NONEXIST {
+                        
+                        DataService.ds.REF_USERS.createUser(email, password: pwd, withValueCompletionBlock: { (error, result) in
+                            
+                            if error != nil {
+                                self.showErrorAlert("Could not create account", msg: "problem creating Account")
+                            }else {
+                                
+                                NSUserDefaults.standardUserDefaults().setValue(result[KEY_UID], forKey: KEY_UID)
+                                
+                                
+                                DataService.ds.REF_BASE.authUser(email, password: pwd, withCompletionBlock: nil)
+                                
+                                self.performSegueWithIdentifier(SEGUE_LOGGED_IN, sender: nil)
+                                
+                            }
+                            
+                            
+                        })
+                        
+                        
+                    } else {
+                        self.showErrorAlert("Could not login", msg: "Please check username and password")
+                    }
+                    
+                }
+                
+                else {
+                    self.performSegueWithIdentifier(SEGUE_LOGGED_IN, sender: nil)
                 }
                 
                 
