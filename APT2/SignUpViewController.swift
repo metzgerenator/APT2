@@ -42,7 +42,9 @@ class SignUpViewController: UIViewController {
                         print("Login failed. \(error)")
                     } else {
                         
-                        //print("token = \(accessToken)")
+                        let user  = ["provider": authData.provider!]
+                        
+                        DataService.ds.createFirebaseUser(authData.uid, user: user)
                         
                         print("Logged in! \(authData)")
                         NSUserDefaults.standardUserDefaults().setValue(authData.uid, forKey: KEY_UID)
@@ -92,16 +94,26 @@ class SignUpViewController: UIViewController {
                     
                     if error.code == STATUS_ACCOUNT_NONEXIST {
                         
-                        DataService.ds.REF_USERS.createUser(email, password: pwd, withValueCompletionBlock: { (error, result) in
+                        DataService.ds.REF_BASE.createUser(email, password: pwd, withValueCompletionBlock: { (error, result) in
                             
                             if error != nil {
                                 self.showErrorAlert("Could not create account", msg: "problem creating Account")
+                                
                             }else {
                                 
                                 NSUserDefaults.standardUserDefaults().setValue(result[KEY_UID], forKey: KEY_UID)
                                 
                                 
-                                DataService.ds.REF_BASE.authUser(email, password: pwd, withCompletionBlock: nil)
+                              
+                                DataService.ds.REF_BASE.authUser(email, password: pwd, withCompletionBlock: { err, data in
+                                    
+                                    
+                                    let user  = ["provider": data.provider!]
+                                    
+                                    DataService.ds.createFirebaseUser(data.uid, user: user)
+                                    
+                                    
+                                })
                                 
                                 self.performSegueWithIdentifier(SEGUE_LOGGED_IN, sender: nil)
                                 
