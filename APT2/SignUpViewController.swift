@@ -15,11 +15,13 @@ import Firebase
 class SignUpViewController: UIViewController {
     
     let facebookLogin = FBSDKLoginManager()
+
+    @IBOutlet weak var emailField: UITextField!
+    @IBOutlet weak var passwordField: UITextField!
+    
     
     @IBAction func fbBtnPressed(sender: UIButton!) {
-        
-        
-        
+    
         facebookLogin.logInWithReadPermissions(["email"]) { (facebookResult: FBSDKLoginManagerLoginResult!, faceBookError: NSError!) in
             
             if faceBookError != nil {
@@ -32,7 +34,7 @@ class SignUpViewController: UIViewController {
                 let accessToken = FBSDKAccessToken.currentAccessToken().tokenString
             
                 
-                DataService.ds.REF_BASE.authWithOAuthProvider("facebook", token: accessToken, withCompletionBlock: { (error, authData) in
+                DataService.ds.REF_BASE.authWithOAuthProvider("facebook", token: accessToken, withCompletionBlock: { error, authData in
                     
                     if error != nil {
                         
@@ -63,9 +65,12 @@ class SignUpViewController: UIViewController {
     
     
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
         
+        if NSUserDefaults.standardUserDefaults().valueForKey("uid") != nil {
+            self.performSegueWithIdentifier("success", sender: nil)
+        }
    
 
     }
@@ -74,6 +79,40 @@ class SignUpViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
+    @IBAction func attemptLogin(sender: UIButton!) {
+        if let email = emailField.text where email != "", let pwd = passwordField.text where pwd != "" {
+            
+            DataService.ds.REF_BASE.authUser(email, password: pwd, withCompletionBlock: { (error, authData) in
+                
+                if error != nil {
+                    print("\(error) error code: \(error.code)")
+                }
+                
+                
+            })
+            
+            
+            
+        } else {
+            showErrorAlert("Check Email and Password", msg: "Email and password is required")
+        }
+        
+        
+        
+    }
+    
+    
+    func showErrorAlert(title: String, msg: String) {
+        
+        let alert = UIAlertController(title: title, message: msg, preferredStyle: .Alert)
+        let action = UIAlertAction(title: "Ok", style: .Default, handler: nil)
+        alert.addAction(action)
+        presentViewController(alert, animated: true, completion: nil)
+        
+    }
+    
     
 
     /*

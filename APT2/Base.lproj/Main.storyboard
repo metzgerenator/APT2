@@ -45,6 +45,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dW7-p0-PR1">
                                 <rect key="frame" x="251" y="399" width="99" height="30"/>
                                 <state key="normal" title="Login / Signup"/>
+                                <connections>
+                                    <action selector="attemptLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="v2Y-yu-dml"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tpS-uH-vFo">
                                 <rect key="frame" x="279" y="173" width="42" height="30"/>
@@ -72,6 +75,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="emailField" destination="9Q6-zF-7bF" id="f9I-2u-wcR"/>
+                        <outlet property="passwordField" destination="Qgr-ge-qJg" id="yxH-bg-ykk"/>
                         <segue destination="Xze-Fm-R4H" kind="show" identifier="success" id="ncm-By-sRi"/>
                     </connections>
                 </viewController>
