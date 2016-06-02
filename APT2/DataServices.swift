@@ -21,6 +21,8 @@ class DataService {
     
     private var _REF_USERS = Firebase(url: "\(URL_BASE)/users")
     
+    private var _REF_PROPERTIES  = Firebase(url: "\(URL_BASE)/properties")
+    
     var REF_BASE: Firebase {
         return _REF_BASE
     }
@@ -30,12 +32,30 @@ class DataService {
     }
     
     
+    var REF_PROPERTIES: Firebase {
+        
+        return _REF_PROPERTIES
+    }
+    
+    
     func createFirebaseUser(uid: String, user: Dictionary<String, String>){
         
         REF_USERS.childByAppendingPath(uid).setValue(user)
         
         
     }
+    
+    
+    func createProperty(name: String) {
+        
+        let propertyDictionary = ["great place" : "313 61st ", "amenities" : "fireplace"]
+        
+        
+        
+        REF_PROPERTIES.setValue(propertyDictionary)
+    }
+    
+    
     
     
 }
