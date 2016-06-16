@@ -50,9 +50,8 @@ class DataService {
         
         let propertyDictionary = ["great place" : "313 61st ", "amenities" : "fireplace"]
         
+        REF_PROPERTIES.childByAppendingPath("amenities").setValue(propertyDictionary)
         
-        
-        REF_PROPERTIES.setValue(propertyDictionary)
     }
     
     
