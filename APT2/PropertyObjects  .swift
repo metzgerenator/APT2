@@ -10,12 +10,12 @@ import Foundation
 
 
 struct Apartments {
-    var apartmentName: String?
-    var address: String?
-    var rentAmount: Int?
-    var bedRooms: Int?
-    var petsAllowed: Bool?
-    var washerDyer: String?  
+    var apartmentName: String = ""
+    var address: String = "?"
+    var rentAmount: Int = 0
+    var bedRooms: Int = 0
+    var petsAllowed: Bool = false
+    var washerDyer: Bool = false
     var amenities: [String]?
     
 }

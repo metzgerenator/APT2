@@ -23,6 +23,7 @@
 		577CCAF91CFFC28200F753B0 /* PropertyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577CCAF81CFFC28200F753B0 /* PropertyViewController.swift */; };
 		57CCDBAF1D1710B200F34EF8 /* PropertyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CCDBAE1D1710B200F34EF8 /* PropertyTableViewCell.swift */; };
 		57CCDBB11D1719F000F34EF8 /* PropertyObjects  .swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CCDBB01D1719F000F34EF8 /* PropertyObjects  .swift */; };
+		57CCDBB31D17479D00F34EF8 /* CreatePropertyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CCDBB21D17479D00F34EF8 /* CreatePropertyViewController.swift */; };
 		6E5D66732CB56A94600D117E /* Pods_APT2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A247E43DDABFBA0C8D86D6F /* Pods_APT2.framework */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +69,7 @@
 		577CCAF81CFFC28200F753B0 /* PropertyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PropertyViewController.swift; sourceTree = "<group>"; };
 		57CCDBAE1D1710B200F34EF8 /* PropertyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PropertyTableViewCell.swift; sourceTree = "<group>"; };
 		57CCDBB01D1719F000F34EF8 /* PropertyObjects  .swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PropertyObjects  .swift"; sourceTree = "<group>"; };
+		57CCDBB21D17479D00F34EF8 /* CreatePropertyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePropertyViewController.swift; sourceTree = "<group>"; };
 		7E40C90B8E9BD4142ED13CB1 /* Pods-APT2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APT2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-APT2/Pods-APT2.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -196,6 +198,7 @@
 				577CCAF81CFFC28200F753B0 /* PropertyViewController.swift */,
 				57CCDBAE1D1710B200F34EF8 /* PropertyTableViewCell.swift */,
 				57CCDBB01D1719F000F34EF8 /* PropertyObjects  .swift */,
+				57CCDBB21D17479D00F34EF8 /* CreatePropertyViewController.swift */,
 			);
 			name = "Properties ";
 			sourceTree = "<group>";
@@ -395,6 +398,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				270F83D31CE8CDB600E09AAC /* AppDelegate.swift in Sources */,
+				57CCDBB31D17479D00F34EF8 /* CreatePropertyViewController.swift in Sources */,
 				577CCAF91CFFC28200F753B0 /* PropertyViewController.swift in Sources */,
 				57CCDBAF1D1710B200F34EF8 /* PropertyTableViewCell.swift in Sources */,
 				270F760B1CE9380900525E2B /* SignUpViewController.swift in Sources */,

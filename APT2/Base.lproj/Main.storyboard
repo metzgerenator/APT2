@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Sign Up View Controller-->
@@ -131,10 +132,10 @@
             </objects>
             <point key="canvasLocation" x="2586" y="279"/>
         </scene>
-        <!--View Controller-->
+        <!--Item-->
         <scene sceneID="zUg-w0-12Z">
             <objects>
-                <viewController id="puY-hZ-v1q" sceneMemberID="viewController">
+                <viewController id="puY-hZ-v1q" customClass="CreatePropertyViewController" customModule="APT2" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="D5z-Wb-W3B"/>
                         <viewControllerLayoutGuide type="bottom" id="2Xb-s4-iq5"/>
@@ -142,12 +143,46 @@
                     <view key="view" contentMode="scaleToFill" id="bmQ-V4-LCn">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create a name for this property " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C0x-tI-vKu">
+                                <rect key="frame" x="20" y="125" width="560" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IAa-wx-35v">
+                                <rect key="frame" x="20" y="203" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mb5-9A-Pra">
+                                <rect key="frame" x="281" y="285" width="38" height="30"/>
+                                <state key="normal" title="Save "/>
+                                <connections>
+                                    <action selector="saveProperty:" destination="puY-hZ-v1q" eventType="touchUpInside" id="plf-NW-oGq"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Mb5-9A-Pra" firstAttribute="centerY" secondItem="bmQ-V4-LCn" secondAttribute="centerY" id="2F6-UV-bnk"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="IAa-wx-35v" secondAttribute="trailing" id="8l3-hT-ttd"/>
+                            <constraint firstItem="C0x-tI-vKu" firstAttribute="top" secondItem="D5z-Wb-W3B" secondAttribute="bottom" constant="105" id="9HH-CC-i0E"/>
+                            <constraint firstItem="IAa-wx-35v" firstAttribute="top" secondItem="C0x-tI-vKu" secondAttribute="bottom" constant="57" id="M2d-p0-yi1"/>
+                            <constraint firstItem="Mb5-9A-Pra" firstAttribute="centerX" secondItem="bmQ-V4-LCn" secondAttribute="centerX" id="PCG-fR-CnS"/>
+                            <constraint firstItem="C0x-tI-vKu" firstAttribute="leading" secondItem="bmQ-V4-LCn" secondAttribute="leadingMargin" id="PvP-cQ-X1C"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="C0x-tI-vKu" secondAttribute="trailing" id="Vew-WG-YUp"/>
+                            <constraint firstItem="IAa-wx-35v" firstAttribute="leading" secondItem="bmQ-V4-LCn" secondAttribute="leadingMargin" id="pW7-6Y-vT0"/>
+                        </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="FfU-Mf-Pdz"/>
+                    <connections>
+                        <outlet property="newPropertyName" destination="IAa-wx-35v" id="Jdt-La-e6h"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gDl-QB-8Tq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3359" y="279"/>
+            <point key="canvasLocation" x="1774" y="1017"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="K81-rn-dbH">
@@ -160,6 +195,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="tSD-ub-qte" kind="relationship" relationship="viewControllers" id="4Ts-aW-Mx0"/>
+                        <segue destination="puY-hZ-v1q" kind="relationship" relationship="viewControllers" id="iOe-3d-NVY"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hvB-DI-dZI" userLabel="First Responder" sceneMemberID="firstResponder"/>
