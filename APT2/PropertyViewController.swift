@@ -7,8 +7,15 @@
 
 import UIKit
 
-class PropertyViewController: UIViewController {
+class PropertyViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    @IBOutlet weak var tableView: UITableView!
+    
+    
+    var apartmentDictionary = [Apartments]()
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -21,6 +28,44 @@ class PropertyViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell")
+        
+        cell?.textLabel?.text = "Testing"
+ 
+        return cell!
+        
+    }
+    
+    
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+    }
+    
+    
+    
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        
+        
+        return 1
+    }
+    
+    
+    
     
 
     /*

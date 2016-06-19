@@ -71,6 +71,8 @@ class SignUpViewController: UIViewController {
         super.viewDidAppear(animated)
         
         if NSUserDefaults.standardUserDefaults().valueForKey(KEY_UID) != nil {
+            
+            print(NSUserDefaults.standardUserDefaults().valueForKey(KEY_UID))
             self.performSegueWithIdentifier(SEGUE_LOGGED_IN, sender: nil)
         }
    
