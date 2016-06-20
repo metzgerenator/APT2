@@ -9,7 +9,7 @@ import UIKit
 
 class CreatePropertyViewController: UIViewController {
     
-    var currentUserID: String?
+    var currentUserID: AnyObject?
     
 
     @IBOutlet weak var newPropertyName: UITextField!
@@ -31,7 +31,7 @@ class CreatePropertyViewController: UIViewController {
         
         if let userCheck =  NSUserDefaults.standardUserDefaults().valueForKey(KEY_UID) {
             
-            currentUserID = (userCheck as! String)
+            currentUserID = userCheck
             
             
         }
