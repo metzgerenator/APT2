@@ -16,7 +16,11 @@ class CreatePropertyViewController: UIViewController {
     @IBAction func saveProperty(sender: AnyObject) {
         
         
-        
+        if newPropertyName.text?.characters.count > 0 {
+            // save to parse
+            
+            DataService.ds.createProperty(currentUserID!, propertyName: newPropertyName.text!)
+        }
         
     }
     
@@ -28,7 +32,6 @@ class CreatePropertyViewController: UIViewController {
         if let userCheck =  NSUserDefaults.standardUserDefaults().valueForKey(KEY_UID) {
             
             currentUserID = (userCheck as! String)
-            print("this is the current user \(currentUserID!)")
             
             
         }

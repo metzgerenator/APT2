@@ -20,7 +20,6 @@ class PropertyViewController: UIViewController, UITableViewDataSource, UITableVi
         super.viewDidLoad()
         
         
-        DataService.ds.createProperty("test")
 
     }
 
