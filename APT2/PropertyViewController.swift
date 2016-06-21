@@ -20,6 +20,15 @@ class PropertyViewController: UIViewController, UITableViewDataSource, UITableVi
         super.viewDidLoad()
         
         
+//        let propertyTrueQuery = DataService.ds.REF_USERS.queryOrderedByChild("properties")
+        
+        
+        
+        DataService.ds.REF_USERS.observeEventType(.Value, withBlock: { (snapshot)  in
+            print(snapshot.value)
+           
+        })
+//
 
     }
 
