@@ -9,6 +9,8 @@ import Foundation
 
 
 
+
+
 struct Apartments {
     var apartmentName: String = ""
     var address: String = "?"

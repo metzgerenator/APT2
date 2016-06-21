@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class PropertyViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
@@ -14,21 +15,35 @@ class PropertyViewController: UIViewController, UITableViewDataSource, UITableVi
     
     var apartmentDictionary = [Apartments]()
     
+    var currentUserID: String?
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
+        if let userCheck =  NSUserDefaults.standardUserDefaults().valueForKey(KEY_UID) {
+            
+            currentUserID = userCheck as? String
+ 
+        }
+       
+        
 //        let propertyTrueQuery = DataService.ds.REF_USERS.queryOrderedByChild("properties")
         
         
-        
-        DataService.ds.REF_USERS.observeEventType(.Value, withBlock: { (snapshot)  in
+        DataService.ds.REF_USERS.childByAppendingPath(currentUserID).observeEventType(.Value, withBlock: { (snapshot)  in
             print(snapshot.value)
-           
+            
         })
-//
+
+        
+        
+//        DataService.ds.REF_USERS.observeEventType(.Value, withBlock: { (snapshot)  in
+//            print(snapshot.value)
+//           
+//        })
+////
 
     }
 
