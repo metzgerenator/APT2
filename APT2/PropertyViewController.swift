@@ -13,7 +13,7 @@ class PropertyViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet weak var tableView: UITableView!
     
     
-    var apartmentDictionary = [Apartments]()
+    var propertyDictionary = [Properties]()
     
     var currentUserID: String?
     
@@ -32,8 +32,28 @@ class PropertyViewController: UIViewController, UITableViewDataSource, UITableVi
 //        let propertyTrueQuery = DataService.ds.REF_USERS.queryOrderedByChild("properties")
         
         
-        DataService.ds.REF_USERS.childByAppendingPath(currentUserID).observeEventType(.Value, withBlock: { (snapshot)  in
+        DataService.ds.REF_USERS.childByAppendingPath("\(currentUserID!)/properties").observeEventType(.Value, withBlock: { (snapshot)  in
             print(snapshot.value)
+            
+            self.propertyDictionary = []
+            
+            if let snaphots = snapshot.children.allObjects as? [FDataSnapshot] {
+                
+                for snap in snaphots {
+                    
+                    let key = snap.key
+                    
+                    print("snap: \(key)")
+                    if let propDic = snap.value as? Dictionary<String, AnyObject> {
+                        
+                        
+                        let apartment = Properties(Unitkey: key, dictionary: propDic)
+                        self.propertyDictionary.append(apartment)
+                    }
+                    
+                    
+                }
+            }
             
         })
 
