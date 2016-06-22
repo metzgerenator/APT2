@@ -16,6 +16,7 @@ class PropertyViewController: UIViewController, UITableViewDataSource, UITableVi
     var propertyDictionary = [Properties]()
     
     var currentUserID: String?
+    // string for master branch 
     
     
     override func viewDidLoad() {
