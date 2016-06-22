@@ -49,6 +49,8 @@ class PropertyViewController: UIViewController, UITableViewDataSource, UITableVi
                         
                         let apartment = Properties(Unitkey: key, dictionary: propDic)
                         self.propertyDictionary.append(apartment)
+                        
+                        self.tableView.reloadData()
                     }
                     
                     
@@ -58,12 +60,7 @@ class PropertyViewController: UIViewController, UITableViewDataSource, UITableVi
         })
 
         
-        
-//        DataService.ds.REF_USERS.observeEventType(.Value, withBlock: { (snapshot)  in
-//            print(snapshot.value)
-//           
-//        })
-////
+
 
     }
 
@@ -79,7 +76,11 @@ class PropertyViewController: UIViewController, UITableViewDataSource, UITableVi
         
         let cell = tableView.dequeueReusableCellWithIdentifier("cell")
         
-        cell?.textLabel?.text = "Testing"
+        let unitName = propertyDictionary[indexPath.row]
+        
+        print(unitName.name)
+        
+        cell?.textLabel?.text = unitName.name
  
         return cell!
         
@@ -104,7 +105,7 @@ class PropertyViewController: UIViewController, UITableViewDataSource, UITableVi
         
         
         
-        return 1
+        return propertyDictionary.count
     }
     
     
