@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "0494BE3564D490E3FE799223485E8CEA2EE6D26B",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "97EBC58D03C49B31E1DD90E4477EA51D109D9D10" : 0,
+    "0494BE3564D490E3FE799223485E8CEA2EE6D26B" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "D0D89ECC-5A24-467B-B4D7-49990E451BC3",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "97EBC58D03C49B31E1DD90E4477EA51D109D9D10" : "",
+    "0494BE3564D490E3FE799223485E8CEA2EE6D26B" : "APT2\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "APT2",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "APT2.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/metzgerenator\/APT2.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "0494BE3564D490E3FE799223485E8CEA2EE6D26B"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/metzgerenator\/APT2.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "97EBC58D03C49B31E1DD90E4477EA51D109D9D10"
+    }
+  ]
+}
