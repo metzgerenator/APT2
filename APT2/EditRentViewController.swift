@@ -1,19 +1,33 @@
 //
-//  AddPropertyDetailsViewController.swift
+//  EditRentViewController.swift
 //  APT2
 //
-//  Created by Aileen Taboy on 6/21/16.
 //  Copyright © 2016 Michael Metzger . All rights reserved.
 //
 
 import UIKit
 
-class AddPropertyDetailsViewController: UIViewController {
+class EditRentViewController: UIViewController {
+    
+    
+    @IBOutlet weak var priceTextLabel: UITextField!
+    
+    
+    
+    @IBOutlet weak var frequencyTextLabel: UITextField!
+    
 
     @IBAction func cancelButton(sender: AnyObject) {
         
-      self.dismissViewControllerAnimated(true, completion: nil)
+        self.dismissViewControllerAnimated(true, completion: nil)
         
+    }
+    
+    
+    @IBAction func saveButton(sender: UIStoryboardSegue) {
+        
+        
+       self.performSegueWithIdentifier("rent", sender: self)
         
     }
     
@@ -31,22 +45,16 @@ class AddPropertyDetailsViewController: UIViewController {
     }
     
 
-    /*
+
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "rent" {
+            print("rentprice will work!")
+        }
+        
     }
-    */
-    
-    
-    
-    //MARK: Table view methods
-    
-    
-    
 
 
 }

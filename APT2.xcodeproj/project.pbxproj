@@ -25,6 +25,8 @@
 		57CCDBAF1D1710B200F34EF8 /* PropertyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CCDBAE1D1710B200F34EF8 /* PropertyTableViewCell.swift */; };
 		57CCDBB11D1719F000F34EF8 /* PropertyObjects  .swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CCDBB01D1719F000F34EF8 /* PropertyObjects  .swift */; };
 		57CCDBB31D17479D00F34EF8 /* CreatePropertyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CCDBB21D17479D00F34EF8 /* CreatePropertyViewController.swift */; };
+		57EA63BD1D1B6D2800C48C2A /* EditPropertyDetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EA63BC1D1B6D2800C48C2A /* EditPropertyDetailsTableViewController.swift */; };
+		57EA63C01D1B6E0000C48C2A /* EditRentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EA63BF1D1B6E0000C48C2A /* EditRentViewController.swift */; };
 		6E5D66732CB56A94600D117E /* Pods_APT2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A247E43DDABFBA0C8D86D6F /* Pods_APT2.framework */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +74,8 @@
 		57CCDBAE1D1710B200F34EF8 /* PropertyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PropertyTableViewCell.swift; sourceTree = "<group>"; };
 		57CCDBB01D1719F000F34EF8 /* PropertyObjects  .swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PropertyObjects  .swift"; sourceTree = "<group>"; };
 		57CCDBB21D17479D00F34EF8 /* CreatePropertyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePropertyViewController.swift; sourceTree = "<group>"; };
+		57EA63BC1D1B6D2800C48C2A /* EditPropertyDetailsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditPropertyDetailsTableViewController.swift; sourceTree = "<group>"; };
+		57EA63BF1D1B6E0000C48C2A /* EditRentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditRentViewController.swift; sourceTree = "<group>"; };
 		7E40C90B8E9BD4142ED13CB1 /* Pods-APT2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APT2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-APT2/Pods-APT2.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -138,6 +142,7 @@
 		270F83D11CE8CDB500E09AAC /* APT2 */ = {
 			isa = PBXGroup;
 			children = (
+				57EA63BE1D1B6D9600C48C2A /* EditPropertyDetails  */,
 				577CCAF71CFFC24C00F753B0 /* Properties  */,
 				5708176A1CFC913400CFFEE6 /* Uitilities */,
 				577BAC671CFA3B4A00E4F943 /* Services */,
@@ -200,10 +205,19 @@
 				577CCAF81CFFC28200F753B0 /* PropertyViewController.swift */,
 				57CCDBAE1D1710B200F34EF8 /* PropertyTableViewCell.swift */,
 				57CCDBB01D1719F000F34EF8 /* PropertyObjects  .swift */,
-				57CCDBB21D17479D00F34EF8 /* CreatePropertyViewController.swift */,
-				570E9EC31D1A26700080AE14 /* AddPropertyDetailsViewController.swift */,
 			);
 			name = "Properties ";
+			sourceTree = "<group>";
+		};
+		57EA63BE1D1B6D9600C48C2A /* EditPropertyDetails  */ = {
+			isa = PBXGroup;
+			children = (
+				57CCDBB21D17479D00F34EF8 /* CreatePropertyViewController.swift */,
+				570E9EC31D1A26700080AE14 /* AddPropertyDetailsViewController.swift */,
+				57EA63BC1D1B6D2800C48C2A /* EditPropertyDetailsTableViewController.swift */,
+				57EA63BF1D1B6E0000C48C2A /* EditRentViewController.swift */,
+			);
+			name = "EditPropertyDetails ";
 			sourceTree = "<group>";
 		};
 		AD16769422552BF106CABEFE /* Frameworks */ = {
@@ -404,7 +418,9 @@
 				270F83D31CE8CDB600E09AAC /* AppDelegate.swift in Sources */,
 				57CCDBB31D17479D00F34EF8 /* CreatePropertyViewController.swift in Sources */,
 				577CCAF91CFFC28200F753B0 /* PropertyViewController.swift in Sources */,
+				57EA63C01D1B6E0000C48C2A /* EditRentViewController.swift in Sources */,
 				57CCDBAF1D1710B200F34EF8 /* PropertyTableViewCell.swift in Sources */,
+				57EA63BD1D1B6D2800C48C2A /* EditPropertyDetailsTableViewController.swift in Sources */,
 				270F760B1CE9380900525E2B /* SignUpViewController.swift in Sources */,
 				577BAC691CFA3B6C00E4F943 /* DataServices.swift in Sources */,
 				5708176C1CFC915B00CFFEE6 /* Constants.swift in Sources */,
