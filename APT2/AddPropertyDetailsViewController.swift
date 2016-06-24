@@ -24,33 +24,22 @@ class AddPropertyDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(apartmnetNameLabel)
+        if let apartmentName = apartmnetNameLabel {
+            
+            print(apartmentName)
+            
+           let vc = self.childViewControllers[0] as! EditPropertyDetailsTableViewController
+            vc.apartmentNameTextField.text = apartmentName
         
-//        if let apartMentName = apartmnetNameLabel {
-//            self.performSegueWithIdentifier("editProperty", sender: apartMentName)
-//            print("performing segue now ")
-//        }
+            
+        }
+        
+        
+        print(self.childViewControllers[0])
+        
 
-        // Do any additional setup after loading the view.
     }
-    
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        if segue.identifier == "editProperty" {
-//            
-//            print(sender)
-//            
-////            if let propertyName = sender {
-////                
-////                let vc = segue.destinationViewController as! EditPropertyDetailsTableViewController
-////                vc.apartmentNameTextField.text = propertyName as? String
-////            }
-//            
-//           
-//            
-//            
-//        }
-//    }
-    
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
