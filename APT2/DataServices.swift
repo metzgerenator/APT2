@@ -46,12 +46,11 @@ class DataService {
     }
     
     
-    func createProperty(currentUser: AnyObject, propertyName: String) {
+    func createProperty(currentUser: AnyObject, propertyDetails: Dictionary<String, String>) {
 
-         let propertyDictionary =  ["Name" : propertyName]
       
         
-        REF_USERS.childByAppendingPath("\(currentUser)/properties").childByAutoId().updateChildValues(propertyDictionary)
+        REF_USERS.childByAppendingPath("\(currentUser)/properties").childByAutoId().updateChildValues(propertyDetails)
 
         
         

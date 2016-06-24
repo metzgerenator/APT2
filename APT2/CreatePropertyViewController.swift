@@ -9,7 +9,6 @@ import UIKit
 
 class CreatePropertyViewController: UIViewController {
     
-    var currentUserID: AnyObject?
     //propertyDetail
 
     @IBOutlet weak var newPropertyName: UITextField!
@@ -44,12 +43,7 @@ class CreatePropertyViewController: UIViewController {
         super.viewDidAppear(animated)
         
         
-        if let userCheck =  NSUserDefaults.standardUserDefaults().valueForKey(KEY_UID) {
-            
-            currentUserID = userCheck
-            
-            
-        }
+       
         
        
             

@@ -217,7 +217,11 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oVS-ZE-cE5">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <items>
-                                    <barButtonItem title="Save " width="78" id="uRx-Pi-4GO"/>
+                                    <barButtonItem title="Save " width="78" id="uRx-Pi-4GO">
+                                        <connections>
+                                            <action selector="saveButton:" destination="5Ss-rD-NaB" id="48y-FH-8ZW"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>
