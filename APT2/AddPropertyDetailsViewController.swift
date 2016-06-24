@@ -9,6 +9,8 @@
 import UIKit
 
 class AddPropertyDetailsViewController: UIViewController {
+    
+    var apartmnetNameLabel: String?
 
     @IBAction func cancelButton(sender: AnyObject) {
         
@@ -21,9 +23,34 @@ class AddPropertyDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print(apartmnetNameLabel)
+        
+//        if let apartMentName = apartmnetNameLabel {
+//            self.performSegueWithIdentifier("editProperty", sender: apartMentName)
+//            print("performing segue now ")
+//        }
 
         // Do any additional setup after loading the view.
     }
+    
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        if segue.identifier == "editProperty" {
+//            
+//            print(sender)
+//            
+////            if let propertyName = sender {
+////                
+////                let vc = segue.destinationViewController as! EditPropertyDetailsTableViewController
+////                vc.apartmentNameTextField.text = propertyName as? String
+////            }
+//            
+//           
+//            
+//            
+//        }
+//    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

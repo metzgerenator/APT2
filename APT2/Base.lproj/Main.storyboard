@@ -105,7 +105,7 @@
                                         <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="arG-gd-pTk" id="nuO-nY-vbF">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -160,7 +160,6 @@
                                 <state key="normal" title="Save "/>
                                 <connections>
                                     <action selector="saveProperty:" destination="puY-hZ-v1q" eventType="touchUpInside" id="plf-NW-oGq"/>
-                                    <segue destination="5Ss-rD-NaB" kind="presentation" id="CrV-El-G8H"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -179,6 +178,7 @@
                     <navigationItem key="navigationItem" id="qxN-AR-Taw"/>
                     <connections>
                         <outlet property="newPropertyName" destination="IAa-wx-35v" id="Jdt-La-e6h"/>
+                        <segue destination="5Ss-rD-NaB" kind="presentation" identifier="propertyDetail" id="78F-EM-jEe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gDl-QB-8Tq" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -211,7 +211,7 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Riu-Sb-cJ6">
                                 <rect key="frame" x="0.0" y="83" width="600" height="470"/>
                                 <connections>
-                                    <segue destination="O1G-Or-4xk" kind="embed" id="OZ9-Dc-Wsm"/>
+                                    <segue destination="O1G-Or-4xk" kind="embed" identifier="editProperty" id="OZ9-Dc-Wsm"/>
                                 </connections>
                             </containerView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oVS-ZE-cE5">
@@ -257,7 +257,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jUI-MY-mwi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4085" y="-151"/>
+            <point key="canvasLocation" x="4785" y="-69"/>
         </scene>
         <!--Edit Rent View Controller-->
         <scene sceneID="p1t-3H-Gaf">
@@ -284,6 +284,9 @@
                                     <constraint firstAttribute="width" constant="46" id="R47-Ho-wwa"/>
                                 </constraints>
                                 <state key="normal" title="Save"/>
+                                <connections>
+                                    <segue destination="RQh-uA-R0m" kind="unwind" identifier="rentprice" unwindAction="unwindToVC:" id="PIE-DN-YVF"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="gQ2-m4-Htk">
                                 <rect key="frame" x="0.0" y="65" width="600" height="60"/>
@@ -319,6 +322,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tit-GO-Nib" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="RQh-uA-R0m" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="4897" y="533"/>
         </scene>
@@ -355,7 +359,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="777-gx-Mje" id="Gue-4s-2Lv">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Apartment Name " textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c4I-Sh-wrs">
@@ -377,7 +381,7 @@
                                         <rect key="frame" x="0.0" y="44" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Amy-Tc-ObA" id="aDV-O1-kum">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BmH-Mk-MU2">
@@ -399,7 +403,7 @@
                                         <rect key="frame" x="0.0" y="88" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="67L-xd-xqd" id="s6a-HS-ea9">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rent " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FjU-7W-KCY">
@@ -411,7 +415,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Ya-5S-Dvl">
                                                     <rect key="frame" x="545" y="11" width="21" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -434,7 +438,7 @@
                                         <rect key="frame" x="0.0" y="160" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IZ7-X7-cbN" id="z2w-Xn-wYV">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bedrooms " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6f6-II-Yc4">
@@ -443,9 +447,25 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="G4J-rF-qEh">
+                                                    <rect key="frame" x="487" y="8" width="94" height="29"/>
+                                                    <connections>
+                                                        <action selector="bedroomStepper:" destination="O1G-Or-4xk" eventType="valueChanged" id="fQN-iT-0q7"/>
+                                                    </connections>
+                                                </stepper>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iVe-4D-RVq">
+                                                    <rect key="frame" x="458" y="11" width="11" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="G4J-rF-qEh" firstAttribute="leading" secondItem="iVe-4D-RVq" secondAttribute="trailing" constant="18" id="6SV-BC-eb3"/>
+                                                <constraint firstItem="G4J-rF-qEh" firstAttribute="top" secondItem="z2w-Xn-wYV" secondAttribute="topMargin" id="7KN-7W-jGj"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="G4J-rF-qEh" secondAttribute="trailing" constant="11" id="RqU-2r-FFc"/>
                                                 <constraint firstItem="6f6-II-Yc4" firstAttribute="leading" secondItem="z2w-Xn-wYV" secondAttribute="leadingMargin" constant="29" id="TYO-PI-jvn"/>
+                                                <constraint firstItem="iVe-4D-RVq" firstAttribute="baseline" secondItem="6f6-II-Yc4" secondAttribute="baseline" id="oSS-W7-HhF"/>
                                                 <constraint firstItem="6f6-II-Yc4" firstAttribute="centerY" secondItem="z2w-Xn-wYV" secondAttribute="centerY" id="q8u-YZ-hur"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -454,7 +474,7 @@
                                         <rect key="frame" x="0.0" y="204" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Y7j-hd-wX8" id="QiQ-ns-iF1">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bathrooms" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j7f-j4-Olh">
@@ -463,10 +483,26 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="Yci-xW-G5U">
+                                                    <rect key="frame" x="489" y="8" width="94" height="29"/>
+                                                    <connections>
+                                                        <action selector="bathroomStepper:" destination="O1G-Or-4xk" eventType="valueChanged" id="a6W-MF-Rq9"/>
+                                                    </connections>
+                                                </stepper>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A0a-NT-tyW">
+                                                    <rect key="frame" x="457" y="11" width="11" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Yci-xW-G5U" secondAttribute="trailing" constant="9" id="1Zb-o8-DtC"/>
                                                 <constraint firstItem="j7f-j4-Olh" firstAttribute="centerY" secondItem="QiQ-ns-iF1" secondAttribute="centerY" id="7tY-ZU-PNi"/>
                                                 <constraint firstItem="j7f-j4-Olh" firstAttribute="leading" secondItem="QiQ-ns-iF1" secondAttribute="leadingMargin" constant="27" id="DsK-kh-jYv"/>
+                                                <constraint firstItem="A0a-NT-tyW" firstAttribute="baseline" secondItem="j7f-j4-Olh" secondAttribute="baseline" id="Q6W-q0-oUB"/>
+                                                <constraint firstItem="Yci-xW-G5U" firstAttribute="top" secondItem="QiQ-ns-iF1" secondAttribute="topMargin" id="b0Z-G9-JY5"/>
+                                                <constraint firstItem="Yci-xW-G5U" firstAttribute="leading" secondItem="A0a-NT-tyW" secondAttribute="trailing" constant="21" id="bp5-rp-Qer"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -477,7 +513,7 @@
                                         <rect key="frame" x="0.0" y="248" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zfJ-8f-nQN" id="AW5-eb-Eyw">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -489,6 +525,15 @@
                             <outlet property="delegate" destination="O1G-Or-4xk" id="nud-4m-4pQ"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="addressNameTextField" destination="BmH-Mk-MU2" id="vYV-56-fyO"/>
+                        <outlet property="apartmentNameTextField" destination="c4I-Sh-wrs" id="FLr-H0-CmH"/>
+                        <outlet property="bathroomStepperOutlet" destination="Yci-xW-G5U" id="Mm4-qM-NC2"/>
+                        <outlet property="bedroomStepperOutlet" destination="G4J-rF-qEh" id="TAZ-vw-xLk"/>
+                        <outlet property="numberBathroomsLabel" destination="A0a-NT-tyW" id="bls-gx-pnF"/>
+                        <outlet property="numberBedroomLbel" destination="iVe-4D-RVq" id="ZXn-qX-B6m"/>
+                        <outlet property="priceLabel" destination="3Ya-5S-Dvl" id="21v-el-nU2"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bhR-df-tpf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

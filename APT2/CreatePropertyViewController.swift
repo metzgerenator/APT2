@@ -10,7 +10,7 @@ import UIKit
 class CreatePropertyViewController: UIViewController {
     
     var currentUserID: AnyObject?
-    
+    //propertyDetail
 
     @IBOutlet weak var newPropertyName: UITextField!
     @IBAction func saveProperty(sender: AnyObject) {
@@ -19,9 +19,24 @@ class CreatePropertyViewController: UIViewController {
         if newPropertyName.text?.characters.count > 0 {
             // save to parse
             
-            DataService.ds.createProperty(currentUserID!, propertyName: newPropertyName.text!)
+            //DataService.ds.createProperty(currentUserID!, propertyName: newPropertyName.text!)
+            
+            
+            self.performSegueWithIdentifier("propertyDetail", sender: newPropertyName.text)
         }
         
+    }
+    
+    
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "propertyDetail" {
+            
+            let vc = segue.destinationViewController as! AddPropertyDetailsViewController
+            vc.apartmnetNameLabel = sender as? String
+            
+            
+        }
     }
     
     

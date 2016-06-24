@@ -24,13 +24,7 @@ class EditRentViewController: UIViewController {
     }
     
     
-    @IBAction func saveButton(sender: UIStoryboardSegue) {
-        
-        
-       self.performSegueWithIdentifier("rent", sender: self)
-        
-    }
-    
+ 
     
     
     override func viewDidLoad() {
@@ -50,8 +44,12 @@ class EditRentViewController: UIViewController {
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        if segue.identifier == "rent" {
-            print("rentprice will work!")
+        if segue.identifier == "rentprice" {
+            
+            let vc = segue.destinationViewController as! EditPropertyDetailsTableViewController
+            
+            vc.priceLabel.text = priceTextLabel.text
+            
         }
         
     }
