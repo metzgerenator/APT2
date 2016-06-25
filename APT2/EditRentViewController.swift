@@ -49,6 +49,7 @@ class EditRentViewController: UIViewController {
             let vc = segue.destinationViewController as! EditPropertyDetailsTableViewController
             
             vc.priceLabel.text = priceTextLabel.text
+            vc.rentFrequency.text = frequencyTextLabel.text
             
         }
         

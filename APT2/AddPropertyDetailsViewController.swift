@@ -31,15 +31,19 @@ class AddPropertyDetailsViewController: UIViewController {
         
         let rent = vc.priceLabel.text
         
+        let frequency = vc.rentFrequency.text
+        
+        
         let bedrooms = vc.numberBedroomLbel.text
         
         let bathrooms = vc.numberBathroomsLabel.text
         
-        print("apartment name: \(ApartmentName), address: \(adddress), rent: \(rent), bedrooms: \(bedrooms), bathrooms: \(bathrooms)")
+       // print("apartment name: \(ApartmentName), address: \(adddress), rent: \(rent), bedrooms: \(bedrooms), bathrooms: \(bathrooms)")
         
         //save to firebase 
         
-        let propertyDic = ["Name" : ApartmentName!, "Address" : adddress!, "Rent" :  rent!, "Bedrooms" : bedrooms!, "Bathrooms" : bathrooms!]
+        let propertyDic: Dictionary = ["Name" : ApartmentName!, "Address" : adddress!, "Rent" :  ["Price" : rent!, "Frequency" : frequency!], "Bedrooms" : bedrooms!, "Bathrooms" : bathrooms!]
+        
         
         DataService.ds.createProperty(currentUserID!, propertyDetails: propertyDic)
         

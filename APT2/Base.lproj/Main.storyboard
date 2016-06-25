@@ -328,7 +328,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tit-GO-Nib" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="RQh-uA-R0m" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4897" y="533"/>
+            <point key="canvasLocation" x="5043" y="568"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="F3U-lq-tXU">
@@ -407,7 +407,7 @@
                                         <rect key="frame" x="0.0" y="88" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="67L-xd-xqd" id="s6a-HS-ea9">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rent " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FjU-7W-KCY">
@@ -422,8 +422,16 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Frequency " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hX2-hh-6aO">
+                                                    <rect key="frame" x="418" y="11" width="86" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="hX2-hh-6aO" firstAttribute="baseline" secondItem="3Ya-5S-Dvl" secondAttribute="baseline" id="0oF-ff-74N"/>
+                                                <constraint firstItem="3Ya-5S-Dvl" firstAttribute="leading" secondItem="hX2-hh-6aO" secondAttribute="trailing" constant="41" id="4ut-HC-3Vd"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="3Ya-5S-Dvl" secondAttribute="trailing" constant="26" id="Dqi-Cu-TTA"/>
                                                 <constraint firstItem="FjU-7W-KCY" firstAttribute="leading" secondItem="s6a-HS-ea9" secondAttribute="leadingMargin" constant="29" id="c12-U4-YD3"/>
                                                 <constraint firstItem="FjU-7W-KCY" firstAttribute="centerY" secondItem="s6a-HS-ea9" secondAttribute="centerY" id="qa0-7c-TAb"/>
@@ -537,6 +545,7 @@
                         <outlet property="numberBathroomsLabel" destination="A0a-NT-tyW" id="bls-gx-pnF"/>
                         <outlet property="numberBedroomLbel" destination="iVe-4D-RVq" id="ZXn-qX-B6m"/>
                         <outlet property="priceLabel" destination="3Ya-5S-Dvl" id="21v-el-nU2"/>
+                        <outlet property="rentFrequency" destination="hX2-hh-6aO" id="GZ3-mO-lOf"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bhR-df-tpf" userLabel="First Responder" sceneMemberID="firstResponder"/>

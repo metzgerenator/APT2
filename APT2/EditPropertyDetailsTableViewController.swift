@@ -17,6 +17,7 @@ class EditPropertyDetailsTableViewController: UITableViewController {
     
     @IBOutlet var priceLabel: UILabel!
     
+    @IBOutlet var rentFrequency: UILabel!
     
     @IBOutlet var numberBedroomLbel: UILabel!
     
@@ -52,6 +53,8 @@ class EditPropertyDetailsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        // Setup Stepper
         bedroomStepperOutlet.wraps = true
         bedroomStepperOutlet.autorepeat = true
         bedroomStepperOutlet.maximumValue = 10
