@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2703B08F1D1ED797004D2854 /* AmenitiesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2703B08E1D1ED797004D2854 /* AmenitiesTableViewController.swift */; };
 		270F760B1CE9380900525E2B /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270F760A1CE9380900525E2B /* SignUpViewController.swift */; };
 		270F83D31CE8CDB600E09AAC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270F83D21CE8CDB600E09AAC /* AppDelegate.swift */; };
 		270F83D81CE8CDB600E09AAC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 270F83D61CE8CDB600E09AAC /* Main.storyboard */; };
@@ -49,6 +50,7 @@
 
 /* Begin PBXFileReference section */
 		09CB8BA5D0889EC562612DCB /* Pods-APT2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APT2.release.xcconfig"; path = "Pods/Target Support Files/Pods-APT2/Pods-APT2.release.xcconfig"; sourceTree = "<group>"; };
+		2703B08E1D1ED797004D2854 /* AmenitiesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmenitiesTableViewController.swift; sourceTree = "<group>"; };
 		270F760A1CE9380900525E2B /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		270F83CF1CE8CDB500E09AAC /* APT2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = APT2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		270F83D21CE8CDB600E09AAC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -212,10 +214,11 @@
 		57EA63BE1D1B6D9600C48C2A /* EditPropertyDetails  */ = {
 			isa = PBXGroup;
 			children = (
-				57CCDBB21D17479D00F34EF8 /* CreatePropertyViewController.swift */,
 				570E9EC31D1A26700080AE14 /* AddPropertyDetailsViewController.swift */,
+				57CCDBB21D17479D00F34EF8 /* CreatePropertyViewController.swift */,
 				57EA63BC1D1B6D2800C48C2A /* EditPropertyDetailsTableViewController.swift */,
 				57EA63BF1D1B6E0000C48C2A /* EditRentViewController.swift */,
+				2703B08E1D1ED797004D2854 /* AmenitiesTableViewController.swift */,
 			);
 			name = "EditPropertyDetails ";
 			sourceTree = "<group>";
@@ -417,6 +420,7 @@
 				570E9EC41D1A26700080AE14 /* AddPropertyDetailsViewController.swift in Sources */,
 				270F83D31CE8CDB600E09AAC /* AppDelegate.swift in Sources */,
 				57CCDBB31D17479D00F34EF8 /* CreatePropertyViewController.swift in Sources */,
+				2703B08F1D1ED797004D2854 /* AmenitiesTableViewController.swift in Sources */,
 				577CCAF91CFFC28200F753B0 /* PropertyViewController.swift in Sources */,
 				57EA63C01D1B6E0000C48C2A /* EditRentViewController.swift in Sources */,
 				57CCDBAF1D1710B200F34EF8 /* PropertyTableViewCell.swift in Sources */,
