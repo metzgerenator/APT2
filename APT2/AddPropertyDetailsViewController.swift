@@ -25,6 +25,7 @@ class AddPropertyDetailsViewController: UIViewController {
     @IBAction func saveButton(sender: AnyObject) {
          let vc = self.childViewControllers[0] as! EditPropertyDetailsTableViewController
         
+        
         let ApartmentName = vc.apartmentNameTextField.text
         
         let adddress = vc.addressNameTextField.text
@@ -38,7 +39,12 @@ class AddPropertyDetailsViewController: UIViewController {
         
         let bathrooms = vc.numberBathroomsLabel.text
         
-       // print("apartment name: \(ApartmentName), address: \(adddress), rent: \(rent), bedrooms: \(bedrooms), bathrooms: \(bathrooms)")
+        let vcChild  = vc.childViewControllers[0] as! EditAmenitiesTableViewController
+        
+        //don't forget to add amenity array
+        print(vcChild.amentyArray)
+        
+        
         
         //save to firebase 
         

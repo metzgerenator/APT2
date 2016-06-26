@@ -11,7 +11,7 @@ import UIKit
 class EditAmenitiesTableViewController: UITableViewController {
 
     
-    var amentyArray = ["bathroom", "bedrooms", "computers", "swimming pool"]
+    var amentyArray = []
 
     
     override func viewDidLoad() {
@@ -45,8 +45,7 @@ class EditAmenitiesTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
         
-        cell.textLabel?.text = amentyArray[indexPath.row]
-        print("Here is the cell\(cell)")
+        cell.textLabel?.text = amentyArray[indexPath.row] as? String
         
         return cell
     }
