@@ -49,6 +49,13 @@ class EditPropertyDetailsTableViewController: UITableViewController {
         
     }
     
+    @IBAction func addAmenityCell(sender: AnyObject) {
+        
+        let vc = childViewControllers[0] as! EditAmenitiesTableViewController
+        vc.amentyArray.append("a puppy")
+        vc.tableView.reloadData()
+        print(vc)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

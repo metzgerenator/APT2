@@ -27,8 +27,8 @@
 		57CCDBB31D17479D00F34EF8 /* CreatePropertyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CCDBB21D17479D00F34EF8 /* CreatePropertyViewController.swift */; };
 		57EA63BD1D1B6D2800C48C2A /* EditPropertyDetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EA63BC1D1B6D2800C48C2A /* EditPropertyDetailsTableViewController.swift */; };
 		57EA63C01D1B6E0000C48C2A /* EditRentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EA63BF1D1B6E0000C48C2A /* EditRentViewController.swift */; };
-		57EA63C21D1F086B00C48C2A /* EditAmenitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EA63C11D1F086B00C48C2A /* EditAmenitiesViewController.swift */; };
 		57EA63C51D1F0B8700C48C2A /* AmenityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EA63C41D1F0B8700C48C2A /* AmenityTableViewCell.swift */; };
+		57EA63C71D20232000C48C2A /* EditAmenitiesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EA63C61D20232000C48C2A /* EditAmenitiesTableViewController.swift */; };
 		6E5D66732CB56A94600D117E /* Pods_APT2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A247E43DDABFBA0C8D86D6F /* Pods_APT2.framework */; };
 /* End PBXBuildFile section */
 
@@ -78,8 +78,8 @@
 		57CCDBB21D17479D00F34EF8 /* CreatePropertyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePropertyViewController.swift; sourceTree = "<group>"; };
 		57EA63BC1D1B6D2800C48C2A /* EditPropertyDetailsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditPropertyDetailsTableViewController.swift; sourceTree = "<group>"; };
 		57EA63BF1D1B6E0000C48C2A /* EditRentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditRentViewController.swift; sourceTree = "<group>"; };
-		57EA63C11D1F086B00C48C2A /* EditAmenitiesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditAmenitiesViewController.swift; sourceTree = "<group>"; };
 		57EA63C41D1F0B8700C48C2A /* AmenityTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmenityTableViewCell.swift; sourceTree = "<group>"; };
+		57EA63C61D20232000C48C2A /* EditAmenitiesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditAmenitiesTableViewController.swift; sourceTree = "<group>"; };
 		7E40C90B8E9BD4142ED13CB1 /* Pods-APT2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APT2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-APT2/Pods-APT2.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -228,8 +228,8 @@
 		57EA63C31D1F0B4D00C48C2A /* Amenities */ = {
 			isa = PBXGroup;
 			children = (
-				57EA63C11D1F086B00C48C2A /* EditAmenitiesViewController.swift */,
 				57EA63C41D1F0B8700C48C2A /* AmenityTableViewCell.swift */,
+				57EA63C61D20232000C48C2A /* EditAmenitiesTableViewController.swift */,
 			);
 			name = Amenities;
 			sourceTree = "<group>";
@@ -433,12 +433,12 @@
 				57CCDBB31D17479D00F34EF8 /* CreatePropertyViewController.swift in Sources */,
 				57EA63C51D1F0B8700C48C2A /* AmenityTableViewCell.swift in Sources */,
 				577CCAF91CFFC28200F753B0 /* PropertyViewController.swift in Sources */,
-				57EA63C21D1F086B00C48C2A /* EditAmenitiesViewController.swift in Sources */,
 				57EA63C01D1B6E0000C48C2A /* EditRentViewController.swift in Sources */,
 				57CCDBAF1D1710B200F34EF8 /* PropertyTableViewCell.swift in Sources */,
 				57EA63BD1D1B6D2800C48C2A /* EditPropertyDetailsTableViewController.swift in Sources */,
 				270F760B1CE9380900525E2B /* SignUpViewController.swift in Sources */,
 				577BAC691CFA3B6C00E4F943 /* DataServices.swift in Sources */,
+				57EA63C71D20232000C48C2A /* EditAmenitiesTableViewController.swift in Sources */,
 				5708176C1CFC915B00CFFEE6 /* Constants.swift in Sources */,
 				57CCDBB11D1719F000F34EF8 /* PropertyObjects  .swift in Sources */,
 			);
