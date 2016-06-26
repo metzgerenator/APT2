@@ -14,6 +14,7 @@
 		270F83DD1CE8CDB600E09AAC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 270F83DB1CE8CDB600E09AAC /* LaunchScreen.storyboard */; };
 		270F83E81CE8CDB600E09AAC /* APT2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270F83E71CE8CDB600E09AAC /* APT2Tests.swift */; };
 		270F83F31CE8CDB600E09AAC /* APT2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270F83F21CE8CDB600E09AAC /* APT2UITests.swift */; };
+		279DA43F1D205B2600AF99E5 /* AddAmenityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279DA43E1D205B2600AF99E5 /* AddAmenityViewController.swift */; };
 		5708176C1CFC915B00CFFEE6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5708176B1CFC915B00CFFEE6 /* Constants.swift */; };
 		570E9EC41D1A26700080AE14 /* AddPropertyDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570E9EC31D1A26700080AE14 /* AddPropertyDetailsViewController.swift */; };
 		577BAC631CFA0E7400E4F943 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 577BAC5F1CFA0E7400E4F943 /* Bolts.framework */; };
@@ -64,6 +65,7 @@
 		270F83EE1CE8CDB600E09AAC /* APT2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = APT2UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		270F83F21CE8CDB600E09AAC /* APT2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APT2UITests.swift; sourceTree = "<group>"; };
 		270F83F41CE8CDB600E09AAC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		279DA43E1D205B2600AF99E5 /* AddAmenityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAmenityViewController.swift; sourceTree = "<group>"; };
 		4A247E43DDABFBA0C8D86D6F /* Pods_APT2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_APT2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5708176B1CFC915B00CFFEE6 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		570E9EC31D1A26700080AE14 /* AddPropertyDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPropertyDetailsViewController.swift; sourceTree = "<group>"; };
@@ -230,6 +232,7 @@
 			children = (
 				57EA63C41D1F0B8700C48C2A /* AmenityTableViewCell.swift */,
 				57EA63C61D20232000C48C2A /* EditAmenitiesTableViewController.swift */,
+				279DA43E1D205B2600AF99E5 /* AddAmenityViewController.swift */,
 			);
 			name = Amenities;
 			sourceTree = "<group>";
@@ -434,6 +437,7 @@
 				57EA63C51D1F0B8700C48C2A /* AmenityTableViewCell.swift in Sources */,
 				577CCAF91CFFC28200F753B0 /* PropertyViewController.swift in Sources */,
 				57EA63C01D1B6E0000C48C2A /* EditRentViewController.swift in Sources */,
+				279DA43F1D205B2600AF99E5 /* AddAmenityViewController.swift in Sources */,
 				57CCDBAF1D1710B200F34EF8 /* PropertyTableViewCell.swift in Sources */,
 				57EA63BD1D1B6D2800C48C2A /* EditPropertyDetailsTableViewController.swift in Sources */,
 				270F760B1CE9380900525E2B /* SignUpViewController.swift in Sources */,

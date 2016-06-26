@@ -27,6 +27,27 @@ class EditPropertyDetailsTableViewController: UITableViewController {
     
     @IBOutlet var bedroomStepperOutlet: UIStepper!
     
+    var newAmenity: String?
+    
+    
+@IBAction func unwindFromAmenityEdit(segue: UIStoryboardSegue) {
+    
+    if let amenityTosend = newAmenity {
+        
+        print("amenityTosend = = \(amenityTosend)")
+        
+        let vc = childViewControllers[0] as! EditAmenitiesTableViewController
+        vc.amentyArray.append(amenityTosend)
+        vc.tableView.reloadData()
+        
+        
+    }
+    
+    
+    
+    }
+    
+    
     @IBAction func bedroomStepper(sender: UIStepper) {
         
          numberBedroomLbel.text = Int(sender.value).description
