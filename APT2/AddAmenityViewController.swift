@@ -8,7 +8,16 @@
 
 import UIKit
 
-class AddAmenityViewController: UIViewController {
+class AddAmenityViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    
+    var availableAmenities = ["pool", "rooftop", "kitchen", "bed"]
+    
+    var amenitiesToSave:Dictionary = [String : Bool]()
+    
+    
+    @IBOutlet weak var tableView: UITableView!
+    
 
     @IBAction func cancelButton(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
@@ -18,7 +27,14 @@ class AddAmenityViewController: UIViewController {
     
     @IBAction func saveButton(sender: AnyObject) {
         
-        self.performSegueWithIdentifier("amenity", sender: amenityTextField.text)
+        if amenityTextField.text?.characters.count > 0 {
+            amenitiesToSave.updateValue(true, forKey: "\(amenityTextField.text)")
+            
+            
+        }
+        
+        self.performSegueWithIdentifier("amenity", sender: nil)
+        
         
     }
     
@@ -26,8 +42,10 @@ class AddAmenityViewController: UIViewController {
     
     @IBOutlet var amenityTextField: UITextField!
     
+  
     
-    
+
+  
     override func viewDidLoad() {
         super.viewDidLoad()
      
@@ -50,12 +68,88 @@ class AddAmenityViewController: UIViewController {
         if segue.identifier == "amenity" {
             
             let vc = segue.destinationViewController as! EditPropertyDetailsTableViewController
-            vc.newAmenity = sender as? String
             
+            for (key, value) in amenitiesToSave {
+                vc.currentAmenities.append(key)
+            }
+            amenitiesToSave.removeAll()
             
             
         }
     }
+    
+    
+    
+    //MARK: Table view methods
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell") as! AddAmenityTableViewCell
+        
+        let amenity = availableAmenities[indexPath.row]
+       
+        for (key, value) in amenitiesToSave {
+            if key == amenity {
+                cell.amenityrSwitch.on = true
+            }
+            
+        }
+        
+        
+        cell.amenityrSwitch.tag = indexPath.row
+        cell.amenityrSwitch.addTarget(self, action: #selector(AddAmenityViewController.buttonClicked(_:)) , forControlEvents: UIControlEvents.TouchUpInside)
+        
+        print(amenity)
+        cell.amenityLabel.text = amenity
+        
+        return cell
+        
+    }
+    
+    
+    func buttonClicked(sender:UISwitch) {
+        
+        let buttonRow = sender.tag
+        let amenity = availableAmenities[buttonRow]
+        
+        if sender.on {
+            
+            amenitiesToSave.updateValue(true, forKey: amenity)
+            
+        
+           
+        
+           
+        } else {
+           amenitiesToSave.updateValue(false, forKey: amenity)
+        }
+        
+        
+    }
+    
+    
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+    }
+    
+    
+    
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        
+        
+        return availableAmenities.count
+    }
+
 
 
 }

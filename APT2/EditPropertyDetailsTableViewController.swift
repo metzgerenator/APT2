@@ -27,24 +27,52 @@ class EditPropertyDetailsTableViewController: UITableViewController {
     
     @IBOutlet var bedroomStepperOutlet: UIStepper!
     
-    var newAmenity: String?
+    var currentAmenities = [String]()
     
     
 @IBAction func unwindFromAmenityEdit(segue: UIStoryboardSegue) {
     
-    if let amenityTosend = newAmenity {
-        
-        print("amenityTosend = = \(amenityTosend)")
-        
+    if currentAmenities.count > 0 {
+        // might want to clear array here
+    
         let vc = childViewControllers[0] as! EditAmenitiesTableViewController
-        vc.amentyArray.append(amenityTosend)
+        vc.amentyArray.removeAll()
+        
+        for item in currentAmenities {
+            vc.amentyArray.append(item)
+        }
+        
         vc.tableView.reloadData()
         
-        
+    }
+
+    
+    
     }
     
+ 
     
-    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "customAmenity" && currentAmenities.count > 0 {
+            let vc = segue.destinationViewController as! AddAmenityViewController
+            vc.amenitiesToSave.removeAll()
+            
+            for item in currentAmenities {
+                vc.amenitiesToSave.updateValue(true, forKey: item)
+                
+                if !vc.availableAmenities.contains(item) {
+                     vc.availableAmenities.append(item)
+                }
+               
+                
+               
+            }
+            
+
+
+            
+            
+        }
     }
     
     
