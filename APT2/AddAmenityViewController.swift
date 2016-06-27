@@ -69,11 +69,7 @@ class AddAmenityViewController: UIViewController, UITableViewDataSource, UITable
             
             let vc = segue.destinationViewController as! EditPropertyDetailsTableViewController
             
-            for (key, value) in amenitiesToSave {
-                vc.currentAmenities.append(key)
-            }
-            amenitiesToSave.removeAll()
-            
+           vc.currentAmenities = amenitiesToSave
             
         }
     }
@@ -90,7 +86,7 @@ class AddAmenityViewController: UIViewController, UITableViewDataSource, UITable
         let amenity = availableAmenities[indexPath.row]
        
         for (key, value) in amenitiesToSave {
-            if key == amenity {
+            if key == amenity && value == true {
                 cell.amenityrSwitch.on = true
             }
             
@@ -117,12 +113,12 @@ class AddAmenityViewController: UIViewController, UITableViewDataSource, UITable
             
             amenitiesToSave.updateValue(true, forKey: amenity)
             
-        
            
         
            
         } else {
            amenitiesToSave.updateValue(false, forKey: amenity)
+            
         }
         
         

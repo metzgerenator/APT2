@@ -27,7 +27,7 @@ class EditPropertyDetailsTableViewController: UITableViewController {
     
     @IBOutlet var bedroomStepperOutlet: UIStepper!
     
-    var currentAmenities = [String]()
+    var currentAmenities:Dictionary = [String : Bool]()
     
     
 @IBAction func unwindFromAmenityEdit(segue: UIStoryboardSegue) {
@@ -37,9 +37,16 @@ class EditPropertyDetailsTableViewController: UITableViewController {
     
         let vc = childViewControllers[0] as! EditAmenitiesTableViewController
         vc.amentyArray.removeAll()
+        vc.tableView.reloadData()
+    
         
-        for item in currentAmenities {
-            vc.amentyArray.append(item)
+        for (key, value) in currentAmenities {
+            
+            if value == true {
+                vc.amentyArray.append(key)
+            }
+            
+            
         }
         
         vc.tableView.reloadData()
@@ -55,15 +62,25 @@ class EditPropertyDetailsTableViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "customAmenity" && currentAmenities.count > 0 {
             let vc = segue.destinationViewController as! AddAmenityViewController
-            vc.amenitiesToSave.removeAll()
             
-            for item in currentAmenities {
-                vc.amenitiesToSave.updateValue(true, forKey: item)
-                
-                if !vc.availableAmenities.contains(item) {
-                     vc.availableAmenities.append(item)
+            let tableViewVc = childViewControllers[0] as! EditAmenitiesTableViewController
+            tableViewVc.amentyArray.removeAll()
+            tableViewVc.tableView.reloadData()
+            
+                vc.amenitiesToSave.removeAll()
+            
+                vc.amenitiesToSave = currentAmenities
+            
+            for (key, value) in currentAmenities {
+                if !vc.availableAmenities.contains(key) {
+                    vc.availableAmenities.append(key)
                 }
-               
+            }
+            
+            print("amenities being transfered : \(currentAmenities)")
+            //clear table view
+        
+        
                 
                
             }
@@ -73,7 +90,7 @@ class EditPropertyDetailsTableViewController: UITableViewController {
             
             
         }
-    }
+    
     
     
     @IBAction func bedroomStepper(sender: UIStepper) {
