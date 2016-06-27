@@ -1,19 +1,19 @@
 //
-//  AmenitiesTableViewController.swift
+//  EditAmenitiesTableViewController.swift
 //  APT2
 //
-//  Created by Michael Metzger  on 6/25/16.
+//  Created by Aileen Taboy on 6/26/16.
 //  Copyright © 2016 Michael Metzger . All rights reserved.
 //
 
 import UIKit
 
-class AmenitiesTableViewController: UITableViewController {
-    
-    
-    let testArray = ["bathroom", "kitchen", "sink", "faucet", "swimming Pool", "Maid's quarters","bathroom", "kitchen", "sink", "faucet", "swimming Pool", "Maid's quarters"]
-    
+class EditAmenitiesTableViewController: UITableViewController {
 
+    
+    var amentyArray = [String]()
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -38,21 +38,18 @@ class AmenitiesTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return testArray.count
+        return amentyArray.count
     }
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
         
-        cell.textLabel?.text = testArray[indexPath.row]
+        cell.textLabel?.text = amentyArray[indexPath.row] 
         
-
-        // Configure the cell...
-
         return cell
     }
-
+ 
 
     /*
     // Override to support conditional editing of the table view.

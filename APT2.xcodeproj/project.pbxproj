@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2703B08F1D1ED797004D2854 /* AmenitiesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2703B08E1D1ED797004D2854 /* AmenitiesTableViewController.swift */; };
 		270F760B1CE9380900525E2B /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270F760A1CE9380900525E2B /* SignUpViewController.swift */; };
 		270F83D31CE8CDB600E09AAC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270F83D21CE8CDB600E09AAC /* AppDelegate.swift */; };
 		270F83D81CE8CDB600E09AAC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 270F83D61CE8CDB600E09AAC /* Main.storyboard */; };
@@ -15,6 +14,7 @@
 		270F83DD1CE8CDB600E09AAC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 270F83DB1CE8CDB600E09AAC /* LaunchScreen.storyboard */; };
 		270F83E81CE8CDB600E09AAC /* APT2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270F83E71CE8CDB600E09AAC /* APT2Tests.swift */; };
 		270F83F31CE8CDB600E09AAC /* APT2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270F83F21CE8CDB600E09AAC /* APT2UITests.swift */; };
+		279DA43F1D205B2600AF99E5 /* AddAmenityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279DA43E1D205B2600AF99E5 /* AddAmenityViewController.swift */; };
 		5708176C1CFC915B00CFFEE6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5708176B1CFC915B00CFFEE6 /* Constants.swift */; };
 		570E9EC41D1A26700080AE14 /* AddPropertyDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570E9EC31D1A26700080AE14 /* AddPropertyDetailsViewController.swift */; };
 		577BAC631CFA0E7400E4F943 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 577BAC5F1CFA0E7400E4F943 /* Bolts.framework */; };
@@ -28,6 +28,9 @@
 		57CCDBB31D17479D00F34EF8 /* CreatePropertyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57CCDBB21D17479D00F34EF8 /* CreatePropertyViewController.swift */; };
 		57EA63BD1D1B6D2800C48C2A /* EditPropertyDetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EA63BC1D1B6D2800C48C2A /* EditPropertyDetailsTableViewController.swift */; };
 		57EA63C01D1B6E0000C48C2A /* EditRentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EA63BF1D1B6E0000C48C2A /* EditRentViewController.swift */; };
+		57EA63C51D1F0B8700C48C2A /* AmenityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EA63C41D1F0B8700C48C2A /* AmenityTableViewCell.swift */; };
+		57EA63C71D20232000C48C2A /* EditAmenitiesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EA63C61D20232000C48C2A /* EditAmenitiesTableViewController.swift */; };
+		57EA63CB1D2098A700C48C2A /* AddAmenityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EA63CA1D2098A700C48C2A /* AddAmenityTableViewCell.swift */; };
 		6E5D66732CB56A94600D117E /* Pods_APT2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A247E43DDABFBA0C8D86D6F /* Pods_APT2.framework */; };
 /* End PBXBuildFile section */
 
@@ -50,7 +53,6 @@
 
 /* Begin PBXFileReference section */
 		09CB8BA5D0889EC562612DCB /* Pods-APT2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APT2.release.xcconfig"; path = "Pods/Target Support Files/Pods-APT2/Pods-APT2.release.xcconfig"; sourceTree = "<group>"; };
-		2703B08E1D1ED797004D2854 /* AmenitiesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmenitiesTableViewController.swift; sourceTree = "<group>"; };
 		270F760A1CE9380900525E2B /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		270F83CF1CE8CDB500E09AAC /* APT2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = APT2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		270F83D21CE8CDB600E09AAC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -64,6 +66,7 @@
 		270F83EE1CE8CDB600E09AAC /* APT2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = APT2UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		270F83F21CE8CDB600E09AAC /* APT2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APT2UITests.swift; sourceTree = "<group>"; };
 		270F83F41CE8CDB600E09AAC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		279DA43E1D205B2600AF99E5 /* AddAmenityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAmenityViewController.swift; sourceTree = "<group>"; };
 		4A247E43DDABFBA0C8D86D6F /* Pods_APT2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_APT2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5708176B1CFC915B00CFFEE6 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		570E9EC31D1A26700080AE14 /* AddPropertyDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPropertyDetailsViewController.swift; sourceTree = "<group>"; };
@@ -78,6 +81,9 @@
 		57CCDBB21D17479D00F34EF8 /* CreatePropertyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreatePropertyViewController.swift; sourceTree = "<group>"; };
 		57EA63BC1D1B6D2800C48C2A /* EditPropertyDetailsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditPropertyDetailsTableViewController.swift; sourceTree = "<group>"; };
 		57EA63BF1D1B6E0000C48C2A /* EditRentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditRentViewController.swift; sourceTree = "<group>"; };
+		57EA63C41D1F0B8700C48C2A /* AmenityTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmenityTableViewCell.swift; sourceTree = "<group>"; };
+		57EA63C61D20232000C48C2A /* EditAmenitiesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditAmenitiesTableViewController.swift; sourceTree = "<group>"; };
+		57EA63CA1D2098A700C48C2A /* AddAmenityTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAmenityTableViewCell.swift; sourceTree = "<group>"; };
 		7E40C90B8E9BD4142ED13CB1 /* Pods-APT2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APT2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-APT2/Pods-APT2.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -214,13 +220,24 @@
 		57EA63BE1D1B6D9600C48C2A /* EditPropertyDetails  */ = {
 			isa = PBXGroup;
 			children = (
+				57EA63C31D1F0B4D00C48C2A /* Amenities */,
 				570E9EC31D1A26700080AE14 /* AddPropertyDetailsViewController.swift */,
 				57CCDBB21D17479D00F34EF8 /* CreatePropertyViewController.swift */,
 				57EA63BC1D1B6D2800C48C2A /* EditPropertyDetailsTableViewController.swift */,
 				57EA63BF1D1B6E0000C48C2A /* EditRentViewController.swift */,
-				2703B08E1D1ED797004D2854 /* AmenitiesTableViewController.swift */,
 			);
 			name = "EditPropertyDetails ";
+			sourceTree = "<group>";
+		};
+		57EA63C31D1F0B4D00C48C2A /* Amenities */ = {
+			isa = PBXGroup;
+			children = (
+				57EA63C41D1F0B8700C48C2A /* AmenityTableViewCell.swift */,
+				57EA63C61D20232000C48C2A /* EditAmenitiesTableViewController.swift */,
+				279DA43E1D205B2600AF99E5 /* AddAmenityViewController.swift */,
+				57EA63CA1D2098A700C48C2A /* AddAmenityTableViewCell.swift */,
+			);
+			name = Amenities;
 			sourceTree = "<group>";
 		};
 		AD16769422552BF106CABEFE /* Frameworks */ = {
@@ -420,13 +437,16 @@
 				570E9EC41D1A26700080AE14 /* AddPropertyDetailsViewController.swift in Sources */,
 				270F83D31CE8CDB600E09AAC /* AppDelegate.swift in Sources */,
 				57CCDBB31D17479D00F34EF8 /* CreatePropertyViewController.swift in Sources */,
-				2703B08F1D1ED797004D2854 /* AmenitiesTableViewController.swift in Sources */,
+				57EA63C51D1F0B8700C48C2A /* AmenityTableViewCell.swift in Sources */,
 				577CCAF91CFFC28200F753B0 /* PropertyViewController.swift in Sources */,
 				57EA63C01D1B6E0000C48C2A /* EditRentViewController.swift in Sources */,
+				279DA43F1D205B2600AF99E5 /* AddAmenityViewController.swift in Sources */,
+				57EA63CB1D2098A700C48C2A /* AddAmenityTableViewCell.swift in Sources */,
 				57CCDBAF1D1710B200F34EF8 /* PropertyTableViewCell.swift in Sources */,
 				57EA63BD1D1B6D2800C48C2A /* EditPropertyDetailsTableViewController.swift in Sources */,
 				270F760B1CE9380900525E2B /* SignUpViewController.swift in Sources */,
 				577BAC691CFA3B6C00E4F943 /* DataServices.swift in Sources */,
+				57EA63C71D20232000C48C2A /* EditAmenitiesTableViewController.swift in Sources */,
 				5708176C1CFC915B00CFFEE6 /* Constants.swift in Sources */,
 				57CCDBB11D1719F000F34EF8 /* PropertyObjects  .swift in Sources */,
 			);
