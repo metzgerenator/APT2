@@ -38,17 +38,14 @@ class AddPropertyDetailsViewController: UIViewController {
         let bedrooms = vc.numberBedroomLbel.text
         
         let bathrooms = vc.numberBathroomsLabel.text
+                
         
-        let vcChild  = vc.childViewControllers[0] as! EditAmenitiesTableViewController
-        
-        //don't forget to add amenity array
-        print(vcChild.amentyArray)
-        
+        let amentyDictionary = vc.currentAmenities
         
         
         //save to firebase 
         
-        let propertyDic: Dictionary = ["Name" : ApartmentName!, "Address" : adddress!, "Rent" :  ["Price" : rent!, "Frequency" : frequency!], "Bedrooms" : bedrooms!, "Bathrooms" : bathrooms!]
+        let propertyDic: Dictionary = ["Name" : ApartmentName!, "Address" : adddress!, "Rent" :  ["Price" : rent!, "Frequency" : frequency!], "Bedrooms" : bedrooms!, "Bathrooms" : bathrooms!, "Amenities" : amentyDictionary]
         
         
         DataService.ds.createProperty(currentUserID!, propertyDetails: propertyDic)
