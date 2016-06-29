@@ -63,6 +63,11 @@ class AddPropertyDetailsViewController: UIViewController {
             
         }
         
+       
+        
+    
+        
+        
         if let apartmentName = apartmnetNameLabel {
             
             print(apartmentName)
