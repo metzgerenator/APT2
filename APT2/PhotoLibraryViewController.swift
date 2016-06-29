@@ -12,6 +12,8 @@ class PhotoLibraryViewController: UIViewController, UIImagePickerControllerDeleg
 
     var imageToPass: UIImage?
     
+    var loadLibrary = true
+    
     
     @IBAction func CancelButton(sender: AnyObject) {
         
@@ -22,6 +24,12 @@ class PhotoLibraryViewController: UIViewController, UIImagePickerControllerDeleg
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+       
+        
+        if (loadLibrary) {
+            
+        
+        
         let picker = UIImagePickerController()
         picker.delegate = self
         picker.allowsEditing = false
@@ -31,6 +39,9 @@ class PhotoLibraryViewController: UIViewController, UIImagePickerControllerDeleg
         // add completeion and bool to let the user go back if they hit cancel
         
         presentViewController(picker, animated: true, completion: nil)
+            
+            
+        }
         
     }
     
@@ -39,10 +50,13 @@ class PhotoLibraryViewController: UIViewController, UIImagePickerControllerDeleg
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         if let image = info[UIImagePickerControllerOriginalImage] {
              imageToPass = image as? UIImage
+            loadLibrary = false
             
-            dismissViewControllerAnimated(true, completion: nil)
+            dismissViewControllerAnimated(true, completion: { 
+                self.performSegueWithIdentifier("photoSave", sender: nil)
+            })
             
-            self.performSegueWithIdentifier("photoSave", sender: nil)
+            
             
         }
     }
@@ -73,6 +87,8 @@ class PhotoLibraryViewController: UIViewController, UIImagePickerControllerDeleg
                 print("currentImage \(currentImage)")
                 
                 vc.imageFromPicker = currentImage
+                
+                loadLibrary = true
             }
             
             
