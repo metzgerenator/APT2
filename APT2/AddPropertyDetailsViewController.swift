@@ -12,6 +12,13 @@ class AddPropertyDetailsViewController: UIViewController {
     var currentUserID: AnyObject?
 
     
+    @IBOutlet var apartMentPhoto: UIImageView!
+    
+    
+    var photoForApartment: UIImage?
+    
+    
+    
     var apartmnetNameLabel: String?
 
     @IBAction func cancelButton(sender: AnyObject) {
@@ -38,23 +45,26 @@ class AddPropertyDetailsViewController: UIViewController {
         let bedrooms = vc.numberBedroomLbel.text
         
         let bathrooms = vc.numberBathroomsLabel.text
+                
         
-        let vcChild  = vc.childViewControllers[0] as! EditAmenitiesTableViewController
-        
-        //don't forget to add amenity array
-        print(vcChild.amentyArray)
-        
+        let amentyDictionary = vc.currentAmenities
         
         
         //save to firebase 
         
-        let propertyDic: Dictionary = ["Name" : ApartmentName!, "Address" : adddress!, "Rent" :  ["Price" : rent!, "Frequency" : frequency!], "Bedrooms" : bedrooms!, "Bathrooms" : bathrooms!]
+        let propertyDic: Dictionary = ["Name" : ApartmentName!, "Address" : adddress!, "Rent" :  ["Price" : rent!, "Frequency" : frequency!], "Bedrooms" : bedrooms!, "Bathrooms" : bathrooms!, "Amenities" : amentyDictionary]
         
         
         DataService.ds.createProperty(currentUserID!, propertyDetails: propertyDic)
         
     }
     
+    
+    override func viewDidAppear(animated: Bool) {
+        if let currentPhoto = photoForApartment {
+            apartMentPhoto.image = currentPhoto
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,6 +75,11 @@ class AddPropertyDetailsViewController: UIViewController {
             
             
         }
+        
+       
+        
+    
+        
         
         if let apartmentName = apartmnetNameLabel {
             

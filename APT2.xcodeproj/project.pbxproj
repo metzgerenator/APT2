@@ -15,6 +15,8 @@
 		270F83E81CE8CDB600E09AAC /* APT2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270F83E71CE8CDB600E09AAC /* APT2Tests.swift */; };
 		270F83F31CE8CDB600E09AAC /* APT2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270F83F21CE8CDB600E09AAC /* APT2UITests.swift */; };
 		279DA43F1D205B2600AF99E5 /* AddAmenityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279DA43E1D205B2600AF99E5 /* AddAmenityViewController.swift */; };
+		27F7B7131D246DCC0098E3D7 /* PhotoLibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F7B7121D246DCC0098E3D7 /* PhotoLibraryViewController.swift */; };
+		27F7B7151D2476FA0098E3D7 /* SaveFileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F7B7141D2476FA0098E3D7 /* SaveFileViewController.swift */; };
 		5708176C1CFC915B00CFFEE6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5708176B1CFC915B00CFFEE6 /* Constants.swift */; };
 		570E9EC41D1A26700080AE14 /* AddPropertyDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570E9EC31D1A26700080AE14 /* AddPropertyDetailsViewController.swift */; };
 		577BAC631CFA0E7400E4F943 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 577BAC5F1CFA0E7400E4F943 /* Bolts.framework */; };
@@ -67,6 +69,8 @@
 		270F83F21CE8CDB600E09AAC /* APT2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APT2UITests.swift; sourceTree = "<group>"; };
 		270F83F41CE8CDB600E09AAC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		279DA43E1D205B2600AF99E5 /* AddAmenityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAmenityViewController.swift; sourceTree = "<group>"; };
+		27F7B7121D246DCC0098E3D7 /* PhotoLibraryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoLibraryViewController.swift; sourceTree = "<group>"; };
+		27F7B7141D2476FA0098E3D7 /* SaveFileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveFileViewController.swift; sourceTree = "<group>"; };
 		4A247E43DDABFBA0C8D86D6F /* Pods_APT2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_APT2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5708176B1CFC915B00CFFEE6 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		570E9EC31D1A26700080AE14 /* AddPropertyDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPropertyDetailsViewController.swift; sourceTree = "<group>"; };
@@ -150,6 +154,7 @@
 		270F83D11CE8CDB500E09AAC /* APT2 */ = {
 			isa = PBXGroup;
 			children = (
+				27F7B7111D246C9E0098E3D7 /* AddPhotoControllers */,
 				57EA63BE1D1B6D9600C48C2A /* EditPropertyDetails  */,
 				577CCAF71CFFC24C00F753B0 /* Properties  */,
 				5708176A1CFC913400CFFEE6 /* Uitilities */,
@@ -180,6 +185,15 @@
 				270F83F41CE8CDB600E09AAC /* Info.plist */,
 			);
 			path = APT2UITests;
+			sourceTree = "<group>";
+		};
+		27F7B7111D246C9E0098E3D7 /* AddPhotoControllers */ = {
+			isa = PBXGroup;
+			children = (
+				27F7B7121D246DCC0098E3D7 /* PhotoLibraryViewController.swift */,
+				27F7B7141D2476FA0098E3D7 /* SaveFileViewController.swift */,
+			);
+			name = AddPhotoControllers;
 			sourceTree = "<group>";
 		};
 		30DDF15455F6D8DA55A7204D /* Pods */ = {
@@ -436,8 +450,10 @@
 			files = (
 				570E9EC41D1A26700080AE14 /* AddPropertyDetailsViewController.swift in Sources */,
 				270F83D31CE8CDB600E09AAC /* AppDelegate.swift in Sources */,
+				27F7B7131D246DCC0098E3D7 /* PhotoLibraryViewController.swift in Sources */,
 				57CCDBB31D17479D00F34EF8 /* CreatePropertyViewController.swift in Sources */,
 				57EA63C51D1F0B8700C48C2A /* AmenityTableViewCell.swift in Sources */,
+				27F7B7151D2476FA0098E3D7 /* SaveFileViewController.swift in Sources */,
 				577CCAF91CFFC28200F753B0 /* PropertyViewController.swift in Sources */,
 				57EA63C01D1B6E0000C48C2A /* EditRentViewController.swift in Sources */,
 				279DA43F1D205B2600AF99E5 /* AddAmenityViewController.swift in Sources */,
