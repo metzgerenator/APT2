@@ -12,6 +12,13 @@ class AddPropertyDetailsViewController: UIViewController {
     var currentUserID: AnyObject?
 
     
+    @IBOutlet var apartMentPhoto: UIImageView!
+    
+    
+    var photoForApartment: UIImage?
+    
+    
+    
     var apartmnetNameLabel: String?
 
     @IBAction func cancelButton(sender: AnyObject) {
@@ -52,6 +59,12 @@ class AddPropertyDetailsViewController: UIViewController {
         
     }
     
+    
+    override func viewDidAppear(animated: Bool) {
+        if let currentPhoto = photoForApartment {
+            apartMentPhoto.image = currentPhoto
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

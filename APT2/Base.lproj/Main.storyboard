@@ -219,56 +219,67 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p9S-wd-xBg">
-                                <rect key="frame" x="6" y="150" width="48" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p9S-wd-xBg">
+                                <rect key="frame" x="0.0" y="72" width="111" height="30"/>
                                 <state key="normal" title="Cancel"/>
                                 <connections>
                                     <action selector="cancelButton:" destination="5Ss-rD-NaB" eventType="touchUpInside" id="j5i-oO-lvT"/>
                                 </connections>
                             </button>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oVS-ZE-cE5">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <items/>
+                            </toolbar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dilbert" translatesAutoresizingMaskIntoConstraints="NO" id="agH-PS-wmW">
+                                <rect key="frame" x="243" y="115" width="115" height="115"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xb4-2i-CyM">
+                                <rect key="frame" x="503" y="110" width="97" height="30"/>
+                                <state key="normal" title="Save Property"/>
+                                <connections>
+                                    <action selector="saveButton:" destination="5Ss-rD-NaB" eventType="touchUpInside" id="LBS-Pd-ZGz"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eiH-6U-8xb">
+                                <rect key="frame" x="546" y="72" width="54" height="30"/>
+                                <state key="normal" title="Camera"/>
+                                <connections>
+                                    <segue destination="KhY-eu-vhn" kind="presentation" id="YNV-xx-yeN"/>
+                                </connections>
+                            </button>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Riu-Sb-cJ6">
-                                <rect key="frame" x="0.0" y="181" width="600" height="372"/>
+                                <rect key="frame" x="0.0" y="238" width="600" height="315"/>
                                 <connections>
                                     <segue destination="O1G-Or-4xk" kind="embed" identifier="editProperty" id="OZ9-Dc-Wsm"/>
                                 </connections>
                             </containerView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oVS-ZE-cE5">
-                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
-                                <items>
-                                    <barButtonItem title="Save " width="78" id="uRx-Pi-4GO">
-                                        <connections>
-                                            <action selector="saveButton:" destination="5Ss-rD-NaB" id="48y-FH-8ZW"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yWU-ux-khd">
-                                <rect key="frame" x="273" y="108" width="54" height="30"/>
-                                <state key="normal" title="Camera"/>
-                                <connections>
-                                    <segue destination="KhY-eu-vhn" kind="presentation" id="aks-vh-iEb"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Riu-Sb-cJ6" firstAttribute="top" secondItem="p9S-wd-xBg" secondAttribute="bottom" constant="1" id="0L2-oX-5Pp"/>
-                            <constraint firstItem="yWU-ux-khd" firstAttribute="top" secondItem="ee8-gu-UkD" secondAttribute="bottom" constant="44" id="1wC-Rk-Plb"/>
-                            <constraint firstItem="Riu-Sb-cJ6" firstAttribute="trailing" secondItem="oVS-ZE-cE5" secondAttribute="trailing" id="Bb0-Ql-zHt"/>
-                            <constraint firstItem="Riu-Sb-cJ6" firstAttribute="top" secondItem="yWU-ux-khd" secondAttribute="bottom" constant="43" id="DIa-gc-Nxc"/>
-                            <constraint firstItem="oVS-ZE-cE5" firstAttribute="top" secondItem="Riu-Sb-cJ6" secondAttribute="bottom" constant="3" id="JPj-HT-wjB"/>
-                            <constraint firstItem="Riu-Sb-cJ6" firstAttribute="leading" secondItem="ir6-qg-WVR" secondAttribute="leading" id="NpO-dr-3Xe"/>
-                            <constraint firstAttribute="trailing" secondItem="Riu-Sb-cJ6" secondAttribute="trailing" id="iIJ-14-BGm"/>
-                            <constraint firstItem="yWU-ux-khd" firstAttribute="centerX" secondItem="Riu-Sb-cJ6" secondAttribute="centerX" id="kWS-gp-V5j"/>
-                            <constraint firstItem="p9S-wd-xBg" firstAttribute="leading" secondItem="ir6-qg-WVR" secondAttribute="leadingMargin" constant="-14" id="uiL-mM-I07"/>
-                            <constraint firstItem="Riu-Sb-cJ6" firstAttribute="leading" secondItem="oVS-ZE-cE5" secondAttribute="leading" id="vBC-vr-Vgc"/>
-                            <constraint firstAttribute="bottom" secondItem="oVS-ZE-cE5" secondAttribute="bottom" id="wbB-bs-OWW"/>
+                            <constraint firstItem="agH-PS-wmW" firstAttribute="centerX" secondItem="ir6-qg-WVR" secondAttribute="centerX" id="1Jr-Nt-Eow"/>
+                            <constraint firstItem="Riu-Sb-cJ6" firstAttribute="leading" secondItem="ir6-qg-WVR" secondAttribute="leading" id="3PL-PR-hCw"/>
+                            <constraint firstItem="Riu-Sb-cJ6" firstAttribute="top" secondItem="ir6-qg-WVR" secondAttribute="top" constant="238" id="CI4-fH-Jzm"/>
+                            <constraint firstItem="Riu-Sb-cJ6" firstAttribute="trailing" secondItem="oVS-ZE-cE5" secondAttribute="trailing" id="F8B-KP-LO1"/>
+                            <constraint firstItem="p9S-wd-xBg" firstAttribute="top" secondItem="ee8-gu-UkD" secondAttribute="bottom" constant="8" id="JEk-e9-Gzk"/>
+                            <constraint firstItem="xb4-2i-CyM" firstAttribute="top" secondItem="eiH-6U-8xb" secondAttribute="bottom" constant="8" id="NZx-Nq-ew5"/>
+                            <constraint firstAttribute="trailing" secondItem="xb4-2i-CyM" secondAttribute="trailing" id="ROB-he-hBu"/>
+                            <constraint firstAttribute="trailing" secondItem="eiH-6U-8xb" secondAttribute="trailing" id="UMt-da-IC7"/>
+                            <constraint firstAttribute="bottom" secondItem="Riu-Sb-cJ6" secondAttribute="bottom" constant="47" id="aME-mk-fyt"/>
+                            <constraint firstItem="p9S-wd-xBg" firstAttribute="leading" secondItem="ir6-qg-WVR" secondAttribute="leading" id="bgR-uA-cX8"/>
+                            <constraint firstItem="Riu-Sb-cJ6" firstAttribute="top" secondItem="agH-PS-wmW" secondAttribute="bottom" constant="8" id="khm-cS-WVF"/>
+                            <constraint firstItem="Riu-Sb-cJ6" firstAttribute="leading" secondItem="oVS-ZE-cE5" secondAttribute="leading" id="oiF-aw-r2Y"/>
+                            <constraint firstAttribute="trailing" secondItem="Riu-Sb-cJ6" secondAttribute="trailing" id="rZk-9L-1PL"/>
+                            <constraint firstItem="eiH-6U-8xb" firstAttribute="top" secondItem="ee8-gu-UkD" secondAttribute="bottom" constant="8" id="sJZ-KK-F4L"/>
+                            <constraint firstItem="oVS-ZE-cE5" firstAttribute="top" secondItem="Riu-Sb-cJ6" secondAttribute="bottom" constant="3" id="wVF-7N-Fkb"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="apartMentPhoto" destination="agH-PS-wmW" id="giw-yz-ZZt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GiM-dF-Pex" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3369" y="1017"/>
+            <point key="canvasLocation" x="3284" y="1035"/>
         </scene>
         <!--Edit Rent View Controller-->
         <scene sceneID="p1t-3H-Gaf">
@@ -335,7 +346,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tit-GO-Nib" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="RQh-uA-R0m" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="6667" y="568"/>
+            <point key="canvasLocation" x="5085" y="902"/>
         </scene>
         <!--Edit Property Details Table View Controller-->
         <scene sceneID="K4L-RQ-iT6">
@@ -1041,7 +1052,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iUH-1w-bcX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3814" y="-407"/>
+            <point key="canvasLocation" x="3698" y="-352"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="HBE-jD-lqT">

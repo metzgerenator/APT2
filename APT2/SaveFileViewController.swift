@@ -31,6 +31,8 @@ class SaveFileViewController: UIViewController {
         
         /// save to parse and dismiss view 
         let switchViewController = self.storyboard?.instantiateViewControllerWithIdentifier("property") as! AddPropertyDetailsViewController
+        switchViewController.photoForApartment = imageFromPicker
+        
         
         self.navigationController?.pushViewController(switchViewController, animated: true)
         
