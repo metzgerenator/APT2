@@ -10,6 +10,8 @@
 		270F760B1CE9380900525E2B /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270F760A1CE9380900525E2B /* SignUpViewController.swift */; };
 		270F7F0A1D315EA80041B4CF /* uploadPhotoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270F7F091D315EA80041B4CF /* uploadPhotoTableViewController.swift */; };
 		270F7F0C1D31606F0041B4CF /* UploadPhotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270F7F0B1D31606F0041B4CF /* UploadPhotoTableViewCell.swift */; };
+		270F7F0E1D31656A0041B4CF /* AptPhotoType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270F7F0D1D31656A0041B4CF /* AptPhotoType.swift */; };
+		270F7F101D31727A0041B4CF /* EditPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270F7F0F1D31727A0041B4CF /* EditPhotoViewController.swift */; };
 		270F83D31CE8CDB600E09AAC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270F83D21CE8CDB600E09AAC /* AppDelegate.swift */; };
 		270F83D81CE8CDB600E09AAC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 270F83D61CE8CDB600E09AAC /* Main.storyboard */; };
 		270F83DA1CE8CDB600E09AAC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 270F83D91CE8CDB600E09AAC /* Assets.xcassets */; };
@@ -17,8 +19,6 @@
 		270F83E81CE8CDB600E09AAC /* APT2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270F83E71CE8CDB600E09AAC /* APT2Tests.swift */; };
 		270F83F31CE8CDB600E09AAC /* APT2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270F83F21CE8CDB600E09AAC /* APT2UITests.swift */; };
 		279DA43F1D205B2600AF99E5 /* AddAmenityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279DA43E1D205B2600AF99E5 /* AddAmenityViewController.swift */; };
-		27F7B7131D246DCC0098E3D7 /* PhotoLibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F7B7121D246DCC0098E3D7 /* PhotoLibraryViewController.swift */; };
-		27F7B7151D2476FA0098E3D7 /* SaveFileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F7B7141D2476FA0098E3D7 /* SaveFileViewController.swift */; };
 		5708176C1CFC915B00CFFEE6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5708176B1CFC915B00CFFEE6 /* Constants.swift */; };
 		570E9EC41D1A26700080AE14 /* AddPropertyDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570E9EC31D1A26700080AE14 /* AddPropertyDetailsViewController.swift */; };
 		577BAC631CFA0E7400E4F943 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 577BAC5F1CFA0E7400E4F943 /* Bolts.framework */; };
@@ -60,6 +60,8 @@
 		270F760A1CE9380900525E2B /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		270F7F091D315EA80041B4CF /* uploadPhotoTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = uploadPhotoTableViewController.swift; sourceTree = "<group>"; };
 		270F7F0B1D31606F0041B4CF /* UploadPhotoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadPhotoTableViewCell.swift; sourceTree = "<group>"; };
+		270F7F0D1D31656A0041B4CF /* AptPhotoType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AptPhotoType.swift; sourceTree = "<group>"; };
+		270F7F0F1D31727A0041B4CF /* EditPhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditPhotoViewController.swift; sourceTree = "<group>"; };
 		270F83CF1CE8CDB500E09AAC /* APT2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = APT2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		270F83D21CE8CDB600E09AAC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		270F83D71CE8CDB600E09AAC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -73,8 +75,6 @@
 		270F83F21CE8CDB600E09AAC /* APT2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APT2UITests.swift; sourceTree = "<group>"; };
 		270F83F41CE8CDB600E09AAC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		279DA43E1D205B2600AF99E5 /* AddAmenityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAmenityViewController.swift; sourceTree = "<group>"; };
-		27F7B7121D246DCC0098E3D7 /* PhotoLibraryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoLibraryViewController.swift; sourceTree = "<group>"; };
-		27F7B7141D2476FA0098E3D7 /* SaveFileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveFileViewController.swift; sourceTree = "<group>"; };
 		4A247E43DDABFBA0C8D86D6F /* Pods_APT2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_APT2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5708176B1CFC915B00CFFEE6 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		570E9EC31D1A26700080AE14 /* AddPropertyDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPropertyDetailsViewController.swift; sourceTree = "<group>"; };
@@ -194,10 +194,10 @@
 		27F7B7111D246C9E0098E3D7 /* AddPhotoControllers */ = {
 			isa = PBXGroup;
 			children = (
-				27F7B7121D246DCC0098E3D7 /* PhotoLibraryViewController.swift */,
-				27F7B7141D2476FA0098E3D7 /* SaveFileViewController.swift */,
 				270F7F091D315EA80041B4CF /* uploadPhotoTableViewController.swift */,
 				270F7F0B1D31606F0041B4CF /* UploadPhotoTableViewCell.swift */,
+				270F7F0D1D31656A0041B4CF /* AptPhotoType.swift */,
+				270F7F0F1D31727A0041B4CF /* EditPhotoViewController.swift */,
 			);
 			name = AddPhotoControllers;
 			sourceTree = "<group>";
@@ -456,11 +456,9 @@
 			files = (
 				570E9EC41D1A26700080AE14 /* AddPropertyDetailsViewController.swift in Sources */,
 				270F83D31CE8CDB600E09AAC /* AppDelegate.swift in Sources */,
-				27F7B7131D246DCC0098E3D7 /* PhotoLibraryViewController.swift in Sources */,
 				270F7F0A1D315EA80041B4CF /* uploadPhotoTableViewController.swift in Sources */,
 				57CCDBB31D17479D00F34EF8 /* CreatePropertyViewController.swift in Sources */,
 				57EA63C51D1F0B8700C48C2A /* AmenityTableViewCell.swift in Sources */,
-				27F7B7151D2476FA0098E3D7 /* SaveFileViewController.swift in Sources */,
 				577CCAF91CFFC28200F753B0 /* PropertyViewController.swift in Sources */,
 				57EA63C01D1B6E0000C48C2A /* EditRentViewController.swift in Sources */,
 				279DA43F1D205B2600AF99E5 /* AddAmenityViewController.swift in Sources */,
@@ -468,7 +466,9 @@
 				57CCDBAF1D1710B200F34EF8 /* PropertyTableViewCell.swift in Sources */,
 				57EA63BD1D1B6D2800C48C2A /* EditPropertyDetailsTableViewController.swift in Sources */,
 				270F760B1CE9380900525E2B /* SignUpViewController.swift in Sources */,
+				270F7F0E1D31656A0041B4CF /* AptPhotoType.swift in Sources */,
 				270F7F0C1D31606F0041B4CF /* UploadPhotoTableViewCell.swift in Sources */,
+				270F7F101D31727A0041B4CF /* EditPhotoViewController.swift in Sources */,
 				577BAC691CFA3B6C00E4F943 /* DataServices.swift in Sources */,
 				57EA63C71D20232000C48C2A /* EditAmenitiesTableViewController.swift in Sources */,
 				5708176C1CFC915B00CFFEE6 /* Constants.swift in Sources */,

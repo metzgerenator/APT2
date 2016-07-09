@@ -8,7 +8,11 @@
 
 import UIKit
 
-class uploadPhotoTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class uploadPhotoTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
+    
+    
+    
+    var currentImageArray = [AptPhotoType]()
     
     
     
@@ -30,6 +34,9 @@ class uploadPhotoTableViewController: UIViewController, UITableViewDelegate, UIT
     }
     
     
+
+    
+    
     
 
     override func viewDidLoad() {
@@ -46,16 +53,19 @@ class uploadPhotoTableViewController: UIViewController, UITableViewDelegate, UIT
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return currentImageArray.count
     }
     
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = self.tableView.dequeueReusableCellWithIdentifier("cell")
+        let cell = self.tableView.dequeueReusableCellWithIdentifier("cell") as! UploadPhotoTableViewCell
+        // finish upload image configuration
         
-        return cell!
+        
+        
+        return cell
     }
     
     

@@ -13,19 +13,11 @@ class UploadPhotoTableViewCell: UITableViewCell {
     @IBOutlet var currentAptImage: UIImageView!
     
     
-    @IBOutlet var captionTextField: UITextField!
+    @IBOutlet var captionLabel: UILabel!
     
     
-    @IBOutlet var homePageSwitchOutlet: UISwitch!
-    
-    
-    
-    
-    @IBAction func homePageSwitchAction(sender: UISwitch) {
-        
-        print("sender value is currently \(sender.on)")
-        
-    }
+
+    @IBOutlet var isHomePageLabel: UILabel!
     
     
     

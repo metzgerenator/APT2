@@ -1,53 +1,20 @@
 //
-//  SaveFileViewController.swift
+//  EditPhotoViewController.swift
 //  APT2
 //
-//  Created by Michael Metzger  on 6/29/16.
+//  Created by Michael Metzger  on 7/9/16.
 //  Copyright © 2016 Michael Metzger . All rights reserved.
 //
 
 import UIKit
 
-class SaveFileViewController: UIViewController {
+class EditPhotoViewController: UIViewController {
 
-
-    
-    
-    
-   
-//    
-//    
-//    
-//    
-//    @IBAction func submitButton(sender: AnyObject) {
-//        
-//        /// save to parse and dismiss view 
-//        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("property") as! AddPropertyDetailsViewController
-//        //vc.photoForApartment = imageFromPicker
-//        
-//        
-//        self.navigationController?.pushViewController(vc, animated: true)
-//        
-//       // print(switchViewController)
-//        
-//        
-//    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-    
-    override func viewDidAppear(animated: Bool) {
-       
-        
-        
-    }
-    
-    
-  
-    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
