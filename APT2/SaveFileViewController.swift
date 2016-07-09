@@ -10,36 +10,28 @@ import UIKit
 
 class SaveFileViewController: UIViewController {
 
-    @IBAction func shareButton(sender: AnyObject) {
-    }
-    var imageFromPicker: UIImage?
-    
-    
-    @IBOutlet var imageToSave: UIImageView!
-    
-    
-    @IBOutlet var captionTextField: UITextField!
-    
-    @IBOutlet var makeCoverImageSwitch: UISwitch!
-    @IBAction func makeCoverImageSwitchAction(sender: AnyObject) {
 
-        
-    }
     
     
-    @IBAction func submitButton(sender: AnyObject) {
-        
-        /// save to parse and dismiss view 
-        let switchViewController = self.storyboard?.instantiateViewControllerWithIdentifier("property") as! AddPropertyDetailsViewController
-        switchViewController.photoForApartment = imageFromPicker
-        
-        
-        self.navigationController?.pushViewController(switchViewController, animated: true)
-        
-        print(switchViewController)
-        
-        
-    }
+    
+   
+//    
+//    
+//    
+//    
+//    @IBAction func submitButton(sender: AnyObject) {
+//        
+//        /// save to parse and dismiss view 
+//        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("property") as! AddPropertyDetailsViewController
+//        //vc.photoForApartment = imageFromPicker
+//        
+//        
+//        self.navigationController?.pushViewController(vc, animated: true)
+//        
+//       // print(switchViewController)
+//        
+//        
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,10 +40,7 @@ class SaveFileViewController: UIViewController {
     }
     
     override func viewDidAppear(animated: Bool) {
-        
-        if let image = imageFromPicker {
-            imageToSave.image = image
-        }
+       
         
         
     }

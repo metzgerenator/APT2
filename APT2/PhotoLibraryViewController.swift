@@ -86,7 +86,7 @@ class PhotoLibraryViewController: UIViewController, UIImagePickerControllerDeleg
                 
                 print("currentImage \(currentImage)")
                 
-                vc.imageFromPicker = currentImage
+                //vc.imageFromPicker = currentImage
                 
                 loadLibrary = true
             }

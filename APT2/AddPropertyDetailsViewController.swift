@@ -20,6 +20,15 @@ class AddPropertyDetailsViewController: UIViewController {
     
     
     var apartmnetNameLabel: String?
+    
+    
+    
+    @IBAction func cameraButton(sender: AnyObject) {
+        self.performSegueWithIdentifier("aptPhotos", sender: nil)
+        
+    }
+    
+    
 
     @IBAction func cancelButton(sender: AnyObject) {
         
