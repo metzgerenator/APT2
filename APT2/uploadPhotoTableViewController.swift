@@ -27,16 +27,7 @@ class uploadPhotoTableViewController: UIViewController, UITableViewDelegate, UIT
     }
     
     
-    
-    
-    
-    @IBAction func upLoadButton(sender: AnyObject) {
-    }
-    
-    
 
-    
-    
     
 
     override func viewDidLoad() {

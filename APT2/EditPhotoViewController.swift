@@ -9,7 +9,35 @@
 import UIKit
 
 class EditPhotoViewController: UIViewController {
+    
+    
+    
+    
+    @IBOutlet var homePageSwitch: UISwitch!
+    
+    
+    @IBOutlet var captionTextField: UITextField!
+    
+    
+    @IBAction func saveButton(sender: AnyObject) {
+    }
+    
+    
+    
+    @IBAction func cancelButton(sender: AnyObject) {
+        
+        
+        
+    }
+    
+    
 
+    @IBOutlet var currentImage: UIImageView!
+    
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

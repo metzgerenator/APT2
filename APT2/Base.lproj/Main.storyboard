@@ -4,7 +4,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--Sign Up View Controller-->
@@ -406,14 +405,7 @@
                                                 <action selector="cancelButton:" destination="fFa-wE-yY0" id="ObA-0Q-QLl"/>
                                             </connections>
                                         </barButtonItem>
-                                        <rightBarButtonItems>
-                                            <barButtonItem style="plain" systemItem="add" id="zpl-gD-mVO"/>
-                                            <barButtonItem title="Upload" id="VzL-3C-Mrb">
-                                                <connections>
-                                                    <action selector="upLoadButton:" destination="fFa-wE-yY0" id="EPx-MQ-nKb"/>
-                                                </connections>
-                                            </barButtonItem>
-                                        </rightBarButtonItems>
+                                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="zpl-gD-mVO"/>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -459,15 +451,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WA9-FR-BJH">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
-                                <items>
-                                    <navigationItem title="Edit Image" id="Xiw-zj-wDr">
-                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="Ngg-t4-qeJ"/>
-                                        <barButtonItem key="rightBarButtonItem" title="Save" id="hEh-RC-U3T"/>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0Y2-LI-FVy">
+                                <rect key="frame" x="0.0" y="44" width="600" height="355"/>
+                            </imageView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QcG-Qv-Xxm">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <items>
@@ -492,9 +478,23 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0Y2-LI-FVy">
-                                <rect key="frame" x="0.0" y="44" width="600" height="355"/>
-                            </imageView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WA9-FR-BJH">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <items>
+                                    <navigationItem title="Edit Image" id="Xiw-zj-wDr">
+                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="Ngg-t4-qeJ">
+                                            <connections>
+                                                <action selector="cancelButton:" destination="Qt1-ZW-1Ag" id="Ahl-Hl-I7c"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Save" id="hEh-RC-U3T">
+                                            <connections>
+                                                <action selector="saveButton:" destination="Qt1-ZW-1Ag" id="boN-d1-pDx"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -517,6 +517,11 @@
                             <constraint firstItem="0Y2-LI-FVy" firstAttribute="top" secondItem="WA9-FR-BJH" secondAttribute="bottom" id="xqq-Lb-NIq"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="captionTextField" destination="sIT-NK-tfA" id="2VU-HS-INw"/>
+                        <outlet property="currentImage" destination="0Y2-LI-FVy" id="GBs-sd-How"/>
+                        <outlet property="homePageSwitch" destination="lUS-ZK-Ahu" id="FF0-Je-HrS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Ji-oK-9qb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
