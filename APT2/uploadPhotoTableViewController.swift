@@ -36,8 +36,12 @@ class uploadPhotoTableViewController: UIViewController, UITableViewDelegate, UIT
     
     
 
+    @IBAction func unwindFromPhotoEdit(segue: UIStoryboardSegue){
+        print("this segue works")
+        
+    }
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

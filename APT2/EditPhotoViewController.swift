@@ -23,6 +23,10 @@ class EditPhotoViewController: UIViewController, UIImagePickerControllerDelegate
     
     @IBAction func saveButton(sender: AnyObject) {
         
+        // perfom reverse segue 
+        
+        self.performSegueWithIdentifier("imageunwind", sender: nil)
+        
         
     }
     

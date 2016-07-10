@@ -531,9 +531,11 @@
                         <outlet property="captionTextField" destination="sIT-NK-tfA" id="2VU-HS-INw"/>
                         <outlet property="currentImage" destination="0Y2-LI-FVy" id="GBs-sd-How"/>
                         <outlet property="homePageSwitch" destination="lUS-ZK-Ahu" id="FF0-Je-HrS"/>
+                        <segue destination="ZKB-9J-Cmb" kind="unwind" identifier="imageunwind" unwindAction="unwindFromPhotoEdit:" id="dIV-ob-veq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Ji-oK-9qb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="ZKB-9J-Cmb" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="4430" y="47"/>
         </scene>
