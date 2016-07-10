@@ -14,7 +14,15 @@ class uploadPhotoTableViewController: UIViewController, UITableViewDelegate, UIT
     
     var currentImageArray = [AptPhotoType]()
     
+    var currentImageObject: AptPhotoType?
     
+    
+    @IBAction func plusButton(sender: AnyObject) {
+        
+        self.performSegueWithIdentifier("imageEdit", sender: self)
+        
+        
+    }
     
     @IBOutlet var tableView: UITableView!
     
@@ -48,13 +56,29 @@ class uploadPhotoTableViewController: UIViewController, UITableViewDelegate, UIT
     }
     
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        let currentImage = currentImageArray[indexPath.row]
+        
+       currentImageObject = currentImage
+        
+        self.performSegueWithIdentifier("imageEdit", sender: nil)
+        
+    }
+    
+    
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = self.tableView.dequeueReusableCellWithIdentifier("cell") as! UploadPhotoTableViewCell
-        // finish upload image configuration
         
+        let currentObject = self.currentImageArray[indexPath.row]
         
+        cell.currentAptImage.image = currentObject.aptImage
+        cell.captionLabel.text = currentObject.aptCaption
+        cell.isHomePageLabel.text = "\(currentObject.homePage)"
+        
+     
         
         return cell
     }
@@ -68,14 +92,28 @@ class uploadPhotoTableViewController: UIViewController, UITableViewDelegate, UIT
     }
     
 
-    /*
+
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "imageEdit" {
+            
+            let vc = segue.destinationViewController as! EditPhotoViewController
+            
+            if let imageToSend = self.currentImageObject {
+                vc.imageFromSegue = imageToSend
+            }
+            
+            vc.ArrayFromSeque = self.currentImageArray
+            
+
+            
+        }
+        
+        
+        
     }
-    */
+
 
 }

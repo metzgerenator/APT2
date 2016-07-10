@@ -8,9 +8,11 @@
 
 import UIKit
 
-class EditPhotoViewController: UIViewController {
+class EditPhotoViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    var imageFromSegue: AptPhotoType?
     
+    var ArrayFromSeque = [AptPhotoType]()
     
     
     @IBOutlet var homePageSwitch: UISwitch!
@@ -20,6 +22,8 @@ class EditPhotoViewController: UIViewController {
     
     
     @IBAction func saveButton(sender: AnyObject) {
+        
+        
     }
     
     
@@ -35,8 +39,43 @@ class EditPhotoViewController: UIViewController {
     @IBOutlet var currentImage: UIImageView!
     
     
+    @IBAction func libraryButton(sender: AnyObject) {
+        
+        let picker = UIImagePickerController()
+        
+        picker.delegate = self
+        picker.allowsEditing = false
+        
+        picker.sourceType = .PhotoLibrary
+        picker.modalPresentationStyle = .FullScreen
+        
+        presentViewController(picker, animated: true, completion: nil)
+        
+        
+    }
     
     
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        if let image = info[UIImagePickerControllerOriginalImage] {
+            self.currentImage.image = image as? UIImage
+            dismissViewControllerAnimated(true, completion: nil)
+        }
+    }
+    
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if let currenAptImageData = imageFromSegue {
+            
+            currentImage.image = currenAptImageData.aptImage
+            captionTextField.text = currenAptImageData.aptCaption
+            homePageSwitch.on = currenAptImageData.homePage
+            
+        }
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
