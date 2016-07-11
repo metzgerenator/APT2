@@ -17,12 +17,7 @@ class uploadPhotoTableViewController: UIViewController, UITableViewDelegate, UIT
     var currentImageObject: AptPhotoType?
     
     
-    @IBAction func plusButton(sender: AnyObject) {
-        
-        self.performSegueWithIdentifier("imageEdit", sender: self)
-        
-        
-    }
+   
     
     @IBOutlet var tableView: UITableView!
     
@@ -37,7 +32,8 @@ class uploadPhotoTableViewController: UIViewController, UITableViewDelegate, UIT
     
 
     @IBAction func unwindFromPhotoEdit(segue: UIStoryboardSegue){
-        print("this segue works")
+        
+        self.tableView.reloadData()
         
     }
     
@@ -64,9 +60,12 @@ class uploadPhotoTableViewController: UIViewController, UITableViewDelegate, UIT
         
         let currentImage = currentImageArray[indexPath.row]
         
+        
        currentImageObject = currentImage
         
-        self.performSegueWithIdentifier("imageEdit", sender: nil)
+        //send index along
+        
+        self.performSegueWithIdentifier("imageEdit", sender: [indexPath.row])
         
     }
     
@@ -106,10 +105,17 @@ class uploadPhotoTableViewController: UIViewController, UITableViewDelegate, UIT
             let vc = segue.destinationViewController as! EditPhotoViewController
             
             if let imageToSend = self.currentImageObject {
+                
+                vc.currentIndex = sender as! Int
                 vc.imageFromSegue = imageToSend
+            } else if segue.identifier == "newImage" {
+                
+                vc.currentIndex == 0
+                
             }
             
-            vc.ArrayFromSeque = self.currentImageArray
+            vc.currentImageArrayFromSegue = self.currentImageArray
+            
             
 
             

@@ -10,9 +10,13 @@ import UIKit
 
 class EditPhotoViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    var currentImageArrayFromSegue = [AptPhotoType]()
+
+    
+    var currentIndex:Int!
+    
     var imageFromSegue: AptPhotoType?
     
-    var ArrayFromSeque = [AptPhotoType]()
     
     
     @IBOutlet var homePageSwitch: UISwitch!
@@ -23,9 +27,19 @@ class EditPhotoViewController: UIViewController, UIImagePickerControllerDelegate
     
     @IBAction func saveButton(sender: AnyObject) {
         
-        // perfom reverse segue 
+    
+        // update current data and append to array
+        
+        let itemTosend = AptPhotoType(aptImage: currentImage.image, aptCaption: captionTextField.text, homePage: homePageSwitch.on)
+       
+        
+       //currentImageArrayFromSegue.removeAtIndex(self.currentIndex)
+        
+        self.currentImageArrayFromSegue.append(itemTosend)
         
         self.performSegueWithIdentifier("imageunwind", sender: nil)
+        
+        
         
         
     }
@@ -93,14 +107,26 @@ class EditPhotoViewController: UIViewController, UIImagePickerControllerDelegate
     }
     
 
-    /*
+
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "imageunwind" {
+            
+            let vc = segue.destinationViewController as! uploadPhotoTableViewController
+          
+            
+            // send new array 
+            vc.currentImageArray = self.currentImageArrayFromSegue
+            
+            
+        }
+        
+        
+       
     }
-    */
+ 
 
 }

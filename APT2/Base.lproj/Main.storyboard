@@ -407,7 +407,7 @@
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="zpl-gD-mVO">
                                             <connections>
-                                                <action selector="plusButton:" destination="fFa-wE-yY0" id="MMf-uT-qcu"/>
+                                                <segue destination="Qt1-ZW-1Ag" kind="presentation" identifier="newImage" id="9ck-qv-uf2"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -1075,4 +1075,7 @@
     <resources>
         <image name="dilbert" width="115" height="115"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="9ck-qv-uf2"/>
+    </inferredMetricsTieBreakers>
 </document>
