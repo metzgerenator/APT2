@@ -10,6 +10,7 @@ import UIKit
 class AddPropertyDetailsViewController: UIViewController {
     
     var currentUserID: AnyObject?
+    var urlPath: String? 
 
     
     @IBOutlet var apartMentPhoto: UIImageView!
@@ -64,7 +65,15 @@ class AddPropertyDetailsViewController: UIViewController {
         let propertyDic: Dictionary = ["Name" : ApartmentName!, "Address" : adddress!, "Rent" :  ["Price" : rent!, "Frequency" : frequency!], "Bedrooms" : bedrooms!, "Bathrooms" : bathrooms!, "Amenities" : amentyDictionary]
         
         
-        DataService.ds.createProperty(currentUserID!, propertyDetails: propertyDic)
+        //DataService.ds.createProperty(currentUserID!, propertyDetails: propertyDic)
+        
+        if let url = urlPath {
+            
+            DataService.ds.updateProperty(url, propertyDetails: propertyDic)
+            
+        }
+        
+        
         
     }
     

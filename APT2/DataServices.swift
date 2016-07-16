@@ -46,14 +46,24 @@ class DataService {
     }
     
     
-    func createProperty(currentUser: AnyObject, propertyDetails: Dictionary<String, AnyObject>) {
+    func createProperty(currentUser: AnyObject, propertyDetails: Dictionary<String, AnyObject>) -> String {
+
+        let URLWithReference = REF_USERS.childByAppendingPath("\(currentUser)/properties").childByAutoId()
+        
+        URLWithReference.updateChildValues(propertyDetails)
 
         
+        return "\(URLWithReference)"
+    }
+    
+    
+    
+    
+    func updateProperty(url: String, propertyDetails: Dictionary<String, AnyObject>) {
         
-      REF_USERS.childByAppendingPath("\(currentUser)/properties").childByAutoId().updateChildValues(propertyDetails)
-
+        let firBaseUrl = Firebase(url: url)
         
-        
+        firBaseUrl.updateChildValues(propertyDetails)
         
     }
     
