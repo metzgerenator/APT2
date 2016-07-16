@@ -16,6 +16,7 @@ class uploadPhotoTableViewController: UIViewController, UITableViewDelegate, UIT
     
     var currentImageObject: AptPhotoType?
     
+    var currentURl: String?
     
    
     
@@ -33,13 +34,19 @@ class uploadPhotoTableViewController: UIViewController, UITableViewDelegate, UIT
 
     @IBAction func unwindFromPhotoEdit(segue: UIStoryboardSegue){
         
+        //addupdate url function
+        
         self.tableView.reloadData()
+        
+        
         
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print("here is the url \(currentURl)")
 
     }
 
