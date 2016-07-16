@@ -9,7 +9,8 @@ import UIKit
 
 class CreatePropertyViewController: UIViewController {
     
-    //propertyDetail
+    var currentUser: String?
+    
 
     @IBOutlet weak var newPropertyName: UITextField!
     @IBAction func saveProperty(sender: AnyObject) {
@@ -18,7 +19,10 @@ class CreatePropertyViewController: UIViewController {
         if newPropertyName.text?.characters.count > 0 {
             // save to parse
             
-            //DataService.ds.createProperty(currentUserID!, propertyName: newPropertyName.text!)
+            DataService.ds.createProperty(<#T##currentUser: AnyObject##AnyObject#>, propertyDetails: <#T##Dictionary<String, AnyObject>#>)
+            
+            
+            //pass property id
             
             
             self.performSegueWithIdentifier("propertyDetail", sender: newPropertyName.text)
@@ -43,7 +47,13 @@ class CreatePropertyViewController: UIViewController {
         super.viewDidAppear(animated)
         
         
-       
+        if let userCheck =  NSUserDefaults.standardUserDefaults().valueForKey(KEY_UID) {
+            
+            currentUser = userCheck as? String
+            
+            
+            
+        }
         
        
             
