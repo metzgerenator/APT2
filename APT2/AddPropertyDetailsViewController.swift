@@ -33,7 +33,18 @@ class AddPropertyDetailsViewController: UIViewController {
 
     @IBAction func cancelButton(sender: AnyObject) {
         
-      self.dismissViewControllerAnimated(true, completion: nil)
+    
+        
+        self.dismissViewControllerAnimated(true) { 
+            if let url = self.urlPath {
+                
+                DataService.ds.removeProperty(url)
+                
+                
+            }
+        }
+        
+      //self.dismissViewControllerAnimated(true, completion: nil)
         
     
         
@@ -64,8 +75,6 @@ class AddPropertyDetailsViewController: UIViewController {
         
         let propertyDic: Dictionary = ["Name" : ApartmentName!, "Address" : adddress!, "Rent" :  ["Price" : rent!, "Frequency" : frequency!], "Bedrooms" : bedrooms!, "Bathrooms" : bathrooms!, "Amenities" : amentyDictionary]
         
-        
-        //DataService.ds.createProperty(currentUserID!, propertyDetails: propertyDic)
         
         if let url = urlPath {
             

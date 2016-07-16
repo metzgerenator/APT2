@@ -68,6 +68,15 @@ class DataService {
     }
     
     
+    func removeProperty(url: String) {
+        
+        let firBaseUrl = Firebase(url: url)
+        
+        firBaseUrl.removeValue()
+        
+    }
+    
+    
     
     
 }
