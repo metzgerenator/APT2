@@ -9,30 +9,29 @@ import Foundation
 import Firebase
 
 
-let URL_BASE = "https://fiery-fire-2933.firebaseio.com/"
-
+let URL_BASE = FIRDatabase.database().reference()
 
 class DataService {
 
     
     static let ds = DataService()
     
-    private var _REF_BASE = Firebase(url: "\(URL_BASE)")
+    private var _REF_BASE = URL_BASE
     
-    private var _REF_USERS = Firebase(url: "\(URL_BASE)/users")
+    private var _REF_USERS = URL_BASE.child("/users")
+
+    private var _REF_PROPERTIES  = URL_BASE.child("/properties")
     
-    private var _REF_PROPERTIES  = Firebase(url: "\(URL_BASE)/properties")
-    
-    var REF_BASE: Firebase {
+    var REF_BASE: FIRDatabaseReference {
         return _REF_BASE
     }
     
-    var REF_USERS: Firebase{
+    var REF_USERS: FIRDatabaseReference{
         return _REF_USERS
     }
     
     
-    var REF_PROPERTIES: Firebase {
+    var REF_PROPERTIES: FIRDatabaseReference {
         
         return _REF_PROPERTIES
     }
@@ -40,7 +39,7 @@ class DataService {
     
     func createFirebaseUser(uid: String, user: Dictionary<String, String>){
         
-        REF_USERS.childByAppendingPath(uid).setValue(user)
+        REF_USERS.child(uid).setValue(user)
         
         
     }
@@ -48,7 +47,7 @@ class DataService {
     
     func createProperty(currentUser: AnyObject, propertyDetails: Dictionary<String, AnyObject>) -> String {
 
-        let URLWithReference = REF_USERS.childByAppendingPath("\(currentUser)/properties").childByAutoId()
+        let URLWithReference = REF_USERS.child("\(currentUser)/properties").childByAutoId()
         
         URLWithReference.updateChildValues(propertyDetails)
 
@@ -61,7 +60,7 @@ class DataService {
     
     func updateProperty(url: String, propertyDetails: Dictionary<String, AnyObject>) {
         
-        let firBaseUrl = Firebase(url: url)
+        let firBaseUrl = FIRDatabase.database().referenceWithPath(url)
         
         firBaseUrl.updateChildValues(propertyDetails)
         
@@ -70,7 +69,7 @@ class DataService {
     
     func removeProperty(url: String) {
         
-        let firBaseUrl = Firebase(url: url)
+       let firBaseUrl = FIRDatabase.database().referenceWithPath(url)
         
         firBaseUrl.removeValue()
         

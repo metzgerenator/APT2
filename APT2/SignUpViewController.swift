@@ -34,6 +34,7 @@ class SignUpViewController: UIViewController {
                 let accessToken = FBSDKAccessToken.currentAccessToken().tokenString
             
                 
+                
                 DataService.ds.REF_BASE.authWithOAuthProvider("facebook", token: accessToken, withCompletionBlock: { error, authData in
                     
                     if error != nil {
