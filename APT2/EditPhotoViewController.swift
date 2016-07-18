@@ -7,11 +7,16 @@
 //
 
 import UIKit
+import Firebase
 
 class EditPhotoViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    var currentImageArrayFromSegue = [AptPhotoType]()
+    
+    let storage = FIRStorage.storage()
 
+    
+    var currentImageArrayFromSegue = [AptPhotoType]()
+    
     
     var currentIndex:Int!
     
@@ -36,6 +41,29 @@ class EditPhotoViewController: UIViewController, UIImagePickerControllerDelegate
        //currentImageArrayFromSegue.removeAtIndex(self.currentIndex)
         
         self.currentImageArrayFromSegue.append(itemTosend)
+        
+        
+        // save file to Storage bucket
+
+        let storageRef = storage.reference()
+        
+       
+        
+        
+        
+        if let imageSelected = currentImage.image {
+            let data  = UIImagePNGRepresentation(imageSelected)
+            //create a reference
+            let testImage = storageRef.child("images/mountains.jpg")
+            
+            print("here is the image path \(testImage)")
+            
+            testImage.putData(data!, metadata: nil)
+            
+        }
+        
+     
+        
         
         self.performSegueWithIdentifier("imageunwind", sender: nil)
         
