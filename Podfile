@@ -7,6 +7,8 @@ target 'APT2' do
 
 pod 'Firebase/Core'
 pod 'Firebase/Database'
+pod 'Firebase/Auth'
+
 
 
 end

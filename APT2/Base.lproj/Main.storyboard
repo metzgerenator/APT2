@@ -44,8 +44,8 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dW7-p0-PR1">
-                                <rect key="frame" x="251" y="399" width="99" height="30"/>
-                                <state key="normal" title="Login / Signup"/>
+                                <rect key="frame" x="282" y="399" width="38" height="30"/>
+                                <state key="normal" title="Login"/>
                                 <connections>
                                     <action selector="attemptLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="v2Y-yu-dml"/>
                                 </connections>
@@ -57,6 +57,13 @@
                                     <action selector="fbBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Bwi-J7-Ra3"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WG6-43-jPI">
+                                <rect key="frame" x="274" y="445" width="55" height="30"/>
+                                <state key="normal" title="Sign Up"/>
+                                <connections>
+                                    <action selector="signUserUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vdc-YK-Kdv"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -66,12 +73,14 @@
                             <constraint firstItem="Hgy-zS-N87" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="117" id="Ms7-Hi-yl1"/>
                             <constraint firstItem="tpS-uH-vFo" firstAttribute="top" secondItem="Hgy-zS-N87" secondAttribute="bottom" constant="15" id="OgR-0k-ZDj"/>
                             <constraint firstItem="9Q6-zF-7bF" firstAttribute="top" secondItem="lbt-4R-Z4N" secondAttribute="bottom" constant="24" id="V2v-wr-UiL"/>
+                            <constraint firstItem="WG6-43-jPI" firstAttribute="top" secondItem="dW7-p0-PR1" secondAttribute="bottom" constant="16" id="d7y-gV-1jy"/>
                             <constraint firstItem="9Q6-zF-7bF" firstAttribute="leading" secondItem="Qgr-ge-qJg" secondAttribute="leading" id="ffI-Sf-dpO"/>
                             <constraint firstItem="Hgy-zS-N87" firstAttribute="centerX" secondItem="9Q6-zF-7bF" secondAttribute="centerX" id="lmh-Mh-cdz"/>
                             <constraint firstItem="tpS-uH-vFo" firstAttribute="centerX" secondItem="Hgy-zS-N87" secondAttribute="centerX" id="md6-EB-DpQ"/>
                             <constraint firstItem="Qgr-ge-qJg" firstAttribute="centerX" secondItem="dW7-p0-PR1" secondAttribute="centerX" id="qee-5Y-Kdg"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="dW7-p0-PR1" secondAttribute="bottom" constant="171" id="sMw-kd-KF2"/>
                             <constraint firstItem="dW7-p0-PR1" firstAttribute="top" secondItem="Qgr-ge-qJg" secondAttribute="bottom" constant="38" id="sdC-iK-fLr"/>
+                            <constraint firstItem="WG6-43-jPI" firstAttribute="centerX" secondItem="dW7-p0-PR1" secondAttribute="centerX" id="sy9-GI-Feh"/>
                             <constraint firstItem="Hgy-zS-N87" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xT3-LX-hva"/>
                         </constraints>
                     </view>

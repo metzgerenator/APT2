@@ -21,46 +21,60 @@ class SignUpViewController: UIViewController {
     
     
     @IBAction func fbBtnPressed(sender: UIButton!) {
-    
+        
+        // old method 
+        
         facebookLogin.logInWithReadPermissions(["email"]) { (facebookResult: FBSDKLoginManagerLoginResult!, faceBookError: NSError!) in
+
+        
+        if faceBookError != nil {
+            print("Facebook login failed.  Error \(faceBookError)")
+        } else if facebookResult.isCancelled {
+            print("Facebook login was cancelled.")
+        }
+        else {
             
-            if faceBookError != nil {
-                print("Facebook login failed.  Error \(faceBookError)")
-            } else if facebookResult.isCancelled {
-                print("Facebook login was cancelled.")
-            }
-            else {
-                
-                let accessToken = FBSDKAccessToken.currentAccessToken().tokenString
             
-                
-                
-                DataService.ds.REF_BASE.authWithOAuthProvider("facebook", token: accessToken, withCompletionBlock: { error, authData in
-                    
-                    if error != nil {
-                        
-                        
-                        print("Login failed. \(error)")
-                    } else {
-                        
-                        let user  = ["provider": authData.provider!]
-                        
-                        DataService.ds.createFirebaseUser(authData.uid, user: user)
-                        
-                        print("Logged in! \(authData)")
-                        NSUserDefaults.standardUserDefaults().setValue(authData.uid, forKey: KEY_UID)
-                        self.performSegueWithIdentifier(SEGUE_LOGGED_IN, sender: nil)
-                        
-                    }
-                    
-                    
-                })
-                
-                
-                
-            }
+            let credential = FIRFacebookAuthProvider.credentialWithAccessToken(FBSDKAccessToken.currentAccessToken().tokenString)
+            
+                            FIRAuth.auth()?.signInWithCredential(credential) { (user, error) in
+            
+                                NSUserDefaults.standardUserDefaults().setValue(user?.uid, forKey: KEY_UID)
+                                self.performSegueWithIdentifier(SEGUE_LOGGED_IN, sender: nil)
+                            }
+
+            
             
         }
+        
+    }
+    
+    
+    
+    
+    
+        // new method
+    
+//
+//        func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError?) {
+//           
+//            if let error = error {
+//                 self.showErrorAlert("Could not login", msg: "Please check username and password\(error.localizedDescription)")
+//                return
+//            } else {
+//                
+//                let credential = FIRFacebookAuthProvider.credentialWithAccessToken(FBSDKAccessToken.currentAccessToken().tokenString)
+//                
+//                FIRAuth.auth()?.signInWithCredential(credential) { (user, error) in
+//                    
+//                    NSUserDefaults.standardUserDefaults().setValue(user?.uid, forKey: KEY_UID)
+//                    self.performSegueWithIdentifier(SEGUE_LOGGED_IN, sender: nil)
+//                }
+//            }
+//        }
+//        
+        
+        
         
         
         
@@ -71,11 +85,22 @@ class SignUpViewController: UIViewController {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        if NSUserDefaults.standardUserDefaults().valueForKey(KEY_UID) != nil {
+        //:MARK: signout method
+       // try! FIRAuth.auth()!.signOut()
+
+        
+        if let userID = FIRAuth.auth()?.currentUser?.uid {
             
-            print(NSUserDefaults.standardUserDefaults().valueForKey(KEY_UID))
-            self.performSegueWithIdentifier(SEGUE_LOGGED_IN, sender: nil)
+            // uid here NSUserDefaults.standardUserDefaults().valueForKey(KEY_UID)
+            
+            print("UID = \(userID)")
+        
+            self.performSegueWithIdentifier("loggedIn", sender: nil)
+            
         }
+        
+        
+
    
 
     }
@@ -86,66 +111,61 @@ class SignUpViewController: UIViewController {
     }
     
     
-    @IBAction func attemptLogin(sender: UIButton!) {
+    
+    @IBAction func signUserUp(sender: UIButton!) {
         if let email = emailField.text where email != "", let pwd = passwordField.text where pwd != "" {
             
-            DataService.ds.REF_BASE.authUser(email, password: pwd, withCompletionBlock: { (error, authData) in
+            FIRAuth.auth()?.createUserWithEmail(email, password: pwd, completion: { (user, error) in
                 
-                if error != nil {
-                    print("\(error) error code: \(error.code)")
+                if error == nil {
                     
                     
-                    if error.code == STATUS_ACCOUNT_NONEXIST {
-                        
-                        DataService.ds.REF_BASE.createUser(email, password: pwd, withValueCompletionBlock: { (error, result) in
-                            
-                            if error != nil {
-                                self.showErrorAlert("Could not create account", msg: "problem creating Account")
-                                
-                            }else {
-                                
-                                NSUserDefaults.standardUserDefaults().setValue(result[KEY_UID], forKey: KEY_UID)
-                                
-                                
-                              
-                                DataService.ds.REF_BASE.authUser(email, password: pwd, withCompletionBlock: { err, data in
-                                    
-                                    
-                                    let user  = ["provider": data.provider!]
-                                    
-                                    DataService.ds.createFirebaseUser(data.uid, user: user)
-                                    
-                                    
-                                })
-                                
-                                self.performSegueWithIdentifier(SEGUE_LOGGED_IN, sender: nil)
-                                
-                            }
-                            
-                            
-                        })
-                        
-                        
-                    } else {
-                        self.showErrorAlert("Could not login", msg: "Please check username and password")
-                    }
                     
-                }
-                
-                else {
-                    self.performSegueWithIdentifier(SEGUE_LOGGED_IN, sender: nil)
+                      NSUserDefaults.standardUserDefaults().setValue(user?.uid, forKey: KEY_UID)
+                        self.performSegueWithIdentifier(SEGUE_LOGGED_IN, sender: nil)
+                    
+                    
+                } else {
+                    
+                    self.showErrorAlert("Could not login", msg: "Please check username and password\(error!.localizedDescription)")
                 }
                 
                 
             })
             
             
-            
-        } else {
-            showErrorAlert("Check Email and Password", msg: "Email and password is required")
         }
         
         
+    }
+    
+    
+    
+    @IBAction func attemptLogin(sender: UIButton!) {
+        
+        if let email = emailField.text where email != "", let pwd = passwordField.text where pwd != "" {
+            
+            FIRAuth.auth()?.signInWithEmail(email, password: pwd, completion: { (user, error) in
+                
+                if error == nil {
+                    
+                    
+                    
+                    NSUserDefaults.standardUserDefaults().setValue(user?.uid, forKey: KEY_UID)
+                    self.performSegueWithIdentifier(SEGUE_LOGGED_IN, sender: nil)
+                    
+                    
+                } else {
+                    
+                    self.showErrorAlert("Could not login", msg: "Please check username and password\(error!.localizedDescription)")
+                }
+                
+                
+            })
+            
+        }
+        
+
         
     }
     
