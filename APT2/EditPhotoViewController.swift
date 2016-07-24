@@ -23,6 +23,7 @@ class EditPhotoViewController: UIViewController, UIImagePickerControllerDelegate
     var imageFromSegue: AptPhotoType?
     
     
+    @IBOutlet var loadIndicator: UIActivityIndicatorView!
     
     @IBOutlet var homePageSwitch: UISwitch!
     
@@ -52,13 +53,31 @@ class EditPhotoViewController: UIViewController, UIImagePickerControllerDelegate
         
         
         if let imageSelected = currentImage.image {
+            loadIndicator.hidden = false
+            loadIndicator.startAnimating()
+            
             let data  = UIImagePNGRepresentation(imageSelected)
             //create a reference
             let testImage = storageRef.child("images/mountains.jpg")
             
             print("here is the image path \(testImage)")
             
-            testImage.putData(data!, metadata: nil)
+            testImage.putData(data!, metadata: nil, completion: { (data, error) in
+                if error == nil {
+                    
+                    print("no error ")
+                    
+                } else {
+                    
+                    print(error?.description)
+                }
+                
+                
+            })
+            
+            loadIndicator.hidden = true
+            
+        
             
         }
         
@@ -125,6 +144,8 @@ class EditPhotoViewController: UIViewController, UIImagePickerControllerDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        loadIndicator.hidden = true
 
         // Do any additional setup after loading the view.
     }

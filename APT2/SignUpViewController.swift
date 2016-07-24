@@ -87,19 +87,34 @@ class SignUpViewController: UIViewController {
         
         //:MARK: signout method
        // try! FIRAuth.auth()!.signOut()
+        
+        FIRAuth.auth()?.currentUser?.getTokenWithCompletion({ (token, error) in
+            
+            FIRAuth.auth()?.signInWithCustomToken(token!, completion: { (user, error) in
+                
+                print("error == \(error?.description)")
+                print("user == \(user?.uid)")
+                
+                self.performSegueWithIdentifier("loggedIn", sender: nil)
+            })
+            
+        })
+        
 
         
         if let userID = FIRAuth.auth()?.currentUser?.uid {
+            
+            
             
             // uid here NSUserDefaults.standardUserDefaults().valueForKey(KEY_UID)
             
             print("UID = \(userID)")
         
-            self.performSegueWithIdentifier("loggedIn", sender: nil)
+           
             
         }
         
-        
+        // self.performSegueWithIdentifier("loggedIn", sender: nil)
 
    
 
