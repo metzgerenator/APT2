@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+
 
 class uploadPhotoTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
     
@@ -16,7 +18,7 @@ class uploadPhotoTableViewController: UIViewController, UITableViewDelegate, UIT
     
     var currentImageObject: AptPhotoType?
     
-    var currentURl: String?
+    var currentURl: FIRDatabaseReference!
     
    
     
@@ -46,7 +48,7 @@ class uploadPhotoTableViewController: UIViewController, UITableViewDelegate, UIT
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("here is the url \(currentURl)")
+        
 
     }
 
@@ -106,16 +108,20 @@ class uploadPhotoTableViewController: UIViewController, UITableViewDelegate, UIT
     // MARK: - Navigation
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let vc = segue.destinationViewController as! EditPhotoViewController
         
+        vc.currentURL = currentURl
+
         if segue.identifier == "imageEdit" {
             
-            let vc = segue.destinationViewController as! EditPhotoViewController
+           
             
             if let imageToSend = self.currentImageObject {
                 
                 vc.currentIndex = sender as! Int
                 vc.imageFromSegue = imageToSend
             } else if segue.identifier == "newImage" {
+                
                 
                 vc.currentIndex == 0
                 

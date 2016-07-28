@@ -12,6 +12,8 @@ import Firebase
 class EditPhotoViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     
+    var currentURL: FIRDatabaseReference!
+    
     let storage = FIRStorage.storage()
 
     
@@ -56,14 +58,20 @@ class EditPhotoViewController: UIViewController, UIImagePickerControllerDelegate
             loadIndicator.hidden = false
             loadIndicator.startAnimating()
             
-            let data  = UIImagePNGRepresentation(imageSelected)
+            //let data  = UIImagePNGRepresentation(imageSelected)
+            let imageData = UIImageJPEGRepresentation(imageSelected, 0.2)
             //create a reference
+            
+             let randomNumber = Int(arc4random_uniform(20000) + 1)
         
-            let testImage = storageRef.child("images/mountains.jpg")
+            //let testImage = storageRef.child("images/mountains.jpg")
+            
+            let testImage = storageRef.child("properties/\(randomNumber).jpg")
+            
             
             print("here is the image path \(testImage)")
             
-            testImage.putData(data!, metadata: nil, completion: { (data, error) in
+            testImage.putData(imageData!, metadata: nil, completion: { (data, error) in
                 if error == nil {
                     
                     print("no error ")
@@ -132,6 +140,7 @@ class EditPhotoViewController: UIViewController, UIImagePickerControllerDelegate
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+        
         
         if let currenAptImageData = imageFromSegue {
             

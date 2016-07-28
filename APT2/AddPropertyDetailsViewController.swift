@@ -142,8 +142,7 @@ class AddPropertyDetailsViewController: UIViewController {
             let vc = segue.destinationViewController as! uploadPhotoTableViewController
             
             if let url = self.urlPath {
-                //MARK: update URL type
-                //vc.currentURl = url
+                vc.currentURl = url
             }
             
             

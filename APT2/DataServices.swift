@@ -69,7 +69,6 @@ class DataService {
         
         url.updateChildValues(propertyDetails)
         
-       // fireBaseUrl.updateChildValues(propertyDetails)
         
     }
     
