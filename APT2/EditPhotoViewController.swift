@@ -58,6 +58,7 @@ class EditPhotoViewController: UIViewController, UIImagePickerControllerDelegate
             
             let data  = UIImagePNGRepresentation(imageSelected)
             //create a reference
+        
             let testImage = storageRef.child("images/mountains.jpg")
             
             print("here is the image path \(testImage)")

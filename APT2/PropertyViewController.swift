@@ -15,7 +15,7 @@ class PropertyViewController: UIViewController, UITableViewDataSource, UITableVi
     
     var propertyDictionary = [Properties]()
     
-    var currentUserID: String?
+    var currentUserID: String!
     // string for master branch 
     
     
@@ -23,13 +23,9 @@ class PropertyViewController: UIViewController, UITableViewDataSource, UITableVi
         super.viewDidLoad()
         
         
-        if let userCheck =  NSUserDefaults.standardUserDefaults().valueForKey(KEY_UID) {
-            
-            currentUserID = userCheck as? String
- 
-        }
        
-        
+       
+        currentUserID =  FIRAuth.auth()?.currentUser?.uid
         
         
         DataService.ds.REF_USERS.child("\(currentUserID!)/properties").observeEventType(.Value, withBlock: { (snapshot)  in

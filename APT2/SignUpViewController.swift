@@ -38,7 +38,6 @@ class SignUpViewController: UIViewController {
             let credential = FIRFacebookAuthProvider.credentialWithAccessToken(FBSDKAccessToken.currentAccessToken().tokenString)
             
                             FIRAuth.auth()?.signInWithCredential(credential) { (user, error) in
-            
                                 NSUserDefaults.standardUserDefaults().setValue(user?.uid, forKey: KEY_UID)
                                 self.performSegueWithIdentifier(SEGUE_LOGGED_IN, sender: nil)
                             }
@@ -86,12 +85,16 @@ class SignUpViewController: UIViewController {
         super.viewDidAppear(animated)
         
         //:MARK: signout method
-       // try! FIRAuth.auth()!.signOut()
+        //try! FIRAuth.auth()!.signOut()
+       
+        
+        
+        
        FIRAuth.auth()?.addAuthStateDidChangeListener({ (auth, user) in
         if let user = user {
             
-            print("user is logged in \(user.uid)")
-            self.performSegueWithIdentifier("loggedIn", sender: nil)
+        print("user is logged in \(user.uid)")
+          self.performSegueWithIdentifier("loggedIn", sender: nil)
             
         } else {
             
