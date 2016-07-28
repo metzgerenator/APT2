@@ -11,7 +11,7 @@ import Firebase
 
 class CreatePropertyViewController: UIViewController {
     
-    
+    var urlToPass: FIRDatabaseReference!
 
     @IBOutlet weak var newPropertyName: UITextField!
     @IBAction func saveProperty(sender: AnyObject) {
@@ -22,10 +22,10 @@ class CreatePropertyViewController: UIViewController {
           
                 let propertyDictionary: Dictionary<String, AnyObject> = ["Name" : newPropertyName.text!]
                 
-                 let urlPath =  DataService.ds.createProperty(propertyDictionary)
+                 urlToPass = DataService.ds.createProperty(propertyDictionary)
             
             
-                self.performSegueWithIdentifier("propertyDetail", sender: urlPath)
+                self.performSegueWithIdentifier("propertyDetail", sender: nil)
 
             
             
@@ -48,7 +48,7 @@ class CreatePropertyViewController: UIViewController {
             let vc = segue.destinationViewController as! AddPropertyDetailsViewController
             vc.apartmnetNameLabel = newPropertyName.text
             
-            vc.urlPath = sender as? String
+            vc.urlPath = urlToPass
             
             
         }

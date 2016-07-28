@@ -6,12 +6,14 @@
 //
 
 import UIKit
+import Firebase
+
 
 
 class AddPropertyDetailsViewController: UIViewController {
     
     var currentUserID: AnyObject!
-    var urlPath: String!
+    var urlPath: FIRDatabaseReference!
 
     
     @IBOutlet var apartMentPhoto: UIImageView!
@@ -35,11 +37,11 @@ class AddPropertyDetailsViewController: UIViewController {
     @IBAction func cancelButton(sender: AnyObject) {
         
     
-        
+    
         self.dismissViewControllerAnimated(true) { 
             if let url = self.urlPath {
                 
-                DataService.ds.removeProperty(url)
+                //DataService.ds.removeProperty(url)
                 
                 
             }
@@ -140,7 +142,8 @@ class AddPropertyDetailsViewController: UIViewController {
             let vc = segue.destinationViewController as! uploadPhotoTableViewController
             
             if let url = self.urlPath {
-                vc.currentURl = url
+                //MARK: update URL type
+                //vc.currentURl = url
             }
             
             
