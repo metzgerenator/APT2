@@ -15,8 +15,6 @@ class PropertyViewController: UIViewController, UITableViewDataSource, UITableVi
     
     var propertyDictionary = [Properties]()
     
-    var currentUserID: String!
-    // string for master branch 
     
     
     override func viewDidLoad() {
@@ -25,10 +23,10 @@ class PropertyViewController: UIViewController, UITableViewDataSource, UITableVi
         
        
        
-        currentUserID =  FIRAuth.auth()?.currentUser?.uid
+        let currentUSer =  FIRAuth.auth()?.currentUser?.uid
         
         
-        DataService.ds.REF_USERS.child("\(currentUserID!)/properties").observeEventType(.Value, withBlock: { (snapshot)  in
+        DataService.ds.REF_USERS.child("\(currentUSer!)/properties").observeEventType(.Value, withBlock: { (snapshot)  in
             print(snapshot.value)
             
             self.propertyDictionary = []
@@ -39,7 +37,6 @@ class PropertyViewController: UIViewController, UITableViewDataSource, UITableVi
                     
                     let key = snap.key
                     
-                    print("snap: \(key)")
                     if let propDic = snap.value as? Dictionary<String, AnyObject> {
                         
                         

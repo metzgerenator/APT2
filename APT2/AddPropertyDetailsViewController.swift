@@ -7,10 +7,11 @@
 
 import UIKit
 
+
 class AddPropertyDetailsViewController: UIViewController {
     
-    var currentUserID: AnyObject?
-    var urlPath: String? 
+    var currentUserID: AnyObject!
+    var urlPath: String!
 
     
     @IBOutlet var apartMentPhoto: UIImageView!
@@ -73,21 +74,23 @@ class AddPropertyDetailsViewController: UIViewController {
         
         //save to firebase 
         
-        let propertyDic: Dictionary = ["Name" : ApartmentName!, "Address" : adddress!, "Rent" :  ["Price" : rent!, "Frequency" : frequency!], "Bedrooms" : bedrooms!, "Bathrooms" : bathrooms!, "Amenities" : amentyDictionary]
         
+          let propertyDic: Dictionary = ["Name" : ApartmentName!, "Address" : adddress!, "Rent" :  ["Price" : rent!, "Frequency" : frequency!], "Bedrooms" : bedrooms!, "Bathrooms" : bathrooms!, "Amenities" : amentyDictionary]
         
-        if let url = urlPath {
+        print("here is propertydic \(propertyDic)")
+        
+            DataService.ds.updateProperty(urlPath, propertyDetails: propertyDic)
             
-            DataService.ds.updateProperty(url, propertyDetails: propertyDic)
-            
-        }
         
         
+    
         
     }
     
     
     override func viewDidAppear(animated: Bool) {
+        
+        
         if let currentPhoto = photoForApartment {
             apartMentPhoto.image = currentPhoto
         }
@@ -96,12 +99,8 @@ class AddPropertyDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let userCheck =  NSUserDefaults.standardUserDefaults().valueForKey(KEY_UID) {
-            
-            currentUserID = userCheck
-            
-            
-        }
+        
+       
         
        
         

@@ -85,7 +85,7 @@ class SignUpViewController: UIViewController {
         super.viewDidAppear(animated)
         
         //:MARK: signout method
-        //try! FIRAuth.auth()!.signOut()
+       // try! FIRAuth.auth()!.signOut()
        
         
         
@@ -93,12 +93,11 @@ class SignUpViewController: UIViewController {
        FIRAuth.auth()?.addAuthStateDidChangeListener({ (auth, user) in
         if let user = user {
             
-        print("user is logged in \(user.uid)")
           self.performSegueWithIdentifier("loggedIn", sender: nil)
+            return
             
         } else {
             
-            print("user not signed in")
             
             
         }

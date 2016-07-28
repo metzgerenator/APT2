@@ -16,6 +16,8 @@ class DataService {
     
     static let ds = DataService()
     
+    private var currentUser = FIRAuth.auth()?.currentUser?.uid
+    
     private var _REF_BASE = URL_BASE
     
     private var _REF_USERS = URL_BASE.child("/users")
@@ -45,12 +47,13 @@ class DataService {
     }
     
     
-    func createProperty(currentUser: AnyObject, propertyDetails: Dictionary<String, AnyObject>) -> String {
 
-        let URLWithReference = REF_USERS.child("\(currentUser)/properties").childByAutoId()
+    
+    func createProperty(propertyDetails: Dictionary<String, AnyObject>) -> String {
+
+        let URLWithReference = REF_USERS.child("\(currentUser!)/properties").childByAutoId()
         
         URLWithReference.updateChildValues(propertyDetails)
-
         
         return "\(URLWithReference)"
     }
@@ -59,10 +62,12 @@ class DataService {
     
     
     func updateProperty(url: String, propertyDetails: Dictionary<String, AnyObject>) {
+       
+        print("url to be saved \(url)")
         
-        let firBaseUrl = FIRDatabase.database().referenceWithPath(url)
+        let fireBaseUrl = FIRDatabase.database().referenceWithPath(url)
         
-        firBaseUrl.updateChildValues(propertyDetails)
+       // fireBaseUrl.updateChildValues(propertyDetails)
         
     }
     
