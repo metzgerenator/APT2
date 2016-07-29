@@ -66,13 +66,19 @@ class EditPhotoViewController: UIViewController, UIImagePickerControllerDelegate
         
             //let testImage = storageRef.child("images/mountains.jpg")
             
-            let testImage = storageRef.child("properties/\(randomNumber).jpg")
+            let imgURL = storageRef.child("properties/\(randomNumber).jpg")
             
             
-            print("here is the image path \(testImage)")
+            print("here is the image path \(imgURL)")
             
-            testImage.putData(imageData!, metadata: nil, completion: { (data, error) in
+            imgURL.putData(imageData!, metadata: nil, completion: { (data, error) in
                 if error == nil {
+                    
+                    let caption = self.captionTextField.text
+                    
+                    let propertyDic = ["picture_url" : "\(imgURL)", "caption" : caption!]
+                    
+                    DataService.ds.addPhotos(self.currentURL, propertyDetails: propertyDic)
                     
                     print("no error ")
                     

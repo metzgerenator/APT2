@@ -16,9 +16,10 @@ class DataService {
     
     static let ds = DataService()
     
-    private var currentUser = FIRAuth.auth()?.currentUser?.uid
+     var currentUser = FIRAuth.auth()?.currentUser?.uid
     
     private var _REF_BASE = URL_BASE
+    
     
     private var _REF_USERS = URL_BASE.child("/users")
 
@@ -37,6 +38,8 @@ class DataService {
         
         return _REF_PROPERTIES
     }
+    
+  
     
     
     func createFirebaseUser(uid: String, user: Dictionary<String, String>){
@@ -65,9 +68,29 @@ class DataService {
     
     func updateProperty(url: FIRDatabaseReference, propertyDetails: Dictionary<String, AnyObject>) {
        
-        print("url to be saved \(url)")
         
         url.updateChildValues(propertyDetails)
+        
+        
+    }
+    
+    
+    func addPhotos(url: FIRDatabaseReference, propertyDetails: Dictionary<String, AnyObject>) {
+        
+       // create url with base ID
+        let key = url.key
+        
+        
+        // REF_USERS.child("\(currentUser!)/properties").childByAutoId()
+        let postURL = REF_USERS.child("\(currentUser!)/photos").childByAutoId()
+        
+        let childUpdates = ["key" : key, "picture_info" : propertyDetails]
+        
+        
+        postURL.updateChildValues(childUpdates as [NSObject : AnyObject])
+        
+        
+        print("url is now : \(url)")
         
         
     }
