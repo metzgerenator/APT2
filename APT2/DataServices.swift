@@ -84,13 +84,16 @@ class DataService {
         // REF_USERS.child("\(currentUser!)/properties").childByAutoId()
         let postURL = REF_USERS.child("\(currentUser!)/photos").childByAutoId()
         
-        let childUpdates = ["key" : key, "picture_info" : propertyDetails]
+        let childUpdatesPhotos = ["key" : key, "picture_info" : propertyDetails]
+        
+        postURL.updateChildValues(childUpdatesPhotos as [NSObject : AnyObject])
         
         
-        postURL.updateChildValues(childUpdates as [NSObject : AnyObject])
+       let newURL =  url.child("photos").childByAutoId()
+        print("url : \(newURL)")
         
+        newURL.updateChildValues(childUpdatesPhotos as [NSObject : AnyObject])
         
-        print("url is now : \(url)")
         
         
     }

@@ -60,7 +60,7 @@ class EditPhotoViewController: UIViewController, UIImagePickerControllerDelegate
             
             //let data  = UIImagePNGRepresentation(imageSelected)
             let imageData = UIImageJPEGRepresentation(imageSelected, 0.2)
-            //create a reference
+            //create a reference with random number 
             
              let randomNumber = Int(arc4random_uniform(20000) + 1)
         
