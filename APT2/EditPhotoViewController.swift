@@ -82,7 +82,12 @@ class EditPhotoViewController: UIViewController, UIImagePickerControllerDelegate
                     
                     print("no error ")
                     
+                    self.performSegueWithIdentifier("imageunwind", sender: nil)
+                    
                 } else {
+                    
+                    //add uialert window
+                    self.showErrorAlert("Oh oh!", msg: "something went wrong, try saving again")
                     
                     print(error?.description)
                 }
@@ -99,13 +104,23 @@ class EditPhotoViewController: UIViewController, UIImagePickerControllerDelegate
      
         
         
-        self.performSegueWithIdentifier("imageunwind", sender: nil)
+        
         
         
         
         
     }
     
+    
+    
+    func showErrorAlert(title: String, msg: String) {
+        
+        let alert = UIAlertController(title: title, message: msg, preferredStyle: .Alert)
+        let action = UIAlertAction(title: "Ok", style: .Default, handler: nil)
+        alert.addAction(action)
+        presentViewController(alert, animated: true, completion: nil)
+        
+    }
     
     
     @IBAction func cancelButton(sender: AnyObject) {

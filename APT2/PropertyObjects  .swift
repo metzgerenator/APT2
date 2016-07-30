@@ -12,9 +12,9 @@ class Properties {
     private var _key: String!
     private var _name: String?
     private var _bedrooms: Int?
-    private var _petsAllowed: Bool?
-    private var _washerDyer: Bool?
     private var _amenities: [String]?
+    private var _imageLink: String?
+    private var _imageDictionary: Array<AnyObject>?
     
     
     
@@ -31,25 +31,30 @@ class Properties {
         return _bedrooms
     }
     
-    var petsAllowed: Bool? {
-        return _petsAllowed
+    var imageLink: String? {
+        
+        return _imageLink
+        
     }
     
-    
-    var washerDyer: Bool? {
-        return _washerDyer
+    var imageDictionary: Array<AnyObject>? {
+        
+        return _imageDictionary
     }
     
-    var amenities: [String]? {
-        return _amenities
-    }
+
+    
+ 
     
     
     
-    init(key: String, name: String?) {
+    init(key: String, name: String?, imageDictionary: Array<String>) {
         self._key = key
         
         self._name = name
+        
+        self._imageDictionary = imageDictionary
+        
     }
     
     
@@ -59,6 +64,31 @@ class Properties {
         
         if let names = dictionary["Name"] as? String {
             self._name = names
+        }
+        
+        if let photoLinks = dictionary["photos"] as? Dictionary<String, AnyObject> {
+            
+            for (key, value) in photoLinks {
+                
+                //convert to dictionary first ? 
+                
+                //print("key = \(key),   value = \(value)")
+                
+                let photoURLDict = value["picture_info"] as! Dictionary<String, AnyObject>
+                
+                let photoUrl = photoURLDict["picture_url"] as! String
+                let photoCaption = photoURLDict["caption"] as! String
+                
+                let imageDictionary = ["caption" : photoCaption, "picture_url" : photoUrl]
+                
+                self._imageDictionary?.append(imageDictionary)
+                
+                
+                
+            }
+            
+            
+            
         }
         
     }
