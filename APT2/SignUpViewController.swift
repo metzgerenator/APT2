@@ -84,8 +84,7 @@ class SignUpViewController: UIViewController {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        //:MARK: signout method
-       // try! FIRAuth.auth()!.signOut()
+       
        
         
         
@@ -94,12 +93,13 @@ class SignUpViewController: UIViewController {
         if let user = user {
             
           self.performSegueWithIdentifier("loggedIn", sender: nil)
+            print("here is the logged in user\(user.uid)")
             return
             
         } else {
             
             
-            
+            print("no user logged in")
         }
        })
 

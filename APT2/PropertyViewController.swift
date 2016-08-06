@@ -103,6 +103,21 @@ class PropertyViewController: UIViewController, UITableViewDataSource, UITableVi
     
     
     
+    @IBAction func logOutButton(sender: AnyObject) {
+        
+        do {
+           try FIRAuth.auth()!.signOut()
+            
+            self.dismissViewControllerAnimated(true, completion: nil)
+            
+        } catch let error {
+            
+            print("there was an error \(error)")
+            
+        }
+        
+        
+    }
     
 
     /*
