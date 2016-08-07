@@ -16,6 +16,7 @@ class PropertyViewController: UIViewController, UITableViewDataSource, UITableVi
     var propertyDictionary = [Properties]()
     
     var photoDictionary = [Photos]()
+    var loadedPhotos = [UIImage]()
     
     
     
@@ -51,10 +52,21 @@ class PropertyViewController: UIViewController, UITableViewDataSource, UITableVi
                     }
                     
                     
+                    
                 }
             }
             
+            //call photo load here
+            
+            self.imageLoader2(self.photoDictionary, completion: { (imageDictionary) in
+                
+                self.loadedPhotos = imageDictionary as Array<UIImage>
+                
+                print("loaded images = \(self.loadedPhotos)")
+            })
+            
         })
+        
         
         
         
@@ -135,34 +147,22 @@ class PropertyViewController: UIViewController, UITableViewDataSource, UITableVi
         
     }
     
-
     
-    
-    func imageLoader(imageDict: Array<AnyObject>, completion: (Image: UIImage) -> Void)   {
+    func imageLoader2(photoObjects: [Photos], completion: (imageDictionary: [UIImage]) -> Void) {
         
+        var imagestoReturn: Array<UIImage> = []
         
-        for (index, item) in imageDict.enumerate() {
+        for item in photoObjects {
             
-           // print("item = \(item), index = \(index))")
-            if index == 0 {
-                
-            
-            
-            let itemDict = item as! Dictionary<String, AnyObject>
-            
-             let imageURL = itemDict["picture_url"] as! String
-            
-            print("image url = \(imageURL)")
-            
-            let httpsReference = FIRStorage.storage().referenceForURL(imageURL)
+            let httpsReference = FIRStorage.storage().referenceForURL(item.photoUrl)
             
             httpsReference.dataWithMaxSize(1 * 1024 * 1024) { (data, error) -> Void in
                 if (error != nil) {
                     print("error occured \(error.debugDescription)")
                     
                     let image = UIImage(named: "dilbert.png")!
+                    imagestoReturn.append(image)
                     
-                    completion(Image: image)
                     
                     
                 } else {
@@ -170,16 +170,22 @@ class PropertyViewController: UIViewController, UITableViewDataSource, UITableVi
                     print("it works")
                     let image = UIImage(data: data!)
                     
-                    completion(Image: image!)
-
+                    print("success image \(image)")
+                    imagestoReturn.append(image!)
+                    
                 }
             }
             
+            
         }
-        
-        }
+        print("loaded photos here\(self.loadedPhotos)")
+        completion(imageDictionary: imagestoReturn)
+   
         
     }
+
+    
+    
     
     
     
