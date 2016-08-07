@@ -53,6 +53,8 @@ class Properties {
         
         self._name = name
         
+       
+        
         self._imageDictionary = imageDictionary
         
     }
@@ -62,17 +64,16 @@ class Properties {
         
         self._key = Unitkey
         
-        if let names = dictionary["Name"] as? String {
-            self._name = names
+        if let name = dictionary["Name"] as? String {
+            self._name = name
         }
+        
+        var photoArray = [AnyObject]()
         
         if let photoLinks = dictionary["photos"] as? Dictionary<String, AnyObject> {
             
             for (key, value) in photoLinks {
                 
-                //convert to dictionary first ? 
-                
-                //print("key = \(key),   value = \(value)")
                 
                 let photoURLDict = value["picture_info"] as! Dictionary<String, AnyObject>
                 
@@ -81,11 +82,13 @@ class Properties {
                 
                 let imageDictionary = ["caption" : photoCaption, "picture_url" : photoUrl]
                 
-                self._imageDictionary?.append(imageDictionary)
+                photoArray.append(imageDictionary)
                 
                 
                 
             }
+            
+            self._imageDictionary = photoArray
             
             
             
@@ -93,6 +96,8 @@ class Properties {
         
     }
     
+    
+ 
     
     
     

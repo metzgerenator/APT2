@@ -37,11 +37,15 @@ class PropertyViewController: UIViewController, UITableViewDataSource, UITableVi
                     
                     let key = snap.key
                     
+                    
                     if let propDic = snap.value as? Dictionary<String, AnyObject> {
                         
                         
                         let apartment = Properties(Unitkey: key, dictionary: propDic)
                         self.propertyDictionary.append(apartment)
+                        print("apartment name = \(apartment.name) and key = \(apartment.key) and photos = \(apartment.imageDictionary)")
+                        
+                        
                         
                         self.tableView.reloadData()
                     }
@@ -74,10 +78,87 @@ class PropertyViewController: UIViewController, UITableViewDataSource, UITableVi
         print(unitName.name)
         
         cell?.textLabel?.text = unitName.name
+        
+        //configure demo image here 
+        
+        if let imageDictionary = unitName.imageDictionary {
+            
+            imageLoader(imageDictionary, completion: { (Image) in
+            
+                cell?.imageView?.image = Image as UIImage
+                tableView.reloadData()
+            
+        
+          })
+            
+            
+        }
+        
+       
+        
+        
  
         return cell!
         
     }
+    
+    
+//    for (key, value) in photoLinks {
+//    
+//    
+//    let photoURLDict = value["picture_info"] as! Dictionary<String, AnyObject>
+//    
+//    let photoUrl = photoURLDict["picture_url"] as! String
+//    let photoCaption = photoURLDict["caption"] as! String
+//    
+//    let imageDictionary = ["caption" : photoCaption, "picture_url" : photoUrl]
+//    
+//    photoArray.append(imageDictionary)
+//    
+//    
+//    
+//    }
+//    
+    
+    
+    func imageLoader(imageDict: Array<AnyObject>, completion: (Image: UIImage) -> Void)   {
+        
+        
+        for item in imageDict {
+            
+            let itemDict = item as! Dictionary<String, AnyObject>
+            
+             let imageURL = itemDict["picture_url"] as! String
+            
+            print("image url = \(imageURL)")
+            
+            let httpsReference = FIRStorage.storage().referenceForURL(imageURL)
+            
+            httpsReference.dataWithMaxSize(1 * 1024 * 1024) { (data, error) -> Void in
+                if (error != nil) {
+                    print("error occured \(error.debugDescription)")
+                    
+                    let image = UIImage(named: "dilbert.png")!
+                    
+                    completion(Image: image)
+                    
+                    
+                } else {
+                    
+                    print("it works")
+                    let image = UIImage(data: data!)
+                    
+                    completion(Image: image!)
+
+                    // Data for "images/island.jpg" is returned
+                    // ... let islandImage: UIImage! = UIImage(data: data!)
+                }
+            }
+         
+        }
+        
+    }
+    
     
     
     
