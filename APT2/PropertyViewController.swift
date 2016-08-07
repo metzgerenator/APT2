@@ -43,7 +43,6 @@ class PropertyViewController: UIViewController, UITableViewDataSource, UITableVi
                         
                         let apartment = Properties(Unitkey: key, dictionary: propDic)
                         self.propertyDictionary.append(apartment)
-                        print("apartment name = \(apartment.name) and key = \(apartment.key) and photos = \(apartment.imageDictionary)")
                         
                         
                         
@@ -86,7 +85,9 @@ class PropertyViewController: UIViewController, UITableViewDataSource, UITableVi
             imageLoader(imageDictionary, completion: { (Image) in
             
                 cell?.imageView?.image = Image as UIImage
-                tableView.reloadData()
+                
+                //tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+               // tableView.reloadData()
             
         
           })
@@ -102,29 +103,18 @@ class PropertyViewController: UIViewController, UITableViewDataSource, UITableVi
         
     }
     
-    
-//    for (key, value) in photoLinks {
-//    
-//    
-//    let photoURLDict = value["picture_info"] as! Dictionary<String, AnyObject>
-//    
-//    let photoUrl = photoURLDict["picture_url"] as! String
-//    let photoCaption = photoURLDict["caption"] as! String
-//    
-//    let imageDictionary = ["caption" : photoCaption, "picture_url" : photoUrl]
-//    
-//    photoArray.append(imageDictionary)
-//    
-//    
-//    
-//    }
-//    
+
     
     
     func imageLoader(imageDict: Array<AnyObject>, completion: (Image: UIImage) -> Void)   {
         
         
-        for item in imageDict {
+        for (index, item) in imageDict.enumerate() {
+            
+           // print("item = \(item), index = \(index))")
+            if index == 0 {
+                
+            
             
             let itemDict = item as! Dictionary<String, AnyObject>
             
@@ -150,11 +140,11 @@ class PropertyViewController: UIViewController, UITableViewDataSource, UITableVi
                     
                     completion(Image: image!)
 
-                    // Data for "images/island.jpg" is returned
-                    // ... let islandImage: UIImage! = UIImage(data: data!)
                 }
             }
-         
+            
+        }
+        
         }
         
     }
