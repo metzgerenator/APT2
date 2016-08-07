@@ -15,6 +15,8 @@ class PropertyViewController: UIViewController, UITableViewDataSource, UITableVi
     
     var propertyDictionary = [Properties]()
     
+    var photoDictionary = [Photos]()
+    
     
     
     override func viewDidLoad() {
@@ -26,8 +28,38 @@ class PropertyViewController: UIViewController, UITableViewDataSource, UITableVi
         let currentUSer =  FIRAuth.auth()?.currentUser?.uid
         
         
+        DataService.ds.REF_USERS.child("\(currentUSer!)/photos").observeEventType(.Value, withBlock: { (snapshot)  in
+            //print(snapshot.value)
+            
+            self.photoDictionary = []
+            
+            if let snaphots = snapshot.children.allObjects as? [FIRDataSnapshot] {
+                
+                for snap in snaphots {
+                    
+                   // let key = snap.key
+                    
+                    
+                    if let photoDic = snap.value as? Dictionary<String, AnyObject> {
+                        
+                        
+                        let photo = Photos(dictionary: photoDic)
+                        
+                        self.photoDictionary.append(photo)
+                        
+                        
+                    }
+                    
+                    
+                }
+            }
+            
+        })
+        
+        
+        
         DataService.ds.REF_USERS.child("\(currentUSer!)/properties").observeEventType(.Value, withBlock: { (snapshot)  in
-            print(snapshot.value)
+            //print(snapshot.value)
             
             self.propertyDictionary = []
             
@@ -80,20 +112,20 @@ class PropertyViewController: UIViewController, UITableViewDataSource, UITableVi
         
         //configure demo image here 
         
-        if let imageDictionary = unitName.imageDictionary {
-            
-            imageLoader(imageDictionary, completion: { (Image) in
-            
-                cell?.imageView?.image = Image as UIImage
-                
-                //tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
-               // tableView.reloadData()
-            
-        
-          })
-            
-            
-        }
+//        if let imageDictionary = unitName.imageDictionary {
+//            
+//            imageLoader(imageDictionary, completion: { (Image) in
+//            
+//                cell?.imageView?.image = Image as UIImage
+//                
+//                //tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+//               // tableView.reloadData()
+//            
+//        
+//          })
+//            
+//            
+//        }
         
        
         

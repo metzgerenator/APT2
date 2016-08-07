@@ -107,6 +107,61 @@ class Properties {
 
 
 
+class Photos {
+    
+    private var _photoUrl: String!
+    private var _key: String!
+    private var _caption: String?
+    
+    var photoUrl: String {
+        
+        return _photoUrl
+    }
+    
+    var key: String {
+        return _key
+    }
+    
+    
+    var caption: String? {
+        
+        return _caption
+        
+        
+    }
+    
+    
+    
+    
+    init (dictionary: Dictionary<String, AnyObject>) {
+        
+        _key = dictionary["key"] as! String
+        
+        let pictureInfo = dictionary["picture_info"] as! Dictionary<String, AnyObject>
+        
+        
+        _photoUrl = pictureInfo["picture_url"] as! String
+        
+        if let currentCaption = pictureInfo["caption"]{
+            
+            _caption = currentCaption as? String
+            
+        }
+        
+        
+        print("key: \(key), photourl \(photoUrl), caption \(caption)")
+        
+        
+        
+    }
+    
+    
+    
+    
+
+}
+
+
 
 
 
