@@ -78,6 +78,7 @@ class Properties {
                 let photoURLDict = value["picture_info"] as! Dictionary<String, AnyObject>
                 
                 let photoUrl = photoURLDict["picture_url"] as! String
+                self._imageLink = photoUrl
                 let photoCaption = photoURLDict["caption"] as! String
                 
                 let imageDictionary = ["caption" : photoCaption, "picture_url" : photoUrl]

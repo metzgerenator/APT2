@@ -106,17 +106,42 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dcV-r6-XzM">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="127" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dcV-r6-XzM">
                                 <rect key="frame" x="0.0" y="109" width="600" height="442"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="arG-gd-pTk">
-                                        <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="127" id="arG-gd-pTk" customClass="PropertyTableViewCell" customModule="APT2" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="92" width="600" height="127"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="arG-gd-pTk" id="nuO-nY-vbF">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="126"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Property Name " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LFv-4M-82d">
+                                                    <rect key="frame" x="17" y="15" width="121" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mmQ-2r-aFK">
+                                                    <rect key="frame" x="247" y="-2" width="240" height="128"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="240" id="NAL-9a-u8t"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="LFv-4M-82d" firstAttribute="leading" secondItem="nuO-nY-vbF" secondAttribute="leadingMargin" constant="9" id="Id0-So-EuO"/>
+                                                <constraint firstAttribute="bottom" secondItem="mmQ-2r-aFK" secondAttribute="bottom" id="Jxe-Z4-R9o"/>
+                                                <constraint firstItem="mmQ-2r-aFK" firstAttribute="leading" secondItem="nuO-nY-vbF" secondAttribute="leading" constant="247" id="L8J-dB-uaA"/>
+                                                <constraint firstItem="LFv-4M-82d" firstAttribute="top" secondItem="nuO-nY-vbF" secondAttribute="topMargin" constant="7" id="m2Q-Iw-Zrc"/>
+                                                <constraint firstItem="mmQ-2r-aFK" firstAttribute="top" secondItem="nuO-nY-vbF" secondAttribute="topMargin" constant="-10" id="wTm-Th-vPf"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="propertyImage" destination="mmQ-2r-aFK" id="eOk-Se-gDt"/>
+                                            <outlet property="propertyNameLabel" destination="LFv-4M-82d" id="hIS-Xo-T7A"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -145,7 +170,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lVi-gz-o7r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2586" y="279"/>
+            <point key="canvasLocation" x="2516" y="262"/>
         </scene>
         <!--Create Property View Controller-->
         <scene sceneID="zUg-w0-12Z">

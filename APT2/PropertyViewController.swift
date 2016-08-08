@@ -15,9 +15,7 @@ class PropertyViewController: UIViewController, UITableViewDataSource, UITableVi
     
     var propertyDictionary = [Properties]()
     
-    var photoDictionary = [Photos]()
-    var loadedPhotos = [UIImage]()
-    
+    static var imageCache = NSCache()
     
     
     override func viewDidLoad() {
@@ -27,45 +25,6 @@ class PropertyViewController: UIViewController, UITableViewDataSource, UITableVi
        
        
         let currentUSer =  FIRAuth.auth()?.currentUser?.uid
-        
-        
-        DataService.ds.REF_USERS.child("\(currentUSer!)/photos").observeEventType(.Value, withBlock: { (snapshot)  in
-            //print(snapshot.value)
-            
-            self.photoDictionary = []
-            
-            if let snaphots = snapshot.children.allObjects as? [FIRDataSnapshot] {
-                
-                for snap in snaphots {
-                    
-                   // let key = snap.key
-                    
-                    
-                    if let photoDic = snap.value as? Dictionary<String, AnyObject> {
-                        
-                        
-                        let photo = Photos(dictionary: photoDic)
-                        
-                        self.photoDictionary.append(photo)
-                        
-                        
-                    }
-                    
-                    
-                    
-                }
-            }
-            
-            //call photo load here
-            
-            self.imageLoader2(self.photoDictionary, completion: { (imageDictionary) in
-                
-                self.loadedPhotos = imageDictionary as Array<UIImage>
-                
-                print("loaded images = \(self.loadedPhotos)")
-            })
-            
-        })
         
         
         
@@ -113,76 +72,29 @@ class PropertyViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
+        let currentUnit = propertyDictionary[indexPath.row]
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell")
-        
-        let unitName = propertyDictionary[indexPath.row]
-        
-        print(unitName.name)
-        
-        cell?.textLabel?.text = unitName.name
-        
-        //configure demo image here 
-        
-//        if let imageDictionary = unitName.imageDictionary {
-//            
-//            imageLoader(imageDictionary, completion: { (Image) in
-//            
-//                cell?.imageView?.image = Image as UIImage
-//                
-//                //tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
-//               // tableView.reloadData()
-//            
-//        
-//          })
-//            
-//            
-//        }
-        
-       
-        
-        
- 
-        return cell!
-        
-    }
-    
-    
-    func imageLoader2(photoObjects: [Photos], completion: (imageDictionary: [UIImage]) -> Void) {
-        
-        var imagestoReturn: Array<UIImage> = []
-        
-        for item in photoObjects {
+       if let cell = tableView.dequeueReusableCellWithIdentifier("cell") as? PropertyTableViewCell {
             
-            let httpsReference = FIRStorage.storage().referenceForURL(item.photoUrl)
-            
-            httpsReference.dataWithMaxSize(1 * 1024 * 1024) { (data, error) -> Void in
-                if (error != nil) {
-                    print("error occured \(error.debugDescription)")
-                    
-                    let image = UIImage(named: "dilbert.png")!
-                    imagestoReturn.append(image)
-                    
-                    
-                    
-                } else {
-                    
-                    print("it works")
-                    let image = UIImage(data: data!)
-                    
-                    print("success image \(image)")
-                    imagestoReturn.append(image!)
-                    
-                }
-            }
-            
+            // cancel api call 
+        var img: UIImage?
+        
+        if let url = currentUnit.imageLink {
+            img = PropertyViewController.imageCache.objectForKey(url) as? UIImage
+        }
+        
+            cell.configureCell(currentUnit, img: img)
+        
+            return cell
             
         }
-        print("loaded photos here\(self.loadedPhotos)")
-        completion(imageDictionary: imagestoReturn)
-   
+        
+        
+      return PropertyTableViewCell()
         
     }
+    
+    
 
     
     
