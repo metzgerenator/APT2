@@ -28,54 +28,20 @@ class PropertyTableViewCell: UITableViewCell {
     
     
     
-    func configureCell(property: Properties, img: UIImage?) {
+    func configureCell(property: Properties) {
         
         propertyNameLabel.text = property.name!
         
-        print("setting property name\(property.name), image url = \(property.imageLink)")
-        
-        if property.imageLink != nil {
-            
-            if img != nil {
-                print("calling functiontime")
-                
-              self.propertyImage.image = img
-                
-            } else {
-                
-                
-                let httpsReference = FIRStorage.storage().referenceForURL(property.imageLink!)
-
-                
-                httpsReference.dataWithMaxSize(1 * 1024 * 1024) { (data, error) -> Void in
-                    
-                    if (error != nil) {
-                        print("error occured \(error.debugDescription)")
-                        
-                        
-                    } else {
-                        
-                        print("it works")
-                        let image = UIImage(data: data!)
-                        self.propertyImage.image = image
-                        
-                        // add image to cache
-                        PropertyViewController.imageCache.setObject(image!, forKey: property.imageLink!)
-                        
-                        print("success image \(image)")
-                        
-                    }
-                }
-                
-            }
+        if let url = property.imageLink, img = PropertyViewController.imageCache.objectForKey(url) as? UIImage {
             
             
+            propertyImage.image = img
             
             
-        } else {
-            
-            self.propertyImage.hidden = true
         }
+        
+        print("setting property name\(property.name), image url = \(property.imageLink)")
+
         
     }
     

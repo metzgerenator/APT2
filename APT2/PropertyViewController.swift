@@ -15,6 +15,8 @@ class PropertyViewController: UIViewController, UITableViewDataSource, UITableVi
     
     var propertyDictionary = [Properties]()
     
+    var photoDictionary = [String : AnyObject]()
+    
     static var imageCache = NSCache()
     
     
@@ -25,6 +27,42 @@ class PropertyViewController: UIViewController, UITableViewDataSource, UITableVi
        
        
         let currentUSer =  FIRAuth.auth()?.currentUser?.uid
+        
+        
+        
+        DataService.ds.REF_USERS.child("\(currentUSer!)/photos").observeEventType(.Value, withBlock: { (snapshot)  in
+            
+            self.photoDictionary = [:]
+            
+            if let snaphots = snapshot.children.allObjects as? [FIRDataSnapshot] {
+                
+                for snap in snaphots {
+                    
+                    
+                    
+                    if let photoDic = snap.value as? Dictionary<String, AnyObject> {
+                        
+                        let photo = Photos(dictionary: photoDic)
+                        self.photoDictionary.updateValue(photo.photoUrl, forKey: photo.key)
+                        
+
+                        //launch image catch
+                        
+                        //not sure if we want to reload tableview
+                       // self.tableView.reloadData()
+                        
+                        self.downloadTocache(photo.key, url: photo.photoUrl)
+                        
+                    }
+                    
+                    
+                }
+            }
+            
+        })
+//
+        
+        
         
         
         
@@ -62,6 +100,45 @@ class PropertyViewController: UIViewController, UITableViewDataSource, UITableVi
 
 
     }
+    
+    
+    
+    
+    func downloadTocache(key: String, url: String) {
+        
+        // check if image is already cached 
+        
+        if PropertyViewController.imageCache.objectForKey(url) == nil {
+            print("this is nil and should be loaded")
+            
+        
+        
+        let httpsReference = FIRStorage.storage().referenceForURL(url)
+        
+        
+        httpsReference.dataWithMaxSize(1 * 1024 * 1024) { (data, error) -> Void in
+            
+            if (error != nil) {
+                print("error occured \(error.debugDescription)")
+                
+                
+            } else {
+                
+                print("it works")
+                let image = UIImage(data: data!)
+                
+                // add image to cache
+                PropertyViewController.imageCache.setObject(image!, forKey: url)
+                
+                print("success image \(image)")
+                
+            }
+        }
+    }
+    }
+
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -77,13 +154,10 @@ class PropertyViewController: UIViewController, UITableViewDataSource, UITableVi
        if let cell = tableView.dequeueReusableCellWithIdentifier("cell") as? PropertyTableViewCell {
             
             // cancel api call 
-        var img: UIImage?
+ 
         
-        if let url = currentUnit.imageLink {
-            img = PropertyViewController.imageCache.objectForKey(url) as? UIImage
-        }
+        cell.configureCell(currentUnit)
         
-            cell.configureCell(currentUnit, img: img)
         
             return cell
             
