@@ -6,10 +6,14 @@
 //
 
 import UIKit
+import Firebase
+
+
 
 class AddPropertyDetailsViewController: UIViewController {
     
-    var currentUserID: AnyObject?
+    var currentUserID: AnyObject!
+    var urlPath: FIRDatabaseReference!
 
     
     @IBOutlet var apartMentPhoto: UIImageView!
@@ -20,10 +24,30 @@ class AddPropertyDetailsViewController: UIViewController {
     
     
     var apartmnetNameLabel: String?
+    
+    
+    
+    @IBAction func cameraButton(sender: AnyObject) {
+        self.performSegueWithIdentifier("aptPhotos", sender: nil)
+        
+    }
+    
+    
 
     @IBAction func cancelButton(sender: AnyObject) {
         
-      self.dismissViewControllerAnimated(true, completion: nil)
+    
+    
+        self.dismissViewControllerAnimated(true) { 
+            if let url = self.urlPath {
+                
+                //DataService.ds.removeProperty(url)
+                
+                
+            }
+        }
+        
+      //self.dismissViewControllerAnimated(true, completion: nil)
         
     
         
@@ -52,15 +76,23 @@ class AddPropertyDetailsViewController: UIViewController {
         
         //save to firebase 
         
-        let propertyDic: Dictionary = ["Name" : ApartmentName!, "Address" : adddress!, "Rent" :  ["Price" : rent!, "Frequency" : frequency!], "Bedrooms" : bedrooms!, "Bathrooms" : bathrooms!, "Amenities" : amentyDictionary]
+        
+          let propertyDic: Dictionary = ["Name" : ApartmentName!, "Address" : adddress!, "Rent" :  ["Price" : rent!, "Frequency" : frequency!], "Bedrooms" : bedrooms!, "Bathrooms" : bathrooms!, "Amenities" : amentyDictionary]
+        
+        print("here is propertydic \(propertyDic)")
+        
+            DataService.ds.updateProperty(urlPath, propertyDetails: propertyDic)
+            
         
         
-        DataService.ds.createProperty(currentUserID!, propertyDetails: propertyDic)
+    
         
     }
     
     
     override func viewDidAppear(animated: Bool) {
+        
+        
         if let currentPhoto = photoForApartment {
             apartMentPhoto.image = currentPhoto
         }
@@ -69,12 +101,8 @@ class AddPropertyDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let userCheck =  NSUserDefaults.standardUserDefaults().valueForKey(KEY_UID) {
-            
-            currentUserID = userCheck
-            
-            
-        }
+        
+       
         
        
         
@@ -104,15 +132,27 @@ class AddPropertyDetailsViewController: UIViewController {
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "aptPhotos" {
+            
+            let vc = segue.destinationViewController as! uploadPhotoTableViewController
+            
+            if let url = self.urlPath {
+                vc.currentURl = url
+            }
+            
+            
+            
+            
+            
+        }
+       
     }
-    */
+ 
     
     
     

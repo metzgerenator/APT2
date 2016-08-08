@@ -6,10 +6,12 @@
 //
 
 import UIKit
+import Firebase
+
 
 class CreatePropertyViewController: UIViewController {
     
-    //propertyDetail
+    var urlToPass: FIRDatabaseReference!
 
     @IBOutlet weak var newPropertyName: UITextField!
     @IBAction func saveProperty(sender: AnyObject) {
@@ -17,11 +19,21 @@ class CreatePropertyViewController: UIViewController {
         
         if newPropertyName.text?.characters.count > 0 {
             // save to parse
+          
+                let propertyDictionary: Dictionary<String, AnyObject> = ["Name" : newPropertyName.text!]
+                
+                 urlToPass = DataService.ds.createProperty(propertyDictionary)
             
-            //DataService.ds.createProperty(currentUserID!, propertyName: newPropertyName.text!)
+            
+                self.performSegueWithIdentifier("propertyDetail", sender: nil)
+
             
             
-            self.performSegueWithIdentifier("propertyDetail", sender: newPropertyName.text)
+           
+            
+            
+            
+            
         }
         
     }
@@ -31,8 +43,12 @@ class CreatePropertyViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "propertyDetail" {
             
+            
+            
             let vc = segue.destinationViewController as! AddPropertyDetailsViewController
-            vc.apartmnetNameLabel = sender as? String
+            vc.apartmnetNameLabel = newPropertyName.text
+            
+            vc.urlPath = urlToPass
             
             
         }
@@ -42,8 +58,7 @@ class CreatePropertyViewController: UIViewController {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        
-       
+      
         
        
             

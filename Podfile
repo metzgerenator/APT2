@@ -5,7 +5,13 @@ use_frameworks!
 
 target 'APT2' do
 
-pod 'Firebase', '>= 2.5.1'
+pod 'Firebase/Core'
+pod 'Firebase/Database'
+pod 'Firebase/Auth'
+pod 'Firebase/Storage'
+
+
+
 
 end
 

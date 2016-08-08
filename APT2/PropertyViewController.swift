@@ -15,41 +15,39 @@ class PropertyViewController: UIViewController, UITableViewDataSource, UITableVi
     
     var propertyDictionary = [Properties]()
     
-    var currentUserID: String?
-    // string for master branch 
+    static var imageCache = NSCache()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
-        if let userCheck =  NSUserDefaults.standardUserDefaults().valueForKey(KEY_UID) {
-            
-            currentUserID = userCheck as? String
- 
-        }
        
+       
+        let currentUSer =  FIRAuth.auth()?.currentUser?.uid
         
-//        let propertyTrueQuery = DataService.ds.REF_USERS.queryOrderedByChild("properties")
         
         
-        DataService.ds.REF_USERS.childByAppendingPath("\(currentUserID!)/properties").observeEventType(.Value, withBlock: { (snapshot)  in
-            print(snapshot.value)
+        
+        DataService.ds.REF_USERS.child("\(currentUSer!)/properties").observeEventType(.Value, withBlock: { (snapshot)  in
+            //print(snapshot.value)
             
             self.propertyDictionary = []
             
-            if let snaphots = snapshot.children.allObjects as? [FDataSnapshot] {
+            if let snaphots = snapshot.children.allObjects as? [FIRDataSnapshot] {
                 
                 for snap in snaphots {
                     
                     let key = snap.key
                     
-                    print("snap: \(key)")
+                    
                     if let propDic = snap.value as? Dictionary<String, AnyObject> {
                         
                         
                         let apartment = Properties(Unitkey: key, dictionary: propDic)
                         self.propertyDictionary.append(apartment)
+                        
+                        
                         
                         self.tableView.reloadData()
                     }
@@ -74,18 +72,33 @@ class PropertyViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
+        let currentUnit = propertyDictionary[indexPath.row]
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell")
+       if let cell = tableView.dequeueReusableCellWithIdentifier("cell") as? PropertyTableViewCell {
+            
+            // cancel api call 
+        var img: UIImage?
         
-        let unitName = propertyDictionary[indexPath.row]
+        if let url = currentUnit.imageLink {
+            img = PropertyViewController.imageCache.objectForKey(url) as? UIImage
+        }
         
-        print(unitName.name)
+            cell.configureCell(currentUnit, img: img)
         
-        cell?.textLabel?.text = unitName.name
- 
-        return cell!
+            return cell
+            
+        }
+        
+        
+      return PropertyTableViewCell()
         
     }
+    
+    
+
+    
+    
+    
     
     
     
@@ -111,6 +124,21 @@ class PropertyViewController: UIViewController, UITableViewDataSource, UITableVi
     
     
     
+    @IBAction func logOutButton(sender: AnyObject) {
+        
+        do {
+           try FIRAuth.auth()!.signOut()
+            
+            self.dismissViewControllerAnimated(true, completion: nil)
+            
+        } catch let error {
+            
+            print("there was an error \(error)")
+            
+        }
+        
+        
+    }
     
 
     /*
