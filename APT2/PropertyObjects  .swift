@@ -154,7 +154,6 @@ class Photos {
         
         
         
-        //start downloadTask
         
         
         

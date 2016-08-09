@@ -54,8 +54,6 @@ class PropertyViewController: UIViewController, UITableViewDataSource, UITableVi
                         //launch image catch
                         
                         //not sure if we want to reload tableview
-                       // self.tableView.reloadData()
-                        
                         self.downloadTocache(photo.key, url: photo.photoUrl)
                         
                     }
@@ -132,6 +130,8 @@ class PropertyViewController: UIViewController, UITableViewDataSource, UITableVi
                 print("it works")
                 let image = UIImage(data: data!)
                 
+                self.tableView.reloadData()
+                
                 // add image to cache
                 PropertyViewController.imageCache.setObject(image!, forKey: url)
                 
@@ -139,6 +139,7 @@ class PropertyViewController: UIViewController, UITableViewDataSource, UITableVi
                 
             }
         }
+            
     }
         
     }
