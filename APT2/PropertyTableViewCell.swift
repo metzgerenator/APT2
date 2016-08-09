@@ -28,22 +28,26 @@ class PropertyTableViewCell: UITableViewCell {
     
     
     
-    func configureCell(property: Properties) {
+    func configureCell(property: Properties, img: UIImage?) {
         
         propertyNameLabel.text = property.name!
         
-        if let url = property.imageLink, img = PropertyViewController.imageCache.objectForKey(url) as? UIImage {
-            
-            
-            propertyImage.image = img
-            
+        if let image = img {
+            propertyImage.image = image
             
         }
         
-        print("setting property name\(property.name), image url = \(property.imageLink)")
+        
+            
+            
+       // print("setting property name\(property.name), image url = \(property.imageLink)")
 
         
-    }
+        }
+        
+
+        
+    
     
 
 }

@@ -10,6 +10,11 @@ import Firebase
 
 class PropertyViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    @IBAction func tableReload(sender: AnyObject) {
+        
+        self.tableView.reloadData()
+        
+    }
     @IBOutlet weak var tableView: UITableView!
     
     
@@ -135,6 +140,7 @@ class PropertyViewController: UIViewController, UITableViewDataSource, UITableVi
             }
         }
     }
+        
     }
 
     
@@ -152,11 +158,21 @@ class PropertyViewController: UIViewController, UITableViewDataSource, UITableVi
         let currentUnit = propertyDictionary[indexPath.row]
         
        if let cell = tableView.dequeueReusableCellWithIdentifier("cell") as? PropertyTableViewCell {
+        
+        cell.propertyImage.image = nil
             
             // cancel api call 
- 
+        var img: UIImage?
         
-        cell.configureCell(currentUnit)
+        if let url = currentUnit.imageLink {
+            print("image is here: \(img)")
+            
+            img = PropertyViewController.imageCache.objectForKey(url) as? UIImage
+            
+        }
+        
+        cell.configureCell(currentUnit, img: img)
+        
         
         
             return cell
