@@ -48,12 +48,44 @@ class uploadPhotoTableViewController: UIViewController, UITableViewDelegate, UIT
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print("here is the url \(currentURl)")
         
+        currentURl.child("/photos").observeEventType(.Value, withBlock: { (snapshot)  in
+            
+            
+            if let snaphots = snapshot.children.allObjects as? [FIRDataSnapshot] {
+                
+                for snap in snaphots {
+                    
+                    
+                    
+                    if let photoDic = snap.value as? Dictionary<String, AnyObject> {
+                        
+                        print("here is the photodic \(photoDic)")
+                        
+                        let photo = Photos(dictionary: photoDic)
+                        
+                      //  let photo = Photos(dictionary: photoDic)
+                      //  self.photoDictionary.updateValue(photo.photoUrl, forKey: photo.key)
+                        
+                        
+                        //launch image catch
+                        
+                        //not sure if we want to reload tableview
+                        //self.downloadTocache(photo.key, url: photo.photoUrl)
+                        
+                    }
+                    
+                    
+                }
+            }
+            
+        })
 
     }
 
     
-    //MARK: tableview methods 
+    //MARK: tablevieaw methods
     
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {

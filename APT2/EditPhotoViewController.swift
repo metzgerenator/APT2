@@ -64,12 +64,12 @@ class EditPhotoViewController: UIViewController, UIImagePickerControllerDelegate
             
              let randomNumber = Int(arc4random_uniform(20000) + 1)
         
-            //let testImage = storageRef.child("images/mountains.jpg")
             
             let imgURL = storageRef.child("properties/\(randomNumber).jpg")
             
+            let imageForCache = UIImage(data: imageData!)
             
-            print("here is the image path \(imgURL)")
+            PropertyViewController.imageCache.setObject(imageForCache!, forKey: imgURL)
             
             imgURL.putData(imageData!, metadata: nil, completion: { (data, error) in
                 if error == nil {
