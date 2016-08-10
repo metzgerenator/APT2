@@ -38,6 +38,9 @@ class uploadPhotoTableViewController: UIViewController, UITableViewDelegate, UIT
         
         //addupdate url function
         
+        
+        self.currentImageArray.removeAll()
+        
         self.tableView.reloadData()
         
         
@@ -108,6 +111,8 @@ class uploadPhotoTableViewController: UIViewController, UITableViewDelegate, UIT
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = self.tableView.dequeueReusableCellWithIdentifier("cell") as! UploadPhotoTableViewCell
+        
+        cell.currentAptImage.image = nil
         
         let currentObject = self.currentImageArray[indexPath.row]
         
