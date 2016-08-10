@@ -110,11 +110,11 @@ class Properties {
 
 class Photos {
     
-    private var _photoUrl: String!
+    private var _photoUrl: String?
     private var _key: String!
     private var _caption: String?
     
-    var photoUrl: String {
+    var photoUrl: String? {
         
         return _photoUrl
     }

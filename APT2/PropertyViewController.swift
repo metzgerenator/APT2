@@ -48,13 +48,13 @@ class PropertyViewController: UIViewController, UITableViewDataSource, UITableVi
                     if let photoDic = snap.value as? Dictionary<String, AnyObject> {
                         
                         let photo = Photos(dictionary: photoDic)
-                        self.photoDictionary.updateValue(photo.photoUrl, forKey: photo.key)
+                        self.photoDictionary.updateValue(photo.photoUrl!, forKey: photo.key)
                         
 
                         //launch image catch
                         
                         //not sure if we want to reload tableview
-                        self.downloadTocache(photo.key, url: photo.photoUrl)
+                        self.downloadTocache(photo.key, url: photo.photoUrl!)
                         
                     }
                     

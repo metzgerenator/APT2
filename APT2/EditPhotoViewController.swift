@@ -17,12 +17,11 @@ class EditPhotoViewController: UIViewController, UIImagePickerControllerDelegate
     let storage = FIRStorage.storage()
 
     
-    var currentImageArrayFromSegue = [AptPhotoType]()
     
     
-    var currentIndex:Int!
-    
-    var imageFromSegue: AptPhotoType?
+//    var currentIndex:Int!
+//    
+//    var imageFromSegue: AptPhotoType?
     
     
     @IBOutlet var loadIndicator: UIActivityIndicatorView!
@@ -36,23 +35,10 @@ class EditPhotoViewController: UIViewController, UIImagePickerControllerDelegate
     @IBAction func saveButton(sender: AnyObject) {
         
     
-        // update current data and append to array
-        
-        let itemTosend = AptPhotoType(aptImage: currentImage.image, aptCaption: captionTextField.text, homePage: homePageSwitch.on)
-       
-        
-       //currentImageArrayFromSegue.removeAtIndex(self.currentIndex)
-        
-        self.currentImageArrayFromSegue.append(itemTosend)
-        
-        
+    
         // save file to Storage bucket
 
         let storageRef = storage.reference()
-        
-       
-        
-        
         
         if let imageSelected = currentImage.image {
             loadIndicator.hidden = false
@@ -67,9 +53,9 @@ class EditPhotoViewController: UIViewController, UIImagePickerControllerDelegate
             
             let imgURL = storageRef.child("properties/\(randomNumber).jpg")
             
-            let imageForCache = UIImage(data: imageData!)
-            
-            PropertyViewController.imageCache.setObject(imageForCache!, forKey: imgURL)
+//            let imageForCache = UIImage(data: imageData!)
+//            
+//            PropertyViewController.imageCache.setObject(imageForCache!, forKey: imgURL)
             
             imgURL.putData(imageData!, metadata: nil, completion: { (data, error) in
                 if error == nil {
@@ -159,19 +145,7 @@ class EditPhotoViewController: UIViewController, UIImagePickerControllerDelegate
     }
     
     
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        
-        if let currenAptImageData = imageFromSegue {
-            
-            currentImage.image = currenAptImageData.aptImage
-            captionTextField.text = currenAptImageData.aptCaption
-            homePageSwitch.on = currenAptImageData.homePage
-            
-        }
-        
-    }
+  
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -198,8 +172,6 @@ class EditPhotoViewController: UIViewController, UIImagePickerControllerDelegate
             let vc = segue.destinationViewController as! uploadPhotoTableViewController
           
             
-            // send new array 
-            vc.currentImageArray = self.currentImageArrayFromSegue
             
             
         }

@@ -14,7 +14,7 @@ class uploadPhotoTableViewController: UIViewController, UITableViewDelegate, UIT
     
     
     
-    var currentImageArray = [AptPhotoType]()
+    var currentImageArray = [Photos]()
     
     var currentImageObject: AptPhotoType?
     
@@ -65,15 +65,9 @@ class uploadPhotoTableViewController: UIViewController, UITableViewDelegate, UIT
                         
                         let photo = Photos(dictionary: photoDic)
                         
-                      //  let photo = Photos(dictionary: photoDic)
-                      //  self.photoDictionary.updateValue(photo.photoUrl, forKey: photo.key)
-                        
-                        
-                        //launch image catch
-                        
-                        //not sure if we want to reload tableview
-                        //self.downloadTocache(photo.key, url: photo.photoUrl)
-                        
+                        self.currentImageArray.append(photo)
+            
+                        self.tableView.reloadData()
                     }
                     
                     
@@ -102,7 +96,6 @@ class uploadPhotoTableViewController: UIViewController, UITableViewDelegate, UIT
         let currentImage = currentImageArray[indexPath.row]
         
         
-       currentImageObject = currentImage
         
         //send index along
         
@@ -118,12 +111,18 @@ class uploadPhotoTableViewController: UIViewController, UITableViewDelegate, UIT
         
         let currentObject = self.currentImageArray[indexPath.row]
         
-        cell.currentAptImage.image = currentObject.aptImage
-        cell.captionLabel.text = currentObject.aptCaption
-        cell.isHomePageLabel.text = "\(currentObject.homePage)"
+        var img: UIImage?
+        
+        
+        if let url = currentObject.photoUrl {
+           
+            img = PropertyViewController.imageCache.objectForKey(url) as? UIImage
+           
+             print("image is here: \(img)")
+        }
+        cell.configureCell(currentObject, img: img, CurrentIndexPath: indexPath, tableView: tableView)
         
      
-        
         return cell
     }
     
@@ -145,30 +144,9 @@ class uploadPhotoTableViewController: UIViewController, UITableViewDelegate, UIT
         vc.currentURL = currentURl
 
         if segue.identifier == "imageEdit" {
-            
-           
-            
-            if let imageToSend = self.currentImageObject {
-                
-                vc.currentIndex = sender as! Int
-                vc.imageFromSegue = imageToSend
-            } else if segue.identifier == "newImage" {
-                
-                
-                vc.currentIndex == 0
-                
-            }
-            
-            vc.currentImageArrayFromSegue = self.currentImageArray
-            
-            
-
-            
-        }
-        
-        
+   
         
     }
 
-
+    }
 }
