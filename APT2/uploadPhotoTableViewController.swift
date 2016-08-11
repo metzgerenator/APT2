@@ -20,6 +20,8 @@ class uploadPhotoTableViewController: UIViewController, UITableViewDelegate, UIT
     
     var currentURl: FIRDatabaseReference!
     
+    var readyTOReload = false
+    
    
     
     @IBOutlet var tableView: UITableView!
@@ -38,10 +40,10 @@ class uploadPhotoTableViewController: UIViewController, UITableViewDelegate, UIT
         
         //addupdate url function
         
-        
+        readyTOReload = true
         self.currentImageArray.removeAll()
         
-        self.tableView.reloadData()
+        //self.tableView.reloadData()
         
         
         
@@ -50,6 +52,10 @@ class uploadPhotoTableViewController: UIViewController, UITableViewDelegate, UIT
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //notification add oberver from image caching function 
+        let nc = NSNotificationCenter.defaultCenter()
+        nc.addObserver(self, selector: #selector(tableViewReloader), name: "photoTable", object: nil)
         
         print("here is the url \(currentURl)")
         
@@ -83,6 +89,7 @@ class uploadPhotoTableViewController: UIViewController, UITableViewDelegate, UIT
 
     
     //MARK: tablevieaw methods
+    
     
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -123,7 +130,6 @@ class uploadPhotoTableViewController: UIViewController, UITableViewDelegate, UIT
            
             img = PropertyViewController.imageCache.objectForKey(url) as? UIImage
            
-             print("image is here: \(img)")
         }
         cell.configureCell(currentObject, img: img, CurrentIndexPath: indexPath, tableView: tableView)
         
@@ -139,6 +145,23 @@ class uploadPhotoTableViewController: UIViewController, UITableViewDelegate, UIT
         // Dispose of any resources that can be recreated.
     }
     
+    
+    
+    func tableViewReloader(){
+        
+        if readyTOReload == true {
+            
+            print("realoading table view from notification")
+            self.tableView.reloadData()
+            readyTOReload = false
+        }
+        
+    
+        //set false
+        
+        
+    }
+    
 
 
     // MARK: - Navigation
@@ -149,6 +172,7 @@ class uploadPhotoTableViewController: UIViewController, UITableViewDelegate, UIT
         vc.currentURL = currentURl
 
         if segue.identifier == "imageEdit" {
+            
    
         
     }

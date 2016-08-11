@@ -39,6 +39,8 @@ class UploadPhotoTableViewCell: UITableViewCell {
         
         captionLabel.text = photoObject.caption
         
+        print("text is here \(captionLabel.text)")
+        
         if let image = img {
             
             currentAptImage.image = image

@@ -109,6 +109,7 @@ class PropertyViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func downloadTocache(key: String, url: String) {
         
+        let nc = NSNotificationCenter.defaultCenter()
         // check if image is already cached 
         
         if PropertyViewController.imageCache.objectForKey(url) == nil {
@@ -131,6 +132,8 @@ class PropertyViewController: UIViewController, UITableViewDataSource, UITableVi
                 let image = UIImage(data: data!)
                 
                 self.tableView.reloadData()
+                
+                nc.postNotificationName("photoTable", object: nil)
                 
                 // add image to cache
                 PropertyViewController.imageCache.setObject(image!, forKey: url)
