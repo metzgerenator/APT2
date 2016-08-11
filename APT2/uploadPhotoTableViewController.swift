@@ -14,11 +14,13 @@ class uploadPhotoTableViewController: UIViewController, UITableViewDelegate, UIT
     
     
     
-    var currentImageArray = [AptPhotoType]()
+    var currentImageArray = [Photos]()
     
     var currentImageObject: AptPhotoType?
     
     var currentURl: FIRDatabaseReference!
+    
+    var readyTOReload = false
     
    
     
@@ -38,7 +40,10 @@ class uploadPhotoTableViewController: UIViewController, UITableViewDelegate, UIT
         
         //addupdate url function
         
-        self.tableView.reloadData()
+        readyTOReload = true
+        self.currentImageArray.removeAll()
+        
+        //self.tableView.reloadData()
         
         
         
@@ -48,12 +53,43 @@ class uploadPhotoTableViewController: UIViewController, UITableViewDelegate, UIT
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //notification add oberver from image caching function 
+        let nc = NSNotificationCenter.defaultCenter()
+        nc.addObserver(self, selector: #selector(tableViewReloader), name: "photoTable", object: nil)
         
+        print("here is the url \(currentURl)")
+        
+        currentURl.child("/photos").observeEventType(.Value, withBlock: { (snapshot)  in
+            
+            
+            if let snaphots = snapshot.children.allObjects as? [FIRDataSnapshot] {
+                
+                for snap in snaphots {
+                    
+                    
+                    
+                    if let photoDic = snap.value as? Dictionary<String, AnyObject> {
+                        
+                        print("here is the photodic \(photoDic)")
+                        
+                        let photo = Photos(dictionary: photoDic)
+                        
+                        self.currentImageArray.append(photo)
+            
+                        self.tableView.reloadData()
+                    }
+                    
+                    
+                }
+            }
+            
+        })
 
     }
 
     
-    //MARK: tableview methods 
+    //MARK: tablevieaw methods
+    
     
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -70,7 +106,6 @@ class uploadPhotoTableViewController: UIViewController, UITableViewDelegate, UIT
         let currentImage = currentImageArray[indexPath.row]
         
         
-       currentImageObject = currentImage
         
         //send index along
         
@@ -84,14 +119,21 @@ class uploadPhotoTableViewController: UIViewController, UITableViewDelegate, UIT
         
         let cell = self.tableView.dequeueReusableCellWithIdentifier("cell") as! UploadPhotoTableViewCell
         
+        cell.currentAptImage.image = nil
+        
         let currentObject = self.currentImageArray[indexPath.row]
         
-        cell.currentAptImage.image = currentObject.aptImage
-        cell.captionLabel.text = currentObject.aptCaption
-        cell.isHomePageLabel.text = "\(currentObject.homePage)"
+        var img: UIImage?
+        
+        
+        if let url = currentObject.photoUrl {
+           
+            img = PropertyViewController.imageCache.objectForKey(url) as? UIImage
+           
+        }
+        cell.configureCell(currentObject, img: img, CurrentIndexPath: indexPath, tableView: tableView)
         
      
-        
         return cell
     }
     
@@ -101,6 +143,23 @@ class uploadPhotoTableViewController: UIViewController, UITableViewDelegate, UIT
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    
+    
+    func tableViewReloader(){
+        
+        if readyTOReload == true {
+            
+            print("realoading table view from notification")
+            self.tableView.reloadData()
+            readyTOReload = false
+        }
+        
+    
+        //set false
+        
+        
     }
     
 
@@ -114,29 +173,9 @@ class uploadPhotoTableViewController: UIViewController, UITableViewDelegate, UIT
 
         if segue.identifier == "imageEdit" {
             
-           
-            
-            if let imageToSend = self.currentImageObject {
-                
-                vc.currentIndex = sender as! Int
-                vc.imageFromSegue = imageToSend
-            } else if segue.identifier == "newImage" {
-                
-                
-                vc.currentIndex == 0
-                
-            }
-            
-            vc.currentImageArrayFromSegue = self.currentImageArray
-            
-            
-
-            
-        }
-        
-        
+   
         
     }
 
-
+    }
 }

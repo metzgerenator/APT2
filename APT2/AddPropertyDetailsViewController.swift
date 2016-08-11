@@ -38,13 +38,8 @@ class AddPropertyDetailsViewController: UIViewController {
         
     
     
-        self.dismissViewControllerAnimated(true) { 
-            if let url = self.urlPath {
-                
-                //DataService.ds.removeProperty(url)
-                
-                
-            }
+        self.dismissViewControllerAnimated(true) {
+         
         }
         
       //self.dismissViewControllerAnimated(true, completion: nil)

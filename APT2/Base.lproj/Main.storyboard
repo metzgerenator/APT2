@@ -4,6 +4,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--Sign Up View Controller-->
@@ -120,7 +121,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Property Name " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LFv-4M-82d">
                                                     <rect key="frame" x="17" y="15" width="121" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mmQ-2r-aFK">
@@ -158,11 +159,18 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Lyv-x4-BxC">
-                        <barButtonItem key="rightBarButtonItem" title="Logout" id="mwi-u1-JAf">
-                            <connections>
-                                <action selector="logOutButton:" destination="Xze-Fm-R4H" id="2jK-wT-hJd"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Logout" id="mwi-u1-JAf">
+                                <connections>
+                                    <action selector="logOutButton:" destination="Xze-Fm-R4H" id="2jK-wT-hJd"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="refresh" id="CyY-XR-Hee">
+                                <connections>
+                                    <action selector="tableReload:" destination="Xze-Fm-R4H" id="ZNh-ja-Bml"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="dcV-r6-XzM" id="izf-GB-S0b"/>

@@ -32,5 +32,28 @@ class UploadPhotoTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    
+    
+    func configureCell(photoObject: Photos, img: UIImage?, CurrentIndexPath: NSIndexPath, tableView: UITableView) {
+        
+        captionLabel.text = photoObject.caption
+        
+        print("text is here \(captionLabel.text)")
+        
+        if let image = img {
+            
+            currentAptImage.image = image
+            
+//            let indexpath = NSIndexPath(forRow: CurrentIndexPath.row, inSection: 0)
+//            tableView.reloadRowsAtIndexPaths([indexpath], withRowAnimation: .Automatic)
+        
+            
+        }
+        
+    }
+    
+    
+    
 
 }
