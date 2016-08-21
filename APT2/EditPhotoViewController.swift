@@ -144,6 +144,8 @@ class EditPhotoViewController: UIViewController, UIImagePickerControllerDelegate
         picker.sourceType = .Camera
         picker.modalPresentationStyle = .FullScreen
         
+        
+        
         presentViewController(picker, animated: true, completion: nil)
         
         
