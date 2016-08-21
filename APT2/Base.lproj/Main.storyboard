@@ -532,8 +532,11 @@
                                             <action selector="libraryButton:" destination="Qt1-ZW-1Ag" id="MN7-u8-jIG"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem title="Camera" id="GM6-U9-BYs"/>
-                                    <barButtonItem title="Video" id="0he-2B-WP7"/>
+                                    <barButtonItem title="Camera" id="GM6-U9-BYs">
+                                        <connections>
+                                            <action selector="cameraButton:" destination="Qt1-ZW-1Ag" id="6zC-jx-LqI"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="LdF-CC-iwd">

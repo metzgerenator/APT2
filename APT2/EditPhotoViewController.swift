@@ -135,6 +135,19 @@ class EditPhotoViewController: UIViewController, UIImagePickerControllerDelegate
         
     }
     
+    @IBAction func cameraButton(sender: AnyObject) {
+        
+        let picker  = UIImagePickerController()
+        picker.delegate = self
+        picker.allowsEditing = false
+        
+        picker.sourceType = .Camera
+        picker.modalPresentationStyle = .FullScreen
+        
+        presentViewController(picker, animated: true, completion: nil)
+        
+        
+    }
     
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
