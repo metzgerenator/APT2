@@ -9,54 +9,116 @@ import Foundation
 import Firebase
 
 
-let URL_BASE = "https://fiery-fire-2933.firebaseio.com/"
-
+let URL_BASE = FIRDatabase.database().reference()
 
 class DataService {
 
     
     static let ds = DataService()
     
-    private var _REF_BASE = Firebase(url: "\(URL_BASE)")
+     var currentUser = FIRAuth.auth()?.currentUser?.uid
     
-    private var _REF_USERS = Firebase(url: "\(URL_BASE)/users")
+    private var _REF_BASE = URL_BASE
     
-    private var _REF_PROPERTIES  = Firebase(url: "\(URL_BASE)/properties")
     
-    var REF_BASE: Firebase {
+    private var _REF_USERS = URL_BASE.child("/users")
+
+    private var _REF_PROPERTIES  = URL_BASE.child("/properties")
+    
+    var REF_BASE: FIRDatabaseReference {
         return _REF_BASE
     }
     
-    var REF_USERS: Firebase{
+    var REF_USERS: FIRDatabaseReference{
         return _REF_USERS
     }
     
     
-    var REF_PROPERTIES: Firebase {
+    var REF_PROPERTIES: FIRDatabaseReference {
         
         return _REF_PROPERTIES
     }
     
+  
+    
     
     func createFirebaseUser(uid: String, user: Dictionary<String, String>){
         
-        REF_USERS.childByAppendingPath(uid).setValue(user)
+        REF_USERS.child(uid).setValue(user)
         
         
     }
     
     
-    func createProperty(name: String) {
+
+    
+    func createProperty(propertyDetails: Dictionary<String, AnyObject>) -> FIRDatabaseReference {
+
+        let URLWithReference = REF_USERS.child("\(currentUser!)/properties").childByAutoId()
         
-        let propertyDictionary = ["great place" : "313 61st ", "amenities" : "fireplace"]
+        URLWithReference.updateChildValues(propertyDetails)
+        
+        print("here is the url reference \(URLWithReference)")
+        
+        return URLWithReference
+    }
+    
+    
+    
+    
+    func updateProperty(url: FIRDatabaseReference, propertyDetails: Dictionary<String, AnyObject>) {
+       
+        
+        url.updateChildValues(propertyDetails)
+        
+        
+    }
+    
+    
+    func addPhotos(url: FIRDatabaseReference, propertyDetails: Dictionary<String, AnyObject>) {
+        
+       // create url with base ID
+        let key = url.key
+        
+        
+        // REF_USERS.child("\(currentUser!)/properties").childByAutoId()
+        let postURL = REF_USERS.child("\(currentUser!)/photos").childByAutoId()
+        
+        let childUpdatesPhotos = ["key" : key, "picture_info" : propertyDetails]
+        
+        postURL.updateChildValues(childUpdatesPhotos as [NSObject : AnyObject])
+        
+        
+       let newURL =  url.child("photos").childByAutoId()
+        print("url : \(newURL)")
+        
+        newURL.updateChildValues(childUpdatesPhotos as [NSObject : AnyObject])
         
         
         
-        REF_PROPERTIES.setValue(propertyDictionary)
+    }
+    
+    
+    func removeProperty(url: String) {
+        
+       let firBaseUrl = FIRDatabase.database().referenceWithPath(url)
+        
+        firBaseUrl.removeValue()
+        
     }
     
     
     
     
 }
+
+
+
+// REF_PROPERTIES.childByAutoId().setValue(propertyDictionary)
+
+//REF_PROPERTIES.childByAppendingPath(propertyName).setValue(propertyDictionary)
+
+
+//REF_PROPERTIES.childByAppendingPath(propertyName).updateChildValues(propertyDictionary)
+//REF_PROPERTIES.childByAppendingPath(currentUser).setValue(propertyDictionary)
 
