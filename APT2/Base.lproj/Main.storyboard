@@ -838,6 +838,9 @@
                                                 <constraint firstItem="PQe-3j-DwC" firstAttribute="top" secondItem="vha-hq-RJG" secondAttribute="topMargin" constant="19" id="yjv-1R-yVw"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="PdL-ti-39K" kind="presentation" id="kKo-MC-ieA"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="oPK-GN-get">
                                         <rect key="frame" x="0.0" y="510" width="600" height="44"/>
@@ -1071,6 +1074,44 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LJe-Iy-lFE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4803" y="1420"/>
+        </scene>
+        <!--Edit Broker View Controller-->
+        <scene sceneID="fq7-FU-KUS">
+            <objects>
+                <viewController id="PdL-ti-39K" customClass="EditBrokerViewController" customModule="APT2" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8fq-SX-Pbt"/>
+                        <viewControllerLayoutGuide type="bottom" id="y6C-l5-5hQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jfg-Lo-Fq4">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0WR-TY-4tx">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <items>
+                                    <navigationItem title="Broker Details" id="6qh-9O-Vfa">
+                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="Kg9-Ys-9t7">
+                                            <connections>
+                                                <action selector="cancelButtton:" destination="PdL-ti-39K" id="Tg0-uT-jAH"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Save " id="iAM-rU-PAT"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="0WR-TY-4tx" secondAttribute="trailing" constant="-20" id="1Ax-MY-vnI"/>
+                            <constraint firstItem="0WR-TY-4tx" firstAttribute="leading" secondItem="jfg-Lo-Fq4" secondAttribute="leadingMargin" constant="-20" id="eff-Q0-ybJ"/>
+                            <constraint firstItem="0WR-TY-4tx" firstAttribute="top" secondItem="8fq-SX-Pbt" secondAttribute="bottom" symbolic="YES" id="txu-Rd-Rfe"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="C8R-EB-wze" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4846" y="1994"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="K81-rn-dbH">

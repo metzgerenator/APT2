@@ -19,6 +19,7 @@
 		270F83DD1CE8CDB600E09AAC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 270F83DB1CE8CDB600E09AAC /* LaunchScreen.storyboard */; };
 		270F83E81CE8CDB600E09AAC /* APT2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270F83E71CE8CDB600E09AAC /* APT2Tests.swift */; };
 		270F83F31CE8CDB600E09AAC /* APT2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270F83F21CE8CDB600E09AAC /* APT2UITests.swift */; };
+		273BED291D6A889C00B693A3 /* EditBrokerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273BED281D6A889C00B693A3 /* EditBrokerViewController.swift */; };
 		279DA43F1D205B2600AF99E5 /* AddAmenityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279DA43E1D205B2600AF99E5 /* AddAmenityViewController.swift */; };
 		48C9EEC2F0551BB8E894DF80 /* Pods_APT2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E27587AA19189AEC531FA42A /* Pods_APT2.framework */; };
 		5708176C1CFC915B00CFFEE6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5708176B1CFC915B00CFFEE6 /* Constants.swift */; };
@@ -79,6 +80,7 @@
 		270F83EE1CE8CDB600E09AAC /* APT2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = APT2UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		270F83F21CE8CDB600E09AAC /* APT2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APT2UITests.swift; sourceTree = "<group>"; };
 		270F83F41CE8CDB600E09AAC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		273BED281D6A889C00B693A3 /* EditBrokerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditBrokerViewController.swift; sourceTree = "<group>"; };
 		279DA43E1D205B2600AF99E5 /* AddAmenityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAmenityViewController.swift; sourceTree = "<group>"; };
 		4CF06BD11F95B9410D8A2896 /* Pods_APT2UITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_APT2UITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5480E685D4BA13A6B80D10A2 /* Pods-APT2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APT2.release.xcconfig"; path = "Pods/Target Support Files/Pods-APT2/Pods-APT2.release.xcconfig"; sourceTree = "<group>"; };
@@ -275,6 +277,7 @@
 				57EA63C61D20232000C48C2A /* EditAmenitiesTableViewController.swift */,
 				279DA43E1D205B2600AF99E5 /* AddAmenityViewController.swift */,
 				57EA63CA1D2098A700C48C2A /* AddAmenityTableViewCell.swift */,
+				273BED281D6A889C00B693A3 /* EditBrokerViewController.swift */,
 			);
 			name = Amenities;
 			sourceTree = "<group>";
@@ -594,6 +597,7 @@
 				57EA63C71D20232000C48C2A /* EditAmenitiesTableViewController.swift in Sources */,
 				5708176C1CFC915B00CFFEE6 /* Constants.swift in Sources */,
 				57CCDBB11D1719F000F34EF8 /* PropertyObjects  .swift in Sources */,
+				273BED291D6A889C00B693A3 /* EditBrokerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

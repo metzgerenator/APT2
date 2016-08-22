@@ -7,7 +7,7 @@
 
 import UIKit
 
-class EditPropertyDetailsTableViewController: UITableViewController {
+class   EditPropertyDetailsTableViewController: UITableViewController {
     
     
     @IBOutlet var apartmentNameTextField: UITextField!
